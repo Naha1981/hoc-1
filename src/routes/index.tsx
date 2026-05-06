@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
-import heroImg from "@/assets/hero-hands.jpg";
+import heroImg from "@/assets/hero-people.jpg";
 import founderImg from "@/assets/mmatlou.jpg";
 import classroomImg from "@/assets/mmatlou-child.png";
-import systemImg from "@/assets/system-diagram.jpg";
+import teamImg from "@/assets/team-meeting.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
