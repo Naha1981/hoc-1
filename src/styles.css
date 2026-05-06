@@ -126,4 +126,48 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
+  .float-y { animation: floatY 6s ease-in-out infinite; }
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-14px) rotate(0.4deg); }
+  }
+  .tilt-3d {
+    transform: perspective(1400px) rotateY(-8deg) rotateX(4deg);
+    transition: transform 0.8s cubic-bezier(.2,.8,.2,1);
+    transform-style: preserve-3d;
+  }
+  .tilt-3d:hover { transform: perspective(1400px) rotateY(-2deg) rotateX(1deg) scale(1.02); }
+  .blob {
+    position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.7;
+    animation: blob 14s ease-in-out infinite;
+  }
+  @keyframes blob {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(30px,-20px) scale(1.1); }
+    66% { transform: translate(-20px,20px) scale(0.95); }
+  }
+  .marquee-text {
+    animation: marquee 28s linear infinite;
+  }
+  .shine {
+    background: linear-gradient(110deg, transparent 30%, color-mix(in oklab, var(--accent) 60%, transparent) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: shine 3.5s linear infinite;
+  }
+  @keyframes shine {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+  .gradient-mesh {
+    background:
+      radial-gradient(40% 30% at 20% 20%, color-mix(in oklab, var(--accent) 35%, transparent), transparent 70%),
+      radial-gradient(30% 25% at 80% 30%, color-mix(in oklab, var(--accent) 25%, transparent), transparent 70%),
+      radial-gradient(50% 40% at 60% 80%, color-mix(in oklab, var(--foreground) 8%, transparent), transparent 70%);
+  }
+  .text-stroke {
+    -webkit-text-stroke: 1.5px var(--foreground);
+    color: transparent;
+  }
+  @keyframes spinSlow { to { transform: rotate(360deg); } }
+  .spin-slow { animation: spinSlow 30s linear infinite; }
 }
