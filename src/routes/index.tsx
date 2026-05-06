@@ -71,8 +71,20 @@ function Index() {
       <Navbar />
 
       {/* HERO */}
-      <section className="relative pt-36 md:pt-44 pb-24 overflow-hidden">
+      <section className="relative pt-36 md:pt-44 pb-28 overflow-hidden">
         <div className="absolute inset-0 grain pointer-events-none" />
+        <div className="absolute inset-0 gradient-mesh pointer-events-none opacity-80" />
+        {/* Animated blobs */}
+        <div className="blob bg-accent/40 h-[420px] w-[420px] -top-32 -left-20" />
+        <div className="blob bg-accent/30 h-[360px] w-[360px] top-40 -right-24" style={{ animationDelay: "-4s" }} />
+        {/* Floating tag */}
+        <div className="absolute top-32 right-8 hidden lg:block float-y" style={{ animationDelay: "-2s" }}>
+          <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-md px-4 py-3 shadow-[var(--shadow-card)]">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Live</div>
+            <div className="text-sm font-medium">Inclusion engineered</div>
+          </div>
+        </div>
+
         <div className="container-x relative">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-7">
@@ -98,11 +110,12 @@ function Index() {
               </Reveal>
               <Reveal delay={720}>
                 <div className="mt-10 flex flex-wrap gap-3">
-                  <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3.5 text-sm font-medium hover:bg-accent transition-all hover:scale-[1.03]">
-                    Request a Review
-                    <span className="transition-transform group-hover:translate-x-0.5">→</span>
+                  <a href="#contact" className="group relative inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3.5 text-sm font-medium overflow-hidden transition-all hover:scale-[1.03]">
+                    <span className="absolute inset-0 shine opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative">Request a Review</span>
+                    <span className="relative transition-transform group-hover:translate-x-1">→</span>
                   </a>
-                  <a href="#capabilities" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-6 py-3.5 text-sm font-medium hover:border-foreground transition-all">
+                  <a href="#capabilities" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-background/60 backdrop-blur px-6 py-3.5 text-sm font-medium hover:border-foreground hover:bg-accent/20 transition-all">
                     Build Inclusive Systems
                   </a>
                 </div>
@@ -128,11 +141,28 @@ function Index() {
             </div>
             <div className="lg:col-span-5">
               <Reveal delay={400}>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-surface ring-1 ring-border shadow-[var(--shadow-lift)]">
-                  <img src={heroImg} alt="Hands forming a system" className="absolute inset-0 h-full w-full object-cover" width={1600} height={1200} />
-                  <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-background/85 backdrop-blur-md border border-border p-5">
-                    <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Identity</div>
-                    <div className="mt-1 text-lg font-medium">Hands lead. Systems follow.</div>
+                <div className="relative">
+                  {/* Decorative orbit */}
+                  <div className="absolute -inset-6 rounded-[2.5rem] border border-dashed border-accent/40 spin-slow pointer-events-none" />
+                  <div className="absolute -top-4 -left-4 h-3 w-3 rounded-full bg-accent shadow-[0_0_20px_var(--accent)]" />
+                  <div className="absolute -bottom-4 -right-4 h-4 w-4 rounded-full bg-foreground" />
+                  <div className="tilt-3d relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-surface ring-1 ring-border shadow-[var(--shadow-lift)]">
+                    <img src={heroImg} alt="Two professionals communicating in SASL" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
+                    <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-background/90 backdrop-blur-md border border-border p-5 shadow-[var(--shadow-card)]">
+                      <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent pulse-ring" />
+                        In Practice
+                      </div>
+                      <div className="mt-1 text-lg font-medium">Hands lead. Systems follow.</div>
+                    </div>
+                  </div>
+                  {/* Floating mini-card */}
+                  <div className="hidden md:block absolute -left-10 bottom-16 float-y">
+                    <div className="rounded-2xl bg-foreground text-background px-4 py-3 shadow-[var(--shadow-lift)]">
+                      <div className="text-[10px] uppercase tracking-[0.2em] text-accent">Outcome</div>
+                      <div className="text-sm font-medium">+3.7M reachable</div>
+                    </div>
                   </div>
                 </div>
               </Reveal>
