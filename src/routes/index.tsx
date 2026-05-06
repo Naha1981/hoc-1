@@ -211,7 +211,7 @@ function Index() {
             </Reveal>
             <Reveal delay={200}>
               <div className="relative aspect-square rounded-[2rem] overflow-hidden ring-1 ring-background/15 bg-background">
-                <img src={systemImg} alt="System diagram" className="h-full w-full object-cover" loading="lazy" width={1200} height={1000} />
+                <img src={teamImg} alt="Team collaboration with SASL integration" className="h-full w-full object-cover" loading="lazy" width={1600} height={1200} />
                 <div className="absolute top-5 left-5 rounded-full bg-background text-foreground px-3 py-1 text-xs uppercase tracking-widest">System view</div>
               </div>
             </Reveal>
