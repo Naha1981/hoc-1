@@ -358,39 +358,56 @@ function Index() {
       </section>
 
       {/* FOUNDER */}
-      <section id="founder" className="container-x py-28">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+      <section id="founder" className="relative overflow-hidden bg-surface border-y border-border">
+        <div className="absolute -top-40 -right-32 h-[500px] w-[500px] rounded-full bg-accent/30 blur-3xl pointer-events-none" />
+        <div className="container-x py-28 relative">
           <Reveal>
-            <div className="lg:col-span-4">
-              <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] bg-surface ring-1 ring-border">
-                <img src={founderImg} alt="Mmatlou Moloto" className="h-full w-full object-cover" loading="lazy" width={1200} height={1500} />
-              </div>
-            </div>
+            <div className="text-xs uppercase tracking-[0.2em] text-accent">Founder</div>
           </Reveal>
-          <Reveal delay={150}>
-            <div className="lg:col-span-8">
-              <div className="text-xs uppercase tracking-[0.2em] text-accent">Founder</div>
-              <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
-                Built by a strategist operating at the intersection of academia, creative systems, and SASL integration.
-              </h2>
-              <p className="mt-8 text-lg text-muted-foreground max-w-2xl">
-                Mmatlou Moloto. 15+ years inside the Deaf community. Honours in Interpreting & Translation. Honours in SASL. Master's research in Deaf Education, University of the Witwatersrand.
-              </p>
-              <div className="mt-10 grid sm:grid-cols-2 gap-3 max-w-xl">
-                {["Strategist", "Academic", "Creative Consultant", "SASL Specialist"].map((t) => (
-                  <div key={t} className="rounded-xl border border-border bg-card px-4 py-3 text-sm">{t}</div>
-                ))}
-              </div>
-              <p className="mt-10 font-display text-xl tracking-tight max-w-xl">
-                Focused on one outcome: <span className="accent-underline">turning inclusion into institutional capability.</span>
-              </p>
+          <div className="mt-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="lg:col-span-5">
+              <Reveal>
+                <div className="relative">
+                  <div className="absolute -inset-3 rounded-[2rem] bg-accent/40 -z-0" />
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)] tilt-3d">
+                    <img src={founderImg} alt="Mmatlou Moloto, Founder" className="h-full w-full object-cover" loading="lazy" width={1200} height={1500} />
+                    <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-foreground/85 to-transparent text-background">
+                      <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Founder & Strategist</div>
+                      <div className="mt-1 text-2xl font-semibold tracking-tight">Mmatlou Moloto</div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
+            <Reveal delay={150}>
+              <div className="lg:col-span-7">
+                <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
+                  Built at the intersection of <span className="accent-underline">academia</span>, creative systems, and SASL integration.
+                </h2>
+                <p className="mt-8 text-lg text-muted-foreground max-w-2xl leading-relaxed">
+                  15+ years inside the Deaf community. Honours in Interpreting & Translation. Honours in SASL. Master's research in Deaf Education at the University of the Witwatersrand.
+                </p>
+                <div className="mt-10 grid sm:grid-cols-2 gap-3 max-w-xl">
+                  {["Strategist", "Academic", "Creative Consultant", "SASL Specialist"].map((t) => (
+                    <div key={t} className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-sm hover:border-accent hover:bg-accent/10 transition-colors">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                      {t}
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-10 rounded-2xl border border-border bg-card p-6 max-w-2xl">
+                  <p className="font-display text-xl tracking-tight">
+                    Focused on one outcome: <span className="accent-underline">turning inclusion into institutional capability.</span>
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* TRUST */}
-      <section className="border-y border-border bg-surface overflow-hidden">
+      <section className="border-y border-border bg-background overflow-hidden">
         <div className="container-x py-12">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Working across institutions, education, and innovation ecosystems.</div>
@@ -409,8 +426,8 @@ function Index() {
       <section id="contact" className="container-x py-28">
         <Reveal>
           <div className="relative overflow-hidden rounded-[2.5rem] bg-foreground text-background p-10 md:p-20 text-center">
-            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/30 blur-3xl" />
-            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
+            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/40 blur-3xl" />
+            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/30 blur-3xl" />
             <div className="relative">
               <div className="text-xs uppercase tracking-[0.3em] text-accent">Final brief</div>
               <h2 className="mt-4 font-display text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl mx-auto leading-[1.05]">
@@ -429,13 +446,45 @@ function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border">
-        <div className="container-x py-10 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-3">
-            <span className="h-8 w-8 rounded-full bg-foreground" />
-            <span>© {new Date().getFullYear()} Hands On Creatives</span>
+      <footer className="bg-foreground text-background">
+        <div className="container-x py-16">
+          <div className="grid md:grid-cols-12 gap-10">
+            <div className="md:col-span-5">
+              <div className="flex items-center gap-3">
+                <span className="h-10 w-10 rounded-full bg-accent grid place-items-center text-foreground font-bold">H</span>
+                <div>
+                  <div className="text-base font-semibold">Hands On Creatives</div>
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-background/60">SASL-led · Deaf-focused</div>
+                </div>
+              </div>
+              <p className="mt-6 text-background/70 max-w-sm leading-relaxed">
+                A SASL-led strategy consultancy building inclusion into institutional infrastructure.
+              </p>
+            </div>
+            <div className="md:col-span-3">
+              <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Explore</div>
+              <ul className="mt-5 space-y-3 text-sm text-background/80">
+                <li><a href="#capabilities" className="hover:text-accent transition-colors">Capabilities</a></li>
+                <li><a href="#product" className="hover:text-accent transition-colors">Product</a></li>
+                <li><a href="#approach" className="hover:text-accent transition-colors">Approach</a></li>
+                <li><a href="#founder" className="hover:text-accent transition-colors">Founder</a></li>
+              </ul>
+            </div>
+            <div className="md:col-span-4">
+              <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Contact</div>
+              <ul className="mt-5 space-y-3 text-sm text-background/80">
+                <li><a href="mailto:hello@handsoncreatives.co.za" className="hover:text-accent transition-colors">hello@handsoncreatives.co.za</a></li>
+                <li>Johannesburg, South Africa</li>
+              </ul>
+              <a href="#contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-5 py-3 text-sm font-medium hover:scale-[1.03] transition-transform">
+                Start the Conversation →
+              </a>
+            </div>
           </div>
-          <div className="uppercase tracking-[0.2em] text-xs">SASL-led. Deaf-focused.</div>
+          <div className="mt-14 pt-6 border-t border-background/10 flex flex-wrap items-center justify-between gap-4 text-xs text-background/60">
+            <div>© {new Date().getFullYear()} Hands On Creatives. All rights reserved.</div>
+            <div className="uppercase tracking-[0.2em]">Inclusion is infrastructure.</div>
+          </div>
         </div>
       </footer>
     </div>
