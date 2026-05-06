@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
-import heroImg from "@/assets/hero-hands.jpg";
+import heroImg from "@/assets/hero-people.jpg";
 import founderImg from "@/assets/mmatlou.jpg";
 import classroomImg from "@/assets/mmatlou-child.png";
-import systemImg from "@/assets/system-diagram.jpg";
+import teamImg from "@/assets/team-meeting.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -71,8 +71,20 @@ function Index() {
       <Navbar />
 
       {/* HERO */}
-      <section className="relative pt-36 md:pt-44 pb-24 overflow-hidden">
+      <section className="relative pt-36 md:pt-44 pb-28 overflow-hidden">
         <div className="absolute inset-0 grain pointer-events-none" />
+        <div className="absolute inset-0 gradient-mesh pointer-events-none opacity-80" />
+        {/* Animated blobs */}
+        <div className="blob bg-accent/40 h-[420px] w-[420px] -top-32 -left-20" />
+        <div className="blob bg-accent/30 h-[360px] w-[360px] top-40 -right-24" style={{ animationDelay: "-4s" }} />
+        {/* Floating tag */}
+        <div className="absolute top-32 right-8 hidden lg:block float-y" style={{ animationDelay: "-2s" }}>
+          <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-md px-4 py-3 shadow-[var(--shadow-card)]">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Live</div>
+            <div className="text-sm font-medium">Inclusion engineered</div>
+          </div>
+        </div>
+
         <div className="container-x relative">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-7">
@@ -98,11 +110,12 @@ function Index() {
               </Reveal>
               <Reveal delay={720}>
                 <div className="mt-10 flex flex-wrap gap-3">
-                  <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3.5 text-sm font-medium hover:bg-accent transition-all hover:scale-[1.03]">
-                    Request a Review
-                    <span className="transition-transform group-hover:translate-x-0.5">→</span>
+                  <a href="#contact" className="group relative inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3.5 text-sm font-medium overflow-hidden transition-all hover:scale-[1.03]">
+                    <span className="absolute inset-0 shine opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative">Request a Review</span>
+                    <span className="relative transition-transform group-hover:translate-x-1">→</span>
                   </a>
-                  <a href="#capabilities" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-6 py-3.5 text-sm font-medium hover:border-foreground transition-all">
+                  <a href="#capabilities" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-background/60 backdrop-blur px-6 py-3.5 text-sm font-medium hover:border-foreground hover:bg-accent/20 transition-all">
                     Build Inclusive Systems
                   </a>
                 </div>
@@ -128,11 +141,28 @@ function Index() {
             </div>
             <div className="lg:col-span-5">
               <Reveal delay={400}>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-surface ring-1 ring-border shadow-[var(--shadow-lift)]">
-                  <img src={heroImg} alt="Hands forming a system" className="absolute inset-0 h-full w-full object-cover" width={1600} height={1200} />
-                  <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-background/85 backdrop-blur-md border border-border p-5">
-                    <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Identity</div>
-                    <div className="mt-1 text-lg font-medium">Hands lead. Systems follow.</div>
+                <div className="relative">
+                  {/* Decorative orbit */}
+                  <div className="absolute -inset-6 rounded-[2.5rem] border border-dashed border-accent/40 spin-slow pointer-events-none" />
+                  <div className="absolute -top-4 -left-4 h-3 w-3 rounded-full bg-accent shadow-[0_0_20px_var(--accent)]" />
+                  <div className="absolute -bottom-4 -right-4 h-4 w-4 rounded-full bg-foreground" />
+                  <div className="tilt-3d relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-surface ring-1 ring-border shadow-[var(--shadow-lift)]">
+                    <img src={heroImg} alt="Two professionals communicating in SASL" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
+                    <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-background/90 backdrop-blur-md border border-border p-5 shadow-[var(--shadow-card)]">
+                      <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent pulse-ring" />
+                        In Practice
+                      </div>
+                      <div className="mt-1 text-lg font-medium">Hands lead. Systems follow.</div>
+                    </div>
+                  </div>
+                  {/* Floating mini-card */}
+                  <div className="hidden md:block absolute -left-10 bottom-16 float-y">
+                    <div className="rounded-2xl bg-foreground text-background px-4 py-3 shadow-[var(--shadow-lift)]">
+                      <div className="text-[10px] uppercase tracking-[0.2em] text-accent">Outcome</div>
+                      <div className="text-sm font-medium">+3.7M reachable</div>
+                    </div>
                   </div>
                 </div>
               </Reveal>
@@ -211,7 +241,7 @@ function Index() {
             </Reveal>
             <Reveal delay={200}>
               <div className="relative aspect-square rounded-[2rem] overflow-hidden ring-1 ring-background/15 bg-background">
-                <img src={systemImg} alt="System diagram" className="h-full w-full object-cover" loading="lazy" width={1200} height={1000} />
+                <img src={teamImg} alt="Team collaboration with SASL integration" className="h-full w-full object-cover" loading="lazy" width={1600} height={1200} />
                 <div className="absolute top-5 left-5 rounded-full bg-background text-foreground px-3 py-1 text-xs uppercase tracking-widest">System view</div>
               </div>
             </Reveal>
@@ -328,39 +358,56 @@ function Index() {
       </section>
 
       {/* FOUNDER */}
-      <section id="founder" className="container-x py-28">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+      <section id="founder" className="relative overflow-hidden bg-surface border-y border-border">
+        <div className="absolute -top-40 -right-32 h-[500px] w-[500px] rounded-full bg-accent/30 blur-3xl pointer-events-none" />
+        <div className="container-x py-28 relative">
           <Reveal>
-            <div className="lg:col-span-4">
-              <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] bg-surface ring-1 ring-border">
-                <img src={founderImg} alt="Mmatlou Moloto" className="h-full w-full object-cover" loading="lazy" width={1200} height={1500} />
-              </div>
-            </div>
+            <div className="text-xs uppercase tracking-[0.2em] text-accent">Founder</div>
           </Reveal>
-          <Reveal delay={150}>
-            <div className="lg:col-span-8">
-              <div className="text-xs uppercase tracking-[0.2em] text-accent">Founder</div>
-              <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
-                Built by a strategist operating at the intersection of academia, creative systems, and SASL integration.
-              </h2>
-              <p className="mt-8 text-lg text-muted-foreground max-w-2xl">
-                Mmatlou Moloto. 15+ years inside the Deaf community. Honours in Interpreting & Translation. Honours in SASL. Master's research in Deaf Education, University of the Witwatersrand.
-              </p>
-              <div className="mt-10 grid sm:grid-cols-2 gap-3 max-w-xl">
-                {["Strategist", "Academic", "Creative Consultant", "SASL Specialist"].map((t) => (
-                  <div key={t} className="rounded-xl border border-border bg-card px-4 py-3 text-sm">{t}</div>
-                ))}
-              </div>
-              <p className="mt-10 font-display text-xl tracking-tight max-w-xl">
-                Focused on one outcome: <span className="accent-underline">turning inclusion into institutional capability.</span>
-              </p>
+          <div className="mt-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="lg:col-span-5">
+              <Reveal>
+                <div className="relative">
+                  <div className="absolute -inset-3 rounded-[2rem] bg-accent/40 -z-0" />
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)] tilt-3d">
+                    <img src={founderImg} alt="Mmatlou Moloto, Founder" className="h-full w-full object-cover" loading="lazy" width={1200} height={1500} />
+                    <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-foreground/85 to-transparent text-background">
+                      <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Founder & Strategist</div>
+                      <div className="mt-1 text-2xl font-semibold tracking-tight">Mmatlou Moloto</div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
+            <Reveal delay={150}>
+              <div className="lg:col-span-7">
+                <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
+                  Built at the intersection of <span className="accent-underline">academia</span>, creative systems, and SASL integration.
+                </h2>
+                <p className="mt-8 text-lg text-muted-foreground max-w-2xl leading-relaxed">
+                  15+ years inside the Deaf community. Honours in Interpreting & Translation. Honours in SASL. Master's research in Deaf Education at the University of the Witwatersrand.
+                </p>
+                <div className="mt-10 grid sm:grid-cols-2 gap-3 max-w-xl">
+                  {["Strategist", "Academic", "Creative Consultant", "SASL Specialist"].map((t) => (
+                    <div key={t} className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-sm hover:border-accent hover:bg-accent/10 transition-colors">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                      {t}
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-10 rounded-2xl border border-border bg-card p-6 max-w-2xl">
+                  <p className="font-display text-xl tracking-tight">
+                    Focused on one outcome: <span className="accent-underline">turning inclusion into institutional capability.</span>
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* TRUST */}
-      <section className="border-y border-border bg-surface overflow-hidden">
+      <section className="border-y border-border bg-background overflow-hidden">
         <div className="container-x py-12">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Working across institutions, education, and innovation ecosystems.</div>
@@ -379,8 +426,8 @@ function Index() {
       <section id="contact" className="container-x py-28">
         <Reveal>
           <div className="relative overflow-hidden rounded-[2.5rem] bg-foreground text-background p-10 md:p-20 text-center">
-            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/30 blur-3xl" />
-            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
+            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/40 blur-3xl" />
+            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/30 blur-3xl" />
             <div className="relative">
               <div className="text-xs uppercase tracking-[0.3em] text-accent">Final brief</div>
               <h2 className="mt-4 font-display text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl mx-auto leading-[1.05]">
@@ -399,13 +446,45 @@ function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border">
-        <div className="container-x py-10 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-3">
-            <span className="h-8 w-8 rounded-full bg-foreground" />
-            <span>© {new Date().getFullYear()} Hands On Creatives</span>
+      <footer className="bg-foreground text-background">
+        <div className="container-x py-16">
+          <div className="grid md:grid-cols-12 gap-10">
+            <div className="md:col-span-5">
+              <div className="flex items-center gap-3">
+                <span className="h-10 w-10 rounded-full bg-accent grid place-items-center text-foreground font-bold">H</span>
+                <div>
+                  <div className="text-base font-semibold">Hands On Creatives</div>
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-background/60">SASL-led · Deaf-focused</div>
+                </div>
+              </div>
+              <p className="mt-6 text-background/70 max-w-sm leading-relaxed">
+                A SASL-led strategy consultancy building inclusion into institutional infrastructure.
+              </p>
+            </div>
+            <div className="md:col-span-3">
+              <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Explore</div>
+              <ul className="mt-5 space-y-3 text-sm text-background/80">
+                <li><a href="#capabilities" className="hover:text-accent transition-colors">Capabilities</a></li>
+                <li><a href="#product" className="hover:text-accent transition-colors">Product</a></li>
+                <li><a href="#approach" className="hover:text-accent transition-colors">Approach</a></li>
+                <li><a href="#founder" className="hover:text-accent transition-colors">Founder</a></li>
+              </ul>
+            </div>
+            <div className="md:col-span-4">
+              <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Contact</div>
+              <ul className="mt-5 space-y-3 text-sm text-background/80">
+                <li><a href="mailto:hello@handsoncreatives.co.za" className="hover:text-accent transition-colors">hello@handsoncreatives.co.za</a></li>
+                <li>Johannesburg, South Africa</li>
+              </ul>
+              <a href="#contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-5 py-3 text-sm font-medium hover:scale-[1.03] transition-transform">
+                Start the Conversation →
+              </a>
+            </div>
           </div>
-          <div className="uppercase tracking-[0.2em] text-xs">SASL-led. Deaf-focused.</div>
+          <div className="mt-14 pt-6 border-t border-background/10 flex flex-wrap items-center justify-between gap-4 text-xs text-background/60">
+            <div>© {new Date().getFullYear()} Hands On Creatives. All rights reserved.</div>
+            <div className="uppercase tracking-[0.2em]">Inclusion is infrastructure.</div>
+          </div>
         </div>
       </footer>
     </div>
