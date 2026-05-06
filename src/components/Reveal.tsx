@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode, type ElementType } from "react";
 
 export function Reveal({
   children,
@@ -9,7 +9,7 @@ export function Reveal({
   children: ReactNode;
   delay?: number;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   useEffect(() => {
@@ -29,6 +29,5 @@ export function Reveal({
     io.observe(el);
     return () => io.disconnect();
   }, [delay]);
-  // @ts-expect-error dynamic tag
-  return <Tag ref={ref} className={`reveal ${className}`}>{children}</Tag>;
+  return <Tag ref={ref as never} className={`reveal ${className}`}>{children}</Tag>;
 }
