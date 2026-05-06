@@ -97,6 +97,8 @@
 @layer utilities {
   .text-balance { text-wrap: balance; }
   .container-x { padding-left: clamp(1.25rem, 4vw, 7.5rem); padding-right: clamp(1.25rem, 4vw, 7.5rem); }
+  /* Darker lime for readable label text on light surfaces */
+  .text-accent { color: oklch(0.5 0.14 118); }
   .grain {
     background-image: var(--gradient-soft);
   }
