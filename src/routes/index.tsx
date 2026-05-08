@@ -578,24 +578,25 @@ function Index() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section id="contact" className="container-x py-28">
+      {/* FINAL CTA + CONTACT FORM */}
+      <section id="contact" className="container-x py-28 scroll-mt-24">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-foreground text-background p-10 md:p-20 text-center">
-            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/40 blur-3xl" />
-            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/30 blur-3xl" />
-            <div className="relative">
-              <div className="text-xs uppercase tracking-[0.3em] text-accent">Final brief</div>
-              <h2 className="mt-4 font-display text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl mx-auto leading-[1.05]">
-                Let's build what access should look like.
-              </h2>
-              <p className="mt-6 text-background/70 max-w-xl mx-auto">For organisations ready to move beyond visibility — and into structure.</p>
-              <div className="mt-10 flex justify-center">
-                <a href="mailto:hello@handsoncreatives.co.za" className="pulse-ring inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-7 py-4 text-sm font-medium hover:scale-[1.03] transition-transform">
-                  Start the Conversation
-                  <span aria-hidden>→</span>
-                </a>
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-foreground text-background p-8 md:p-16">
+            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/40 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/30 blur-3xl pointer-events-none" />
+            <div className="relative grid lg:grid-cols-2 gap-12 items-start">
+              <div>
+                <div className="text-xs uppercase tracking-[0.3em] text-accent">Start the conversation</div>
+                <h2 className="mt-4 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-[1.05]">
+                  Let's build what access should look like.
+                </h2>
+                <p className="mt-6 text-background/70 max-w-md">For organisations ready to move beyond visibility — and into structure.</p>
+                <ul className="mt-8 space-y-3 text-background/80 text-sm">
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> hello@handsoncreatives.co.za</li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> Johannesburg, South Africa</li>
+                </ul>
               </div>
+              <ContactForm />
             </div>
           </div>
         </Reveal>
