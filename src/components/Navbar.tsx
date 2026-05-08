@@ -12,6 +12,7 @@ export function Navbar() {
 
   const links = [
     { href: "#capabilities", label: "Capabilities" },
+    { href: "#results", label: "Results" },
     { href: "#product", label: "Product" },
     { href: "#approach", label: "Approach" },
     { href: "#founder", label: "Founder" },
