@@ -510,15 +510,48 @@ function Index() {
                 <p className="mt-8 text-lg text-muted-foreground max-w-2xl leading-relaxed">
                   15+ years inside the Deaf community. Honours in Interpreting & Translation. Honours in SASL. Master's research in Deaf Education at the University of the Witwatersrand.
                 </p>
-                <div className="mt-10 grid sm:grid-cols-2 gap-3 max-w-xl">
-                  {["Strategist", "Academic", "Creative Consultant", "SASL Specialist"].map((t) => (
-                    <div key={t} className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-sm hover:border-accent hover:bg-accent/10 transition-colors">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                      {t}
+                <div className="mt-10 grid sm:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border max-w-2xl">
+                  {[
+                    { k: "15+", l: "Years in the Deaf community" },
+                    { k: "3", l: "Postgraduate qualifications" },
+                    { k: "1of1", l: "Deaf-led SASL strategist in SA" },
+                  ].map((s) => (
+                    <div key={s.l} className="bg-card p-5">
+                      <div className="font-display text-3xl font-semibold tracking-tight">{s.k}</div>
+                      <div className="mt-1 text-[11px] uppercase tracking-widest text-muted-foreground">{s.l}</div>
                     </div>
                   ))}
                 </div>
-                <div className="mt-10 rounded-2xl border border-border bg-card p-6 max-w-2xl">
+
+                <div className="mt-8 rounded-2xl border border-border bg-card p-6 max-w-2xl">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Credentials</div>
+                  <ul className="mt-4 divide-y divide-border">
+                    {[
+                      { y: "MA", t: "Master's research — Deaf Education", i: "University of the Witwatersrand" },
+                      { y: "BA Hons", t: "South African Sign Language", i: "Postgraduate honours" },
+                      { y: "BA Hons", t: "Interpreting & Translation", i: "Postgraduate honours" },
+                    ].map((c) => (
+                      <li key={c.t} className="grid grid-cols-[64px_1fr] items-baseline gap-4 py-3">
+                        <span className="text-xs font-semibold tabular-nums uppercase tracking-widest text-accent">{c.y}</span>
+                        <div>
+                          <div className="text-base font-semibold tracking-tight">{c.t}</div>
+                          <div className="text-xs text-muted-foreground">{c.i}</div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-2 max-w-2xl">
+                  {["Strategist", "Academic", "Creative Consultant", "SASL Specialist", "Deaf Education"].map((t) => (
+                    <span key={t} className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-8 rounded-2xl border border-border bg-card p-6 max-w-2xl">
                   <p className="font-display text-xl tracking-tight">
                     Focused on one outcome: <span className="accent-underline">turning inclusion into institutional capability.</span>
                   </p>
