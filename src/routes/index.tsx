@@ -217,33 +217,41 @@ function Index() {
         </div>
       </section>
 
-      {/* TRUST STRIP — partners & clients */}
+      {/* TRUST STRIP — partner & client logo lockups */}
       <section aria-label="Selected partners and clients" className="border-y border-border bg-background">
         <div className="container-x py-10">
           <Reveal>
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-              <div className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground max-w-xs">
-                Trusted across corporate, academia, broadcast & the Deaf community
-              </div>
-              <ul className="flex flex-wrap items-center gap-x-8 gap-y-4">
-                {[
-                  "MTN",
-                  "Castle Milk Stout",
-                  "Lil-lets SA",
-                  "Sefako Makgatho",
-                  "DeafTouch",
-                  "SAMA Awards",
-                  "MoonSport",
-                ].map((p, i) => (
-                  <li key={p} className="flex items-center gap-8">
-                    <span className="font-display text-xl md:text-2xl font-semibold tracking-tight text-foreground/80 hover:text-foreground transition-colors">
-                      {p}
-                    </span>
-                    {i < 6 && <span className="hidden md:inline h-1 w-1 rounded-full bg-accent" />}
-                  </li>
-                ))}
-              </ul>
+            <div className="text-center md:text-left text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+              Trusted across corporate, academia, broadcast & the Deaf community
             </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <ul className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+              {[
+                { name: "MTN", sub: "Telecoms" },
+                { name: "Castle Milk Stout", sub: "FMCG" },
+                { name: "Lil-lets SA", sub: "Consumer" },
+                { name: "Sefako Makgatho", sub: "University" },
+                { name: "DeafTouch", sub: "Community" },
+                { name: "SAMA Awards", sub: "Music" },
+                { name: "MoonSport", sub: "Broadcast" },
+              ].map((p) => (
+                <li
+                  key={p.name}
+                  className="group relative bg-card hover:bg-background transition-colors h-24 flex flex-col items-center justify-center px-3 text-center"
+                  aria-label={p.name}
+                  title={p.name}
+                >
+                  <span className="font-display text-base md:text-[15px] font-semibold tracking-tight text-foreground/85 group-hover:text-foreground transition-colors leading-tight">
+                    {p.name}
+                  </span>
+                  <span className="mt-1 text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
+                    {p.sub}
+                  </span>
+                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 h-px w-6 bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </div>
       </section>
