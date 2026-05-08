@@ -67,7 +67,7 @@ const steps = [
 ];
 
 function ContactForm() {
-  const [status, setStatus] = (require("react") as typeof import("react")).useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   return (
     <form
       onSubmit={(e) => {
