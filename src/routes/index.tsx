@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
-import heroImg from "@/assets/hero-people.jpg";
+import heroImg from "@/assets/founder-classroom.png";
 import founderImg from "@/assets/mmatlou.jpg";
 import classroomImg from "@/assets/mmatlou-child.png";
 import teamImg from "@/assets/team-meeting.jpg";
@@ -71,103 +71,96 @@ function Index() {
       <Navbar />
 
       {/* HERO */}
-      <section className="relative pt-36 md:pt-44 pb-28 overflow-hidden">
+      <section className="relative pt-32 md:pt-40 pb-20 overflow-hidden">
         <div className="absolute inset-0 grain pointer-events-none" />
-        <div className="absolute inset-0 gradient-mesh pointer-events-none opacity-80" />
-        {/* Animated blobs */}
+        <div className="absolute inset-0 gradient-mesh pointer-events-none opacity-60" />
         <div className="blob bg-accent/40 h-[420px] w-[420px] -top-32 -left-20" />
         <div className="blob bg-accent/30 h-[360px] w-[360px] top-40 -right-24" style={{ animationDelay: "-4s" }} />
-        {/* Floating tag */}
-        <div className="absolute top-32 right-8 hidden lg:block float-y" style={{ animationDelay: "-2s" }}>
-          <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-md px-4 py-3 shadow-[var(--shadow-card)]">
-            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Live</div>
-            <div className="text-sm font-medium">Inclusion engineered</div>
-          </div>
-        </div>
 
         <div className="container-x relative">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            <div className="lg:col-span-7">
-              <Reveal>
-                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent pulse-ring" />
-                  SASL-led · Deaf-focused
+          <div className="max-w-3xl">
+            <Reveal>
+              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent pulse-ring" />
+                SASL-led · Deaf-focused
+              </span>
+            </Reveal>
+            <h1 className="mt-6 font-display text-[clamp(2.4rem,5.6vw,4.6rem)] font-semibold tracking-tight leading-[1.02] text-balance">
+              <Reveal delay={120}><span className="block">Inclusion that works.</span></Reveal>
+              <Reveal delay={260}><span className="block">Strategy that grows.</span></Reveal>
+              <Reveal delay={400}>
+                <span className="block">
+                  <span className="accent-underline">SASL</span> that transforms.
                 </span>
               </Reveal>
-              <h1 className="mt-6 font-display text-[clamp(2.6rem,6.4vw,5.2rem)] font-semibold tracking-tight leading-[1.02] text-balance">
-                <Reveal delay={120}><span className="block">Inclusion that works.</span></Reveal>
-                <Reveal delay={260}><span className="block">Strategy that grows.</span></Reveal>
-                <Reveal delay={400}>
-                  <span className="block">
-                    <span className="accent-underline">SASL</span> that transforms.
-                  </span>
-                </Reveal>
-              </h1>
-              <Reveal delay={580}>
-                <p className="mt-8 max-w-xl text-lg text-muted-foreground leading-relaxed">
-                  We don't run campaigns. We design systems that integrate South African Sign Language into institutions — at scale. Unlock access. Drive innovation. Build what inclusion should look like.
-                </p>
-              </Reveal>
-              <Reveal delay={720}>
-                <div className="mt-10 flex flex-wrap gap-3">
-                  <a href="#contact" className="group relative inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3.5 text-sm font-medium overflow-hidden transition-all hover:scale-[1.03]">
-                    <span className="absolute inset-0 shine opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span className="relative">Request a Review</span>
-                    <span className="relative transition-transform group-hover:translate-x-1">→</span>
-                  </a>
-                  <a href="#capabilities" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-background/60 backdrop-blur px-6 py-3.5 text-sm font-medium hover:border-foreground hover:bg-accent/20 transition-all">
-                    Build Inclusive Systems
-                  </a>
-                </div>
-              </Reveal>
-              <Reveal delay={900}>
-                <div className="mt-12 flex items-center gap-6 text-xs text-muted-foreground">
-                  <div>
-                    <div className="text-2xl font-semibold text-foreground">15+</div>
-                    <div className="uppercase tracking-widest">years in the field</div>
-                  </div>
-                  <div className="h-10 w-px bg-border" />
-                  <div>
-                    <div className="text-2xl font-semibold text-foreground">10+</div>
-                    <div className="uppercase tracking-widest">institutions served</div>
-                  </div>
-                  <div className="h-10 w-px bg-border" />
-                  <div>
-                    <div className="text-2xl font-semibold text-foreground">1</div>
-                    <div className="uppercase tracking-widest">AI access platform</div>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-            <div className="lg:col-span-5">
-              <Reveal delay={400}>
-                <div className="relative">
-                  {/* Decorative orbit */}
-                  <div className="absolute -inset-6 rounded-[2.5rem] border border-dashed border-accent/40 spin-slow pointer-events-none" />
-                  <div className="absolute -top-4 -left-4 h-3 w-3 rounded-full bg-accent shadow-[0_0_20px_var(--accent)]" />
-                  <div className="absolute -bottom-4 -right-4 h-4 w-4 rounded-full bg-foreground" />
-                  <div className="tilt-3d relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-surface ring-1 ring-border shadow-[var(--shadow-lift)]">
-                    <img src={heroImg} alt="Two professionals communicating in SASL" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-background/90 backdrop-blur-md border border-border p-5 shadow-[var(--shadow-card)]">
-                      <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                        <span className="h-1.5 w-1.5 rounded-full bg-accent pulse-ring" />
-                        In Practice
-                      </div>
-                      <div className="mt-1 text-lg font-medium">Hands lead. Systems follow.</div>
-                    </div>
-                  </div>
-                  {/* Floating mini-card */}
-                  <div className="hidden md:block absolute -left-10 bottom-16 float-y">
-                    <div className="rounded-2xl bg-foreground text-background px-4 py-3 shadow-[var(--shadow-lift)]">
-                      <div className="text-[10px] uppercase tracking-[0.2em] text-accent">Outcome</div>
-                      <div className="text-sm font-medium">+3.7M reachable</div>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
+            </h1>
+            <Reveal delay={580}>
+              <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
+                A Deaf-led consultancy designing the systems that integrate South African Sign Language into education, corporate, and public institutions — at scale.
+              </p>
+            </Reveal>
+            <Reveal delay={720}>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href="#contact" className="group relative inline-flex items-center gap-2 rounded-full bg-foreground text-background px-7 py-4 text-sm font-semibold tracking-wide overflow-hidden transition-all hover:scale-[1.03] hover:shadow-[var(--shadow-lift)] active:scale-[0.98]">
+                  <span className="absolute inset-0 shine opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="relative">Book a Strategy Call</span>
+                  <span className="relative transition-transform group-hover:translate-x-1">→</span>
+                </a>
+                <a href="#results" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-background/60 backdrop-blur px-7 py-4 text-sm font-medium hover:border-foreground hover:bg-accent/20 transition-all active:scale-[0.98]">
+                  See the Results
+                </a>
+              </div>
+            </Reveal>
           </div>
+
+          {/* Prominent panoramic founder + classroom image */}
+          <Reveal delay={500}>
+            <div className="mt-14 relative">
+              <div className="absolute -inset-4 rounded-[2.5rem] border border-dashed border-accent/40 spin-slow pointer-events-none" />
+              <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)] tilt-3d">
+                <img
+                  src={heroImg}
+                  alt="Mmatlou Moloto, Founder of Hands On Creatives, signing SASL with four young learners in a classroom"
+                  className="block w-full h-auto object-cover"
+                  width={1568}
+                  height={624}
+                />
+                <div className="hidden md:block absolute bottom-6 left-6 rounded-2xl bg-background/85 backdrop-blur-md border border-border px-5 py-4 shadow-[var(--shadow-card)] max-w-xs">
+                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent pulse-ring" />
+                    In Practice
+                  </div>
+                  <div className="mt-1 text-base font-semibold tracking-tight">Hands lead. Systems follow.</div>
+                </div>
+                <div className="hidden md:block absolute bottom-6 right-6 rounded-2xl bg-foreground text-background px-5 py-4 shadow-[var(--shadow-lift)]">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Reach</div>
+                  <div className="text-base font-semibold">+3.7M Deaf South Africans</div>
+                </div>
+              </div>
+
+              <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4 text-xs text-muted-foreground">
+                <div>
+                  <div className="text-2xl font-semibold text-foreground">15+</div>
+                  <div className="uppercase tracking-widest">years in the field</div>
+                </div>
+                <div className="hidden sm:block h-10 w-px bg-border" />
+                <div>
+                  <div className="text-2xl font-semibold text-foreground">10+</div>
+                  <div className="uppercase tracking-widest">institutions served</div>
+                </div>
+                <div className="hidden sm:block h-10 w-px bg-border" />
+                <div>
+                  <div className="text-2xl font-semibold text-foreground">4</div>
+                  <div className="uppercase tracking-widest">core service pillars</div>
+                </div>
+                <div className="hidden sm:block h-10 w-px bg-border" />
+                <div>
+                  <div className="text-2xl font-semibold text-foreground">1</div>
+                  <div className="uppercase tracking-widest">AI access platform</div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -300,6 +293,105 @@ function Index() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* RESULTS & CASE STUDIES */}
+      <section id="results" className="relative bg-background border-b border-border">
+        <div className="container-x py-28">
+          <div className="flex items-end justify-between flex-wrap gap-6">
+            <Reveal>
+              <div className="max-w-2xl">
+                <div className="text-xs uppercase tracking-[0.2em] text-accent">Measurable Results</div>
+                <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">Outcomes, not optics.</h2>
+                <p className="mt-6 text-muted-foreground text-lg">Selected work across corporate, academic, and national platforms — where SASL moved from afterthought to infrastructure.</p>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Metric strip */}
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+            {[
+              { k: "+3.7M", l: "Deaf South Africans now reachable" },
+              { k: "100%", l: "SASL coverage on integrated platforms" },
+              { k: "4×", l: "Institutional pillars activated" },
+              { k: "15 yrs", l: "Embedded in the Deaf community" },
+            ].map((m, i) => (
+              <Reveal key={m.k} delay={i * 100}>
+                <div className="bg-background p-8 h-full">
+                  <div className="font-display text-4xl md:text-5xl font-semibold tracking-tight">{m.k}</div>
+                  <div className="mt-3 text-sm text-muted-foreground uppercase tracking-widest">{m.l}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Case studies */}
+          <div className="mt-16 grid lg:grid-cols-3 gap-6">
+            {[
+              {
+                tag: "Corporate · Brand",
+                client: "MTN, Castle Milk Stout, Lil-lets SA",
+                title: "From compliance to conversation.",
+                before: "Brand campaigns reached Deaf audiences passively, if at all.",
+                after: "SASL integrated into campaign architecture — live brand engagement with Deaf consumers.",
+                metric: "+3.7M",
+                metricLabel: "audience newly reachable",
+              },
+              {
+                tag: "Academia · Health Sciences",
+                client: "Sefako Makgatho Health Sciences University",
+                title: "SASL embedded into curriculum.",
+                before: "Accessibility treated as a student-services line item.",
+                after: "Strategic partnership integrating SASL across teaching, clinical communication, and policy.",
+                metric: "1 of 1",
+                metricLabel: "Deaf-centred HSU partnership in SA",
+              },
+              {
+                tag: "National Stage · Sport & Music",
+                client: "MoonSport · Springbok Anthems · SAMA Awards",
+                title: "SASL on the country's biggest stages.",
+                before: "Sign language treated as a corner-of-screen overlay.",
+                after: "Performance-grade SASL integration into national broadcasts and live productions.",
+                metric: "Prime-time",
+                metricLabel: "SASL visibility, national reach",
+              },
+            ].map((c, i) => (
+              <Reveal key={c.title} delay={i * 120}>
+                <article className="group h-full rounded-2xl border border-border bg-card p-8 hover:-translate-y-2 hover:shadow-[var(--shadow-elegant)] hover:border-accent/40 transition-all flex flex-col">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-accent">{c.tag}</div>
+                  <div className="mt-2 text-xs text-muted-foreground">{c.client}</div>
+                  <h3 className="mt-4 text-2xl font-semibold tracking-tight leading-tight">{c.title}</h3>
+                  <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
+                    <div className="rounded-xl border border-border p-4">
+                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Before</div>
+                      <p className="mt-2 text-foreground/80">{c.before}</p>
+                    </div>
+                    <div className="rounded-xl border border-accent/40 bg-accent/10 p-4">
+                      <div className="text-[10px] uppercase tracking-widest text-accent">After</div>
+                      <p className="mt-2 text-foreground">{c.after}</p>
+                    </div>
+                  </div>
+                  <div className="mt-auto pt-8 flex items-end justify-between">
+                    <div>
+                      <div className="font-display text-3xl font-semibold tracking-tight">{c.metric}</div>
+                      <div className="text-[11px] uppercase tracking-widest text-muted-foreground">{c.metricLabel}</div>
+                    </div>
+                    <span className="h-9 w-9 rounded-full bg-foreground text-background grid place-items-center text-sm transition-transform group-hover:rotate-45">↗</span>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div className="mt-12 flex justify-center">
+              <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background px-7 py-4 text-sm font-semibold tracking-wide hover:scale-[1.03] hover:shadow-[var(--shadow-lift)] active:scale-[0.98] transition-all">
+                Discuss your case
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 

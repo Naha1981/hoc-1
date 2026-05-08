@@ -12,6 +12,7 @@ export function Navbar() {
 
   const links = [
     { href: "#capabilities", label: "Capabilities" },
+    { href: "#results", label: "Results" },
     { href: "#product", label: "Product" },
     { href: "#approach", label: "Approach" },
     { href: "#founder", label: "Founder" },
@@ -51,10 +52,11 @@ export function Navbar() {
 
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+            className="group relative inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-sm font-semibold tracking-wide overflow-hidden hover:scale-[1.03] hover:shadow-[var(--shadow-lift)] active:scale-[0.97] transition-all"
           >
-            Request a Review
-            <span aria-hidden>→</span>
+            <span className="absolute inset-0 shine opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="relative">Book a Strategy Call</span>
+            <span aria-hidden className="relative transition-transform group-hover:translate-x-0.5">→</span>
           </a>
         </nav>
       </div>
