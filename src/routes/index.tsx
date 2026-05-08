@@ -549,50 +549,58 @@ function Index() {
             <div className="text-xs uppercase tracking-[0.2em] text-accent">Founder</div>
           </Reveal>
           <div className="mt-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 lg:sticky lg:top-28 self-start">
               <Reveal>
                 <div className="relative">
                   <div className="absolute -inset-3 rounded-[2rem] bg-accent/40 -z-0" />
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)] tilt-3d">
                     <img src={founderImg} alt="Mmatlou Moloto, Founder" className="h-full w-full object-cover" loading="lazy" width={1200} height={1500} />
-                    <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-foreground/85 to-transparent text-background">
-                      <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Founder & Strategist</div>
-                      <div className="mt-1 text-2xl font-semibold tracking-tight">Mmatlou Moloto</div>
+                    <div className="absolute top-5 left-5 rounded-full bg-background/90 backdrop-blur px-3 py-1 text-[10px] uppercase tracking-[0.25em]">
+                      <span className="text-accent font-semibold">Founder</span> · Strategist
+                    </div>
+                    <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent text-background">
+                      <div className="text-2xl md:text-3xl font-semibold tracking-tight">Mmatlou Moloto</div>
+                      <div className="mt-1 text-xs uppercase tracking-[0.25em] text-accent">SASL · Deaf Education · Strategy</div>
                     </div>
                   </div>
                 </div>
               </Reveal>
             </div>
+
             <Reveal delay={150}>
               <div className="lg:col-span-7">
                 <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
                   Built at the intersection of <span className="accent-underline">academia</span>, creative systems, and SASL integration.
                 </h2>
-                <p className="mt-8 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                  15+ years inside the Deaf community. Honours in Interpreting & Translation. Honours in SASL. Master's research in Deaf Education at the University of the Witwatersrand.
+                <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
+                  Mmatlou is a Deaf-community insider with 15+ years of lived practice and three postgraduate qualifications — operating where strategy, education, and SASL infrastructure meet.
                 </p>
-                <div className="mt-10 grid sm:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border max-w-2xl">
+
+                {/* Executive snapshot */}
+                <dl className="mt-10 grid sm:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden border border-border max-w-2xl">
                   {[
-                    { k: "15+", l: "Years in the Deaf community" },
-                    { k: "3", l: "Postgraduate qualifications" },
-                    { k: "1of1", l: "Deaf-led SASL strategist in SA" },
+                    { k: "Role", v: "Founder, Strategist, Creative Consultant" },
+                    { k: "Specialism", v: "SASL integration & Deaf-led system design" },
+                    { k: "Experience", v: "15+ years inside the Deaf community" },
+                    { k: "Sector reach", v: "Corporate · Academia · Broadcast · Public" },
                   ].map((s) => (
-                    <div key={s.l} className="bg-card p-5">
-                      <div className="font-display text-3xl font-semibold tracking-tight">{s.k}</div>
-                      <div className="mt-1 text-[11px] uppercase tracking-widest text-muted-foreground">{s.l}</div>
+                    <div key={s.k} className="bg-card p-5">
+                      <dt className="text-[10px] uppercase tracking-[0.22em] text-accent">{s.k}</dt>
+                      <dd className="mt-2 text-base font-medium tracking-tight">{s.v}</dd>
                     </div>
                   ))}
-                </div>
+                </dl>
 
-                <div className="mt-8 rounded-2xl border border-border bg-card p-6 max-w-2xl">
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Credentials</div>
+                {/* Qualifications */}
+                <div className="mt-6 rounded-2xl border border-border bg-card p-6 max-w-2xl">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Qualifications</div>
                   <ul className="mt-4 divide-y divide-border">
                     {[
                       { y: "MA", t: "Master's research — Deaf Education", i: "University of the Witwatersrand" },
                       { y: "BA Hons", t: "South African Sign Language", i: "Postgraduate honours" },
                       { y: "BA Hons", t: "Interpreting & Translation", i: "Postgraduate honours" },
                     ].map((c) => (
-                      <li key={c.t} className="grid grid-cols-[64px_1fr] items-baseline gap-4 py-3">
+                      <li key={c.t} className="grid grid-cols-[72px_1fr] items-baseline gap-4 py-3">
                         <span className="text-xs font-semibold tabular-nums uppercase tracking-widest text-accent">{c.y}</span>
                         <div>
                           <div className="text-base font-semibold tracking-tight">{c.t}</div>
@@ -603,6 +611,7 @@ function Index() {
                   </ul>
                 </div>
 
+                {/* Tags */}
                 <div className="mt-6 flex flex-wrap gap-2 max-w-2xl">
                   {["Strategist", "Academic", "Creative Consultant", "SASL Specialist", "Deaf Education"].map((t) => (
                     <span key={t} className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs">
@@ -612,10 +621,19 @@ function Index() {
                   ))}
                 </div>
 
-                <div className="mt-8 rounded-2xl border border-border bg-card p-6 max-w-2xl">
-                  <p className="font-display text-xl tracking-tight">
-                    Focused on one outcome: <span className="accent-underline">turning inclusion into institutional capability.</span>
+                {/* Credibility line */}
+                <blockquote className="mt-8 rounded-2xl border-l-4 border-accent bg-card p-6 max-w-2xl">
+                  <p className="font-display text-xl tracking-tight leading-snug">
+                    "Inclusion is not a campaign. It's an operating system — and SASL is its interface."
                   </p>
+                  <footer className="mt-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">Mmatlou Moloto · Founder</footer>
+                </blockquote>
+
+                <div className="mt-8">
+                  <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3.5 text-sm font-semibold hover:scale-[1.03] active:scale-[0.97] transition-all">
+                    Engage the founder
+                    <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+                  </a>
                 </div>
               </div>
             </Reveal>
