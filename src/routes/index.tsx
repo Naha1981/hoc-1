@@ -296,6 +296,105 @@ function Index() {
         </div>
       </section>
 
+      {/* RESULTS & CASE STUDIES */}
+      <section id="results" className="relative bg-background border-b border-border">
+        <div className="container-x py-28">
+          <div className="flex items-end justify-between flex-wrap gap-6">
+            <Reveal>
+              <div className="max-w-2xl">
+                <div className="text-xs uppercase tracking-[0.2em] text-accent">Measurable Results</div>
+                <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">Outcomes, not optics.</h2>
+                <p className="mt-6 text-muted-foreground text-lg">Selected work across corporate, academic, and national platforms — where SASL moved from afterthought to infrastructure.</p>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Metric strip */}
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+            {[
+              { k: "+3.7M", l: "Deaf South Africans now reachable" },
+              { k: "100%", l: "SASL coverage on integrated platforms" },
+              { k: "4×", l: "Institutional pillars activated" },
+              { k: "15 yrs", l: "Embedded in the Deaf community" },
+            ].map((m, i) => (
+              <Reveal key={m.k} delay={i * 100}>
+                <div className="bg-background p-8 h-full">
+                  <div className="font-display text-4xl md:text-5xl font-semibold tracking-tight">{m.k}</div>
+                  <div className="mt-3 text-sm text-muted-foreground uppercase tracking-widest">{m.l}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Case studies */}
+          <div className="mt-16 grid lg:grid-cols-3 gap-6">
+            {[
+              {
+                tag: "Corporate · Brand",
+                client: "MTN, Castle Milk Stout, Lil-lets SA",
+                title: "From compliance to conversation.",
+                before: "Brand campaigns reached Deaf audiences passively, if at all.",
+                after: "SASL integrated into campaign architecture — live brand engagement with Deaf consumers.",
+                metric: "+3.7M",
+                metricLabel: "audience newly reachable",
+              },
+              {
+                tag: "Academia · Health Sciences",
+                client: "Sefako Makgatho Health Sciences University",
+                title: "SASL embedded into curriculum.",
+                before: "Accessibility treated as a student-services line item.",
+                after: "Strategic partnership integrating SASL across teaching, clinical communication, and policy.",
+                metric: "1 of 1",
+                metricLabel: "Deaf-centred HSU partnership in SA",
+              },
+              {
+                tag: "National Stage · Sport & Music",
+                client: "MoonSport · Springbok Anthems · SAMA Awards",
+                title: "SASL on the country's biggest stages.",
+                before: "Sign language treated as a corner-of-screen overlay.",
+                after: "Performance-grade SASL integration into national broadcasts and live productions.",
+                metric: "Prime-time",
+                metricLabel: "SASL visibility, national reach",
+              },
+            ].map((c, i) => (
+              <Reveal key={c.title} delay={i * 120}>
+                <article className="group h-full rounded-2xl border border-border bg-card p-8 hover:-translate-y-2 hover:shadow-[var(--shadow-elegant)] hover:border-accent/40 transition-all flex flex-col">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-accent">{c.tag}</div>
+                  <div className="mt-2 text-xs text-muted-foreground">{c.client}</div>
+                  <h3 className="mt-4 text-2xl font-semibold tracking-tight leading-tight">{c.title}</h3>
+                  <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
+                    <div className="rounded-xl border border-border p-4">
+                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Before</div>
+                      <p className="mt-2 text-foreground/80">{c.before}</p>
+                    </div>
+                    <div className="rounded-xl border border-accent/40 bg-accent/10 p-4">
+                      <div className="text-[10px] uppercase tracking-widest text-accent">After</div>
+                      <p className="mt-2 text-foreground">{c.after}</p>
+                    </div>
+                  </div>
+                  <div className="mt-auto pt-8 flex items-end justify-between">
+                    <div>
+                      <div className="font-display text-3xl font-semibold tracking-tight">{c.metric}</div>
+                      <div className="text-[11px] uppercase tracking-widest text-muted-foreground">{c.metricLabel}</div>
+                    </div>
+                    <span className="h-9 w-9 rounded-full bg-foreground text-background grid place-items-center text-sm transition-transform group-hover:rotate-45">↗</span>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div className="mt-12 flex justify-center">
+              <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background px-7 py-4 text-sm font-semibold tracking-wide hover:scale-[1.03] hover:shadow-[var(--shadow-lift)] active:scale-[0.98] transition-all">
+                Discuss your case
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* APPROACH / PROCESS */}
       <section id="approach" className="container-x py-28">
         <Reveal>
