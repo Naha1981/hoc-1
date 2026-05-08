@@ -164,6 +164,37 @@ function Index() {
         </div>
       </section>
 
+      {/* TRUST STRIP — partners & clients */}
+      <section aria-label="Selected partners and clients" className="border-y border-border bg-background">
+        <div className="container-x py-10">
+          <Reveal>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground max-w-xs">
+                Trusted across corporate, academia, broadcast & the Deaf community
+              </div>
+              <ul className="flex flex-wrap items-center gap-x-8 gap-y-4">
+                {[
+                  "MTN",
+                  "Castle Milk Stout",
+                  "Lil-lets SA",
+                  "Sefako Makgatho",
+                  "DeafTouch",
+                  "SAMA Awards",
+                  "MoonSport",
+                ].map((p, i) => (
+                  <li key={p} className="flex items-center gap-8">
+                    <span className="font-display text-xl md:text-2xl font-semibold tracking-tight text-foreground/80 hover:text-foreground transition-colors">
+                      {p}
+                    </span>
+                    {i < 6 && <span className="hidden md:inline h-1 w-1 rounded-full bg-accent" />}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* POSITIONING STRIP */}
       <section className="border-y border-border bg-surface">
         <div className="container-x py-20">
