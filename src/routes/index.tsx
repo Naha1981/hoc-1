@@ -359,7 +359,7 @@ function Index() {
       </section>
 
       {/* CAPABILITIES */}
-      <section id="capabilities" className="bg-surface border-y border-border">
+      <section id="capabilities" className="scroll-mt-24 bg-surface border-y border-border">
         <div className="container-x py-28">
           <div className="flex items-end justify-between flex-wrap gap-6">
             <Reveal>
@@ -389,7 +389,7 @@ function Index() {
       </section>
 
       {/* RESULTS & CASE STUDIES */}
-      <section id="results" className="relative bg-background border-b border-border">
+      <section id="results" className="scroll-mt-24 relative bg-background border-b border-border">
         <div className="container-x py-28">
           <div className="flex items-end justify-between flex-wrap gap-6">
             <Reveal>
@@ -488,7 +488,7 @@ function Index() {
       </section>
 
       {/* APPROACH / PROCESS */}
-      <section id="approach" className="container-x py-28">
+      <section id="approach" className="scroll-mt-24 container-x py-28">
         <Reveal>
           <div className="max-w-2xl">
             <div className="text-xs uppercase tracking-[0.2em] text-accent">How we work</div>
@@ -509,7 +509,7 @@ function Index() {
       </section>
 
       {/* PRODUCT */}
-      <section id="product" className="bg-foreground text-background">
+      <section id="product" className="scroll-mt-24 bg-foreground text-background">
         <div className="container-x py-28">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal>
@@ -542,7 +542,7 @@ function Index() {
       </section>
 
       {/* FOUNDER */}
-      <section id="founder" className="relative overflow-hidden bg-surface border-y border-border">
+      <section id="founder" className="scroll-mt-24 relative overflow-hidden bg-surface border-y border-border">
         <div className="absolute -top-40 -right-32 h-[500px] w-[500px] rounded-full bg-accent/30 blur-3xl pointer-events-none" />
         <div className="container-x py-28 relative">
           <Reveal>
