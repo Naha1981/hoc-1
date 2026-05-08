@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
@@ -64,6 +65,58 @@ const steps = [
   { n: "03", t: "Integrate", d: "We implement across platforms, teams, and workflows." },
   { n: "04", t: "Scale", d: "We optimise, measure, and expand impact." },
 ];
+
+function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        setStatus("sending");
+        const fd = new FormData(e.currentTarget);
+        const name = String(fd.get("name") || "");
+        const email = String(fd.get("email") || "");
+        const org = String(fd.get("org") || "");
+        const message = String(fd.get("message") || "");
+        const subject = encodeURIComponent(`Strategy enquiry — ${org || name}`);
+        const body = encodeURIComponent(`Name: ${name}\nOrganisation: ${org}\nEmail: ${email}\n\n${message}`);
+        window.location.href = `mailto:hello@handsoncreatives.co.za?subject=${subject}&body=${body}`;
+        setTimeout(() => setStatus("sent"), 400);
+      }}
+      className="relative rounded-2xl bg-background text-foreground p-6 md:p-8 ring-1 ring-background/10 shadow-[var(--shadow-lift)]"
+    >
+      <div className="grid sm:grid-cols-2 gap-4">
+        <label className="block">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Name</span>
+          <input required name="name" type="text" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+        </label>
+        <label className="block">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Organisation</span>
+          <input name="org" type="text" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+        </label>
+      </div>
+      <label className="block mt-4">
+        <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Work email</span>
+        <input required name="email" type="email" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+      </label>
+      <label className="block mt-4">
+        <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">What you're trying to solve</span>
+        <textarea required name="message" rows={4} className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+      </label>
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="group mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-foreground text-background px-6 py-3.5 text-sm font-semibold tracking-wide hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-60"
+      >
+        {status === "sent" ? "Opening your email…" : "Request a Strategy Call"}
+        <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+      </button>
+      <p className="mt-3 text-[11px] text-muted-foreground text-center">
+        Or email <a className="underline" href="mailto:hello@handsoncreatives.co.za">hello@handsoncreatives.co.za</a> directly.
+      </p>
+    </form>
+  );
+}
 
 function Index() {
   return (
@@ -159,6 +212,37 @@ function Index() {
                   <div className="uppercase tracking-widest">AI access platform</div>
                 </div>
               </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* TRUST STRIP — partners & clients */}
+      <section aria-label="Selected partners and clients" className="border-y border-border bg-background">
+        <div className="container-x py-10">
+          <Reveal>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground max-w-xs">
+                Trusted across corporate, academia, broadcast & the Deaf community
+              </div>
+              <ul className="flex flex-wrap items-center gap-x-8 gap-y-4">
+                {[
+                  "MTN",
+                  "Castle Milk Stout",
+                  "Lil-lets SA",
+                  "Sefako Makgatho",
+                  "DeafTouch",
+                  "SAMA Awards",
+                  "MoonSport",
+                ].map((p, i) => (
+                  <li key={p} className="flex items-center gap-8">
+                    <span className="font-display text-xl md:text-2xl font-semibold tracking-tight text-foreground/80 hover:text-foreground transition-colors">
+                      {p}
+                    </span>
+                    {i < 6 && <span className="hidden md:inline h-1 w-1 rounded-full bg-accent" />}
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
         </div>
@@ -479,15 +563,48 @@ function Index() {
                 <p className="mt-8 text-lg text-muted-foreground max-w-2xl leading-relaxed">
                   15+ years inside the Deaf community. Honours in Interpreting & Translation. Honours in SASL. Master's research in Deaf Education at the University of the Witwatersrand.
                 </p>
-                <div className="mt-10 grid sm:grid-cols-2 gap-3 max-w-xl">
-                  {["Strategist", "Academic", "Creative Consultant", "SASL Specialist"].map((t) => (
-                    <div key={t} className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-sm hover:border-accent hover:bg-accent/10 transition-colors">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                      {t}
+                <div className="mt-10 grid sm:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border max-w-2xl">
+                  {[
+                    { k: "15+", l: "Years in the Deaf community" },
+                    { k: "3", l: "Postgraduate qualifications" },
+                    { k: "1of1", l: "Deaf-led SASL strategist in SA" },
+                  ].map((s) => (
+                    <div key={s.l} className="bg-card p-5">
+                      <div className="font-display text-3xl font-semibold tracking-tight">{s.k}</div>
+                      <div className="mt-1 text-[11px] uppercase tracking-widest text-muted-foreground">{s.l}</div>
                     </div>
                   ))}
                 </div>
-                <div className="mt-10 rounded-2xl border border-border bg-card p-6 max-w-2xl">
+
+                <div className="mt-8 rounded-2xl border border-border bg-card p-6 max-w-2xl">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Credentials</div>
+                  <ul className="mt-4 divide-y divide-border">
+                    {[
+                      { y: "MA", t: "Master's research — Deaf Education", i: "University of the Witwatersrand" },
+                      { y: "BA Hons", t: "South African Sign Language", i: "Postgraduate honours" },
+                      { y: "BA Hons", t: "Interpreting & Translation", i: "Postgraduate honours" },
+                    ].map((c) => (
+                      <li key={c.t} className="grid grid-cols-[64px_1fr] items-baseline gap-4 py-3">
+                        <span className="text-xs font-semibold tabular-nums uppercase tracking-widest text-accent">{c.y}</span>
+                        <div>
+                          <div className="text-base font-semibold tracking-tight">{c.t}</div>
+                          <div className="text-xs text-muted-foreground">{c.i}</div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-2 max-w-2xl">
+                  {["Strategist", "Academic", "Creative Consultant", "SASL Specialist", "Deaf Education"].map((t) => (
+                    <span key={t} className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-8 rounded-2xl border border-border bg-card p-6 max-w-2xl">
                   <p className="font-display text-xl tracking-tight">
                     Focused on one outcome: <span className="accent-underline">turning inclusion into institutional capability.</span>
                   </p>
@@ -514,24 +631,25 @@ function Index() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section id="contact" className="container-x py-28">
+      {/* FINAL CTA + CONTACT FORM */}
+      <section id="contact" className="container-x py-28 scroll-mt-24">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-foreground text-background p-10 md:p-20 text-center">
-            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/40 blur-3xl" />
-            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/30 blur-3xl" />
-            <div className="relative">
-              <div className="text-xs uppercase tracking-[0.3em] text-accent">Final brief</div>
-              <h2 className="mt-4 font-display text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl mx-auto leading-[1.05]">
-                Let's build what access should look like.
-              </h2>
-              <p className="mt-6 text-background/70 max-w-xl mx-auto">For organisations ready to move beyond visibility — and into structure.</p>
-              <div className="mt-10 flex justify-center">
-                <a href="mailto:hello@handsoncreatives.co.za" className="pulse-ring inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-7 py-4 text-sm font-medium hover:scale-[1.03] transition-transform">
-                  Start the Conversation
-                  <span aria-hidden>→</span>
-                </a>
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-foreground text-background p-8 md:p-16">
+            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/40 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/30 blur-3xl pointer-events-none" />
+            <div className="relative grid lg:grid-cols-2 gap-12 items-start">
+              <div>
+                <div className="text-xs uppercase tracking-[0.3em] text-accent">Start the conversation</div>
+                <h2 className="mt-4 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-[1.05]">
+                  Let's build what access should look like.
+                </h2>
+                <p className="mt-6 text-background/70 max-w-md">For organisations ready to move beyond visibility — and into structure.</p>
+                <ul className="mt-8 space-y-3 text-background/80 text-sm">
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> hello@handsoncreatives.co.za</li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> Johannesburg, South Africa</li>
+                </ul>
               </div>
+              <ContactForm />
             </div>
           </div>
         </Reveal>
