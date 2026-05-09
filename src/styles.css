@@ -173,3 +173,28 @@
   @keyframes spinSlow { to { transform: rotate(360deg); } }
   .spin-slow { animation: spinSlow 30s linear infinite; }
 }
+
+@layer utilities {
+  .hero-img {
+    opacity: 0;
+    animation: heroFadeIn 0.7s ease-out forwards;
+  }
+  @keyframes heroFadeIn {
+    to { opacity: 1; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-img { opacity: 1 !important; animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .float-y, .spin-slow, .pulse-ring, .marquee, .marquee-text, .shine, .blob {
+    animation: none !important;
+  }
+  .tilt-3d { transform: none !important; }
+}
