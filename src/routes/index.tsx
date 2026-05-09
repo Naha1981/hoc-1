@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
-import heroImg from "@/assets/founder-classroom.png";
+import heroImg from "@/assets/hero-signing.jpg";
 import founderImg from "@/assets/mmatlou.jpg";
 import classroomImg from "@/assets/mmatlou-child.png";
 import teamImg from "@/assets/team-meeting.jpg";
