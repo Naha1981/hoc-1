@@ -24,6 +24,11 @@ export const Route = createFileRoute("/")({
           "Inclusion that works. Strategy that grows. SASL that transforms. We build inclusion into infrastructure.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: heroImg },
+      { name: "twitter:image", content: heroImg },
+    ],
+    links: [
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
     ],
   }),
 });
@@ -170,14 +175,20 @@ function Index() {
           <Reveal delay={500}>
             <div className="mt-14 relative">
               <div className="absolute -inset-4 rounded-[2.5rem] border border-dashed border-accent/40 spin-slow pointer-events-none" />
-              <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)] tilt-3d">
+              <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)] tilt-3d bg-surface">
                 <img
                   src={heroImg}
                   alt="Mmatlou Moloto, Founder of Hands On Creatives, signing SASL with four young learners in a classroom"
-                  className="block w-full h-auto object-cover"
+                  className="block w-full h-auto object-cover animate-in fade-in duration-700"
                   width={1568}
                   height={624}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
+                {/* Contrast overlay for floating info cards */}
+                <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-foreground/35 via-foreground/5 to-transparent" />
+                <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-foreground/40 to-transparent" />
                 <div className="hidden md:block absolute bottom-6 left-6 rounded-2xl bg-background/85 backdrop-blur-md border border-border px-5 py-4 shadow-[var(--shadow-card)] max-w-xs">
                   <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent pulse-ring" />
@@ -548,8 +559,8 @@ function Index() {
           <Reveal>
             <div className="text-xs uppercase tracking-[0.2em] text-accent">Founder</div>
           </Reveal>
-          <div className="mt-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-5 lg:sticky lg:top-28 self-start">
+          <div className="mt-6 grid md:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-start">
+            <div className="md:col-span-5 md:sticky md:top-28 self-start">
               <Reveal>
                 <div className="relative">
                   <div className="absolute -inset-3 rounded-[2rem] bg-accent/40 -z-0" />
@@ -568,7 +579,7 @@ function Index() {
             </div>
 
             <Reveal delay={150}>
-              <div className="lg:col-span-7">
+              <div className="md:col-span-7">
                 <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
                   Built at the intersection of <span className="accent-underline">academia</span>, creative systems, and SASL integration.
                 </h2>
