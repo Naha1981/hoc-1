@@ -170,14 +170,20 @@ function Index() {
           <Reveal delay={500}>
             <div className="mt-14 relative">
               <div className="absolute -inset-4 rounded-[2.5rem] border border-dashed border-accent/40 spin-slow pointer-events-none" />
-              <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)] tilt-3d">
+              <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)] tilt-3d bg-surface">
                 <img
                   src={heroImg}
                   alt="Mmatlou Moloto, Founder of Hands On Creatives, signing SASL with four young learners in a classroom"
-                  className="block w-full h-auto object-cover"
+                  className="block w-full h-auto object-cover animate-in fade-in duration-700"
                   width={1568}
                   height={624}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
+                {/* Contrast overlay for floating info cards */}
+                <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-foreground/35 via-foreground/5 to-transparent" />
+                <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-foreground/40 to-transparent" />
                 <div className="hidden md:block absolute bottom-6 left-6 rounded-2xl bg-background/85 backdrop-blur-md border border-border px-5 py-4 shadow-[var(--shadow-card)] max-w-xs">
                   <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent pulse-ring" />
