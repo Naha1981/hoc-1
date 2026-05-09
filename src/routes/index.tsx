@@ -579,7 +579,7 @@ function Index() {
             </div>
 
             <Reveal delay={150}>
-              <div className="lg:col-span-7">
+              <div className="md:col-span-7">
                 <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
                   Built at the intersection of <span className="accent-underline">academia</span>, creative systems, and SASL integration.
                 </h2>
