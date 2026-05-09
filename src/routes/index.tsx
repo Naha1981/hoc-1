@@ -24,6 +24,11 @@ export const Route = createFileRoute("/")({
           "Inclusion that works. Strategy that grows. SASL that transforms. We build inclusion into infrastructure.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: heroImg },
+      { name: "twitter:image", content: heroImg },
+    ],
+    links: [
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
     ],
   }),
 });
