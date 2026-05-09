@@ -559,8 +559,8 @@ function Index() {
           <Reveal>
             <div className="text-xs uppercase tracking-[0.2em] text-accent">Founder</div>
           </Reveal>
-          <div className="mt-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-5 lg:sticky lg:top-28 self-start">
+          <div className="mt-6 grid md:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-start">
+            <div className="md:col-span-5 md:sticky md:top-28 self-start">
               <Reveal>
                 <div className="relative">
                   <div className="absolute -inset-3 rounded-[2rem] bg-accent/40 -z-0" />
