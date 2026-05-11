@@ -239,13 +239,74 @@ function Index() {
           <Reveal delay={120}>
             <ul className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-px bg-border rounded-2xl overflow-hidden border border-border">
               {[
-                { name: "MTN", sub: "Telecoms", domain: "mtn.com" },
-                { name: "Castle Milk Stout", sub: "FMCG", domain: "castlemilkstout.co.za" },
-                { name: "Lil-lets SA", sub: "Consumer", domain: "lil-lets.com" },
-                { name: "Sefako Makgatho", sub: "University", domain: "smu.ac.za" },
-                { name: "DeafTouch", sub: "Community", domain: "deaftouch.co.za" },
-                { name: "SAMA Awards", sub: "Music", domain: "samaawards.co.za" },
-                { name: "MoonSport", sub: "Broadcast", domain: "moonsport.co.za" },
+                {
+                  name: "MTN", sub: "Telecoms",
+                  logo: (
+                    <span className="inline-flex items-center justify-center h-10 w-14 rounded-md bg-[#FFCC00] text-black font-black text-lg tracking-tight shadow-sm">MTN</span>
+                  ),
+                },
+                {
+                  name: "Castle Milk Stout", sub: "FMCG",
+                  logo: (
+                    <div className="flex flex-col items-center leading-none">
+                      <svg viewBox="0 0 32 20" className="h-4 w-8 text-[#7a1f1f]" fill="currentColor" aria-hidden="true">
+                        <path d="M2 18h28v2H2zM4 8h2V4h3v4h3V4h3v4h3V4h3v4h3V4h3v4h2v8H4z"/>
+                      </svg>
+                      <span className="font-serif font-bold text-[13px] tracking-wide text-[#1a1a1a] mt-0.5">CASTLE</span>
+                      <span className="text-[8px] tracking-[0.25em] text-[#7a1f1f] font-semibold">MILK STOUT</span>
+                    </div>
+                  ),
+                },
+                {
+                  name: "Lil-lets SA", sub: "Consumer",
+                  logo: (
+                    <span className="font-display font-extrabold italic text-2xl text-[#E5006D] lowercase tracking-tight">lil-lets</span>
+                  ),
+                },
+                {
+                  name: "Sefako Makgatho", sub: "University",
+                  logo: (
+                    <div className="flex flex-col items-center leading-tight">
+                      <span className="font-serif font-extrabold text-2xl text-[#003F87] tracking-wider">SMU</span>
+                      <span className="text-[7px] tracking-[0.15em] text-[#003F87] font-semibold text-center">SEFAKO MAKGATHO</span>
+                    </div>
+                  ),
+                },
+                {
+                  name: "DeafTouch", sub: "Community",
+                  logo: (
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-2xl" aria-hidden="true">🤟</span>
+                      <div className="flex flex-col leading-none items-start">
+                        <span className="font-display font-bold text-sm text-foreground">DeafTouch</span>
+                        <span className="text-[7px] tracking-[0.2em] text-muted-foreground font-semibold mt-0.5">COMMUNITY</span>
+                      </div>
+                    </div>
+                  ),
+                },
+                {
+                  name: "SAMA Awards", sub: "Music",
+                  logo: (
+                    <div className="flex flex-col items-center leading-none">
+                      <span className="font-serif font-bold text-2xl text-[#B8893A] tracking-wide">SAMA</span>
+                      <span className="text-[8px] tracking-[0.3em] text-[#B8893A] font-semibold mt-0.5">AWARDS</span>
+                    </div>
+                  ),
+                },
+                {
+                  name: "MoonSport", sub: "Broadcast",
+                  logo: (
+                    <div className="flex items-center gap-1.5">
+                      <svg viewBox="0 0 24 24" className="h-6 w-6 text-[#F5C518]" fill="currentColor" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                      </svg>
+                      <div className="flex flex-col leading-none items-start">
+                        <span className="font-display font-bold text-sm text-[#0a2540]">MoonSport</span>
+                        <span className="text-[7px] tracking-[0.2em] text-muted-foreground font-semibold mt-0.5">BROADCAST</span>
+                      </div>
+                    </div>
+                  ),
+                },
               ].map((p) => (
                 <li
                   key={p.name}
@@ -254,17 +315,7 @@ function Index() {
                   title={p.name}
                 >
                   <div className="flex items-center justify-center h-12 w-full">
-                    <img
-                      src={`https://img.logo.dev/${p.domain}?token=sk_QXpmwnnIQiOMckXJ7zbDQg&size=80`}
-                      alt={`${p.name} logo`}
-                      loading="lazy"
-                      decoding="async"
-                      className="max-h-12 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-                      onError={(e) => {
-                        const img = e.currentTarget;
-                        img.style.display = 'none';
-                      }}
-                    />
+                    {p.logo}
                   </div>
                   <span className="font-display text-sm md:text-[15px] font-medium tracking-tight text-foreground/90 group-hover:text-foreground transition-colors leading-tight">
                     {p.name}
