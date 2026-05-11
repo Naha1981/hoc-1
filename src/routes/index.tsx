@@ -239,24 +239,37 @@ function Index() {
           <Reveal delay={120}>
             <ul className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-px bg-border rounded-2xl overflow-hidden border border-border">
               {[
-                { name: "MTN", sub: "Telecoms" },
-                { name: "Castle Milk Stout", sub: "FMCG" },
-                { name: "Lil-lets SA", sub: "Consumer" },
-                { name: "Sefako Makgatho", sub: "University" },
-                { name: "DeafTouch", sub: "Community" },
-                { name: "SAMA Awards", sub: "Music" },
-                { name: "MoonSport", sub: "Broadcast" },
+                { name: "MTN", sub: "Telecoms", domain: "mtn.com" },
+                { name: "Castle Milk Stout", sub: "FMCG", domain: "castlemilkstout.co.za" },
+                { name: "Lil-lets SA", sub: "Consumer", domain: "lil-lets.com" },
+                { name: "Sefako Makgatho", sub: "University", domain: "smu.ac.za" },
+                { name: "DeafTouch", sub: "Community", domain: "deaftouch.co.za" },
+                { name: "SAMA Awards", sub: "Music", domain: "samaawards.co.za" },
+                { name: "MoonSport", sub: "Broadcast", domain: "moonsport.co.za" },
               ].map((p) => (
                 <li
                   key={p.name}
-                  className="group relative bg-card hover:bg-background transition-colors h-24 flex flex-col items-center justify-center px-3 text-center"
+                  className="group relative bg-card hover:bg-background transition-colors min-h-32 flex flex-col items-center justify-center gap-2 px-3 py-4 text-center"
                   aria-label={p.name}
                   title={p.name}
                 >
-                  <span className="font-display text-base md:text-[15px] font-semibold tracking-tight text-foreground/85 group-hover:text-foreground transition-colors leading-tight">
+                  <div className="flex items-center justify-center h-12 w-full">
+                    <img
+                      src={`https://img.logo.dev/${p.domain}?token=sk_QXpmwnnIQiOMckXJ7zbDQg&size=80`}
+                      alt={`${p.name} logo`}
+                      loading="lazy"
+                      decoding="async"
+                      className="max-h-12 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                      onError={(e) => {
+                        const img = e.currentTarget;
+                        img.style.display = 'none';
+                      }}
+                    />
+                  </div>
+                  <span className="font-display text-sm md:text-[15px] font-medium tracking-tight text-foreground/90 group-hover:text-foreground transition-colors leading-tight">
                     {p.name}
                   </span>
-                  <span className="mt-1 text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
+                  <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
                     {p.sub}
                   </span>
                   <span className="absolute bottom-2 left-1/2 -translate-x-1/2 h-px w-6 bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
