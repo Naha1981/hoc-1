@@ -85,7 +85,7 @@ function ContactForm() {
         const message = String(fd.get("message") || "");
         const subject = encodeURIComponent(`Strategy enquiry — ${org || name}`);
         const body = encodeURIComponent(`Name: ${name}\nOrganisation: ${org}\nEmail: ${email}\n\n${message}`);
-        window.location.href = `mailto:hello@handsoncreatives.co.za?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:info@hoc.co.za?subject=${subject}&body=${body}`;
         setTimeout(() => setStatus("sent"), 400);
       }}
       className="relative rounded-2xl bg-background text-foreground p-6 md:p-8 ring-1 ring-background/10 shadow-[var(--shadow-lift)]"
@@ -117,7 +117,7 @@ function ContactForm() {
         <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
       </button>
       <p className="mt-3 text-[11px] text-muted-foreground text-center">
-        Or email <a className="underline" href="mailto:hello@handsoncreatives.co.za">hello@handsoncreatives.co.za</a> directly.
+        Or email <a className="underline" href="mailto:info@hoc.co.za">info@hoc.co.za</a> directly.
       </p>
     </form>
   );
@@ -310,11 +310,11 @@ function Index() {
               ].map((p) => (
                 <li
                   key={p.name}
-                  className="group relative bg-card hover:bg-background transition-colors min-h-32 flex flex-col items-center justify-center gap-2 px-3 py-4 text-center"
+                  className="group relative bg-card hover:bg-background transition-colors min-h-36 flex flex-col items-center justify-center gap-3 px-4 py-6 text-center"
                   aria-label={p.name}
                   title={p.name}
                 >
-                  <div className="flex items-center justify-center h-12 w-full">
+                  <div className="flex items-center justify-center h-14 w-full overflow-hidden opacity-70 grayscale saturate-50 group-hover:opacity-100 group-hover:grayscale-0 group-hover:saturate-100 transition-all duration-300">
                     {p.logo}
                   </div>
                   <span className="font-display text-sm md:text-[15px] font-medium tracking-tight text-foreground/90 group-hover:text-foreground transition-colors leading-tight">
@@ -746,7 +746,8 @@ function Index() {
                 </h2>
                 <p className="mt-6 text-background/70 max-w-md">For organisations ready to move beyond visibility — and into structure.</p>
                 <ul className="mt-8 space-y-3 text-background/80 text-sm">
-                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> hello@handsoncreatives.co.za</li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> <a href="mailto:info@hoc.co.za" className="hover:text-accent transition-colors">info@hoc.co.za</a></li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> <a href="tel:+27784708240" className="hover:text-accent transition-colors">+27 78 470 8240</a></li>
                   <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> Johannesburg, South Africa</li>
                 </ul>
               </div>
@@ -784,7 +785,8 @@ function Index() {
             <div className="md:col-span-4">
               <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Contact</div>
               <ul className="mt-5 space-y-3 text-sm text-background/80">
-                <li><a href="mailto:hello@handsoncreatives.co.za" className="hover:text-accent transition-colors">hello@handsoncreatives.co.za</a></li>
+                <li><a href="mailto:info@hoc.co.za" className="hover:text-accent transition-colors">info@hoc.co.za</a></li>
+                <li><a href="tel:+27784708240" className="hover:text-accent transition-colors">+27 78 470 8240</a></li>
                 <li>Johannesburg, South Africa</li>
               </ul>
               <a href="#contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-5 py-3 text-sm font-medium hover:scale-[1.03] transition-transform">
