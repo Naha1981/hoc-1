@@ -310,11 +310,11 @@ function Index() {
               ].map((p) => (
                 <li
                   key={p.name}
-                  className="group relative bg-card hover:bg-background transition-colors min-h-32 flex flex-col items-center justify-center gap-2 px-3 py-4 text-center"
+                  className="group relative bg-card hover:bg-background transition-colors min-h-36 flex flex-col items-center justify-center gap-3 px-4 py-6 text-center"
                   aria-label={p.name}
                   title={p.name}
                 >
-                  <div className="flex items-center justify-center h-12 w-full">
+                  <div className="flex items-center justify-center h-14 w-full overflow-hidden opacity-70 grayscale saturate-50 group-hover:opacity-100 group-hover:grayscale-0 group-hover:saturate-100 transition-all duration-300">
                     {p.logo}
                   </div>
                   <span className="font-display text-sm md:text-[15px] font-medium tracking-tight text-foreground/90 group-hover:text-foreground transition-colors leading-tight">
