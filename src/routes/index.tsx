@@ -310,7 +310,9 @@ function Index() {
               ].map((p) => (
                 <li
                   key={p.name}
-                  className="group relative bg-card hover:bg-background transition-colors duration-300 min-h-36 flex flex-col items-center justify-center gap-3 px-4 py-6 text-center"
+                  tabIndex={0}
+                  aria-label={`${p.name} — ${p.sub}`}
+                  className="group relative bg-card hover:bg-background transition-colors duration-300 min-h-36 flex flex-col items-center justify-center gap-3 px-4 py-6 text-center outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:z-10 focus-visible:rounded-sm"
                 >
                   <div
                     role="img"
