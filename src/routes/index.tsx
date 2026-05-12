@@ -85,7 +85,7 @@ function ContactForm() {
         const message = String(fd.get("message") || "");
         const subject = encodeURIComponent(`Strategy enquiry — ${org || name}`);
         const body = encodeURIComponent(`Name: ${name}\nOrganisation: ${org}\nEmail: ${email}\n\n${message}`);
-        window.location.href = `mailto:hello@handsoncreatives.co.za?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:info@hoc.co.za?subject=${subject}&body=${body}`;
         setTimeout(() => setStatus("sent"), 400);
       }}
       className="relative rounded-2xl bg-background text-foreground p-6 md:p-8 ring-1 ring-background/10 shadow-[var(--shadow-lift)]"
@@ -117,7 +117,7 @@ function ContactForm() {
         <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
       </button>
       <p className="mt-3 text-[11px] text-muted-foreground text-center">
-        Or email <a className="underline" href="mailto:hello@handsoncreatives.co.za">hello@handsoncreatives.co.za</a> directly.
+        Or email <a className="underline" href="mailto:info@hoc.co.za">info@hoc.co.za</a> directly.
       </p>
     </form>
   );
@@ -746,7 +746,7 @@ function Index() {
                 </h2>
                 <p className="mt-6 text-background/70 max-w-md">For organisations ready to move beyond visibility — and into structure.</p>
                 <ul className="mt-8 space-y-3 text-background/80 text-sm">
-                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> hello@handsoncreatives.co.za</li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> info@hoc.co.za</li>
                   <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> Johannesburg, South Africa</li>
                 </ul>
               </div>
@@ -784,7 +784,7 @@ function Index() {
             <div className="md:col-span-4">
               <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Contact</div>
               <ul className="mt-5 space-y-3 text-sm text-background/80">
-                <li><a href="mailto:hello@handsoncreatives.co.za" className="hover:text-accent transition-colors">hello@handsoncreatives.co.za</a></li>
+                <li><a href="mailto:info@hoc.co.za" className="hover:text-accent transition-colors">info@hoc.co.za</a></li>
                 <li>Johannesburg, South Africa</li>
               </ul>
               <a href="#contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-5 py-3 text-sm font-medium hover:scale-[1.03] transition-transform">
