@@ -310,20 +310,23 @@ function Index() {
               ].map((p) => (
                 <li
                   key={p.name}
-                  className="group relative bg-card hover:bg-background transition-colors min-h-36 flex flex-col items-center justify-center gap-3 px-4 py-6 text-center"
-                  aria-label={p.name}
-                  title={p.name}
+                  className="group relative bg-card hover:bg-background transition-colors duration-300 min-h-36 flex flex-col items-center justify-center gap-3 px-4 py-6 text-center"
                 >
-                  <div className="w-full max-w-[160px] aspect-[5/2] flex items-center justify-center overflow-hidden opacity-70 grayscale saturate-50 group-hover:opacity-100 group-hover:grayscale-0 group-hover:saturate-100 transition-all duration-300 [&_img]:max-h-full [&_img]:max-w-full [&_img]:object-contain">
+                  <div
+                    role="img"
+                    aria-label={`${p.name} logo`}
+                    className="w-full max-w-[160px] aspect-[5/2] flex items-center justify-center overflow-hidden opacity-70 grayscale saturate-50 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:grayscale-0 group-hover:saturate-100 group-focus-within:opacity-100 group-focus-within:grayscale-0 group-focus-within:saturate-100 [&_img]:max-h-full [&_img]:max-w-full [&_img]:object-contain [&_svg]:max-h-full [&_svg]:max-w-full"
+                  >
+                    <span className="sr-only">{p.name}</span>
                     {p.logo}
                   </div>
-                  <span className="font-display text-sm md:text-[15px] font-medium tracking-tight text-foreground/90 group-hover:text-foreground transition-colors leading-tight">
+                  <span className="font-display text-sm md:text-[15px] font-medium tracking-tight text-foreground/90 group-hover:text-foreground transition-colors duration-300 leading-tight">
                     {p.name}
                   </span>
                   <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
                     {p.sub}
                   </span>
-                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 h-px w-6 bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 h-px w-6 bg-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </li>
               ))}
             </ul>
