@@ -746,7 +746,8 @@ function Index() {
                 </h2>
                 <p className="mt-6 text-background/70 max-w-md">For organisations ready to move beyond visibility — and into structure.</p>
                 <ul className="mt-8 space-y-3 text-background/80 text-sm">
-                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> info@hoc.co.za</li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> <a href="mailto:info@hoc.co.za" className="hover:text-accent transition-colors">info@hoc.co.za</a></li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> <a href="tel:+27784708240" className="hover:text-accent transition-colors">+27 78 470 8240</a></li>
                   <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> Johannesburg, South Africa</li>
                 </ul>
               </div>
