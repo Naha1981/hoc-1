@@ -786,6 +786,7 @@ function Index() {
               <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Contact</div>
               <ul className="mt-5 space-y-3 text-sm text-background/80">
                 <li><a href="mailto:info@hoc.co.za" className="hover:text-accent transition-colors">info@hoc.co.za</a></li>
+                <li><a href="tel:+27784708240" className="hover:text-accent transition-colors">+27 78 470 8240</a></li>
                 <li>Johannesburg, South Africa</li>
               </ul>
               <a href="#contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-5 py-3 text-sm font-medium hover:scale-[1.03] transition-transform">
