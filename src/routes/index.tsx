@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
-import heroImg from "@/assets/founder-classroom.png";
+import heroImg from "@/assets/hero-signing.jpg";
 import founderImg from "@/assets/mmatlou.jpg";
 import classroomImg from "@/assets/mmatlou-child.png";
 import teamImg from "@/assets/team-meeting.jpg";
@@ -24,6 +24,11 @@ export const Route = createFileRoute("/")({
           "We design systems that integrate South African Sign Language into institutions — at scale. Inclusion that works. Strategy that grows.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: heroImg },
+      { name: "twitter:image", content: heroImg },
+    ],
+    links: [
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
     ],
   }),
 });
@@ -79,7 +84,7 @@ function ContactForm() {
         const message = String(fd.get("message") || "");
         const subject = encodeURIComponent(`Strategy enquiry — ${org || name}`);
         const body = encodeURIComponent(`Name: ${name}\nOrganisation: ${org}\nEmail: ${email}\n\n${message}`);
-        window.location.href = `mailto:hello@handsoncreatives.co.za?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:info@hoc.co.za?subject=${subject}&body=${body}`;
         setTimeout(() => setStatus("sent"), 400);
       }}
       className="relative rounded-2xl bg-background text-foreground p-6 md:p-8 ring-1 ring-background/10 shadow-[var(--shadow-lift)]"
@@ -111,7 +116,7 @@ function ContactForm() {
         <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
       </button>
       <p className="mt-3 text-[11px] text-muted-foreground text-center">
-        Or email <a className="underline" href="mailto:hello@handsoncreatives.co.za">hello@handsoncreatives.co.za</a> directly.
+        Or email <a className="underline" href="mailto:info@hoc.co.za">info@hoc.co.za</a> directly.
       </p>
     </form>
   );
@@ -169,14 +174,20 @@ function Index() {
           <Reveal delay={500}>
             <div className="mt-14 relative">
               <div className="absolute -inset-4 rounded-[2.5rem] border border-dashed border-accent/40 spin-slow pointer-events-none" />
-              <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)] tilt-3d">
+              <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)] tilt-3d bg-surface">
                 <img
                   src={heroImg}
                   alt="Mmatlou Moloto, Founder of Hands On Creatives, signing SASL with four young learners in a classroom"
-                  className="block w-full h-auto object-cover"
+                  className="hero-img block w-full h-auto object-cover"
                   width={1568}
                   height={624}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
+                {/* Contrast overlay — intensity scales by breakpoint for consistent legibility */}
+                <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-foreground/55 via-foreground/15 to-transparent md:from-foreground/40 md:via-foreground/8 lg:from-foreground/30 lg:via-foreground/5" />
+                <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-foreground/55 to-transparent md:h-1/2 md:from-foreground/40 lg:from-foreground/35" />
                 <div className="hidden md:block absolute bottom-6 left-6 rounded-2xl bg-background/85 backdrop-blur-md border border-border px-5 py-4 shadow-[var(--shadow-card)] max-w-xs">
                   <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent pulse-ring" />
@@ -227,29 +238,114 @@ function Index() {
           <Reveal delay={120}>
             <ul className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-px bg-border rounded-2xl overflow-hidden border border-border">
               {[
-                { name: "MoonSport", sub: "Broadcast" },
-                { name: "Nostalgia Productions", sub: "Creative" },
-                { name: "MTN", sub: "Telecoms" },
-                { name: "SAMA Awards", sub: "Music" },
-                { name: "Darling Films", sub: "Media" },
-                { name: "Castle Milk Stout", sub: "FMCG" },
-                { name: "Lil-lets SA", sub: "Consumer" },
-                { name: "DeafTouch", sub: "Community" },
-                { name: "Sefako Makgatho", sub: "University" },
+                {
+                  name: "MoonSport", sub: "Broadcast",
+                  logo: (
+                    <div className="flex items-center gap-1.5">
+                      <svg viewBox="0 0 24 24" className="h-6 w-6 text-[#F5C518]" fill="currentColor" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                      </svg>
+                      <div className="flex flex-col leading-none items-start">
+                        <span className="font-display font-bold text-sm text-[#0a2540]">MoonSport</span>
+                        <span className="text-[7px] tracking-[0.2em] text-muted-foreground font-semibold mt-0.5">BROADCAST</span>
+                      </div>
+                    </div>
+                  ),
+                },
+                {
+                  name: "Nostalgia Productions", sub: "Creative",
+                  logo: (
+                    <div className="flex flex-col items-center leading-none">
+                      <span className="font-serif font-bold text-lg text-[#8B5A3C] tracking-wide">Nostalgia</span>
+                      <span className="text-[8px] tracking-[0.2em] text-[#8B5A3C] font-semibold mt-0.5">PRODUCTIONS</span>
+                    </div>
+                  ),
+                },
+                {
+                  name: "MTN", sub: "Telecoms",
+                  logo: (
+                    <span className="inline-flex items-center justify-center h-10 w-14 rounded-md bg-[#FFCC00] text-black font-black text-lg tracking-tight shadow-sm">MTN</span>
+                  ),
+                },
+                {
+                  name: "SAMA Awards", sub: "Music",
+                  logo: (
+                    <div className="flex flex-col items-center leading-none">
+                      <span className="font-serif font-bold text-2xl text-[#B8893A] tracking-wide">SAMA</span>
+                      <span className="text-[8px] tracking-[0.3em] text-[#B8893A] font-semibold mt-0.5">AWARDS</span>
+                    </div>
+                  ),
+                },
+                {
+                  name: "Darling Films", sub: "Media",
+                  logo: (
+                    <div className="flex flex-col items-center leading-none">
+                      <span className="font-serif font-bold text-xl text-[#D32F2F] tracking-wide">Darling</span>
+                      <span className="text-[8px] tracking-[0.25em] text-[#D32F2F] font-semibold mt-0.5">FILMS</span>
+                    </div>
+                  ),
+                },
+                {
+                  name: "Castle Milk Stout", sub: "FMCG",
+                  logo: (
+                    <div className="flex flex-col items-center leading-none">
+                      <svg viewBox="0 0 32 20" className="h-4 w-8 text-[#7a1f1f]" fill="currentColor" aria-hidden="true">
+                        <path d="M2 18h28v2H2zM4 8h2V4h3v4h3V4h3v4h3V4h3v4h3V4h3v4h2v8H4z"/>
+                      </svg>
+                      <span className="font-serif font-bold text-[13px] tracking-wide text-[#1a1a1a] mt-0.5">CASTLE</span>
+                      <span className="text-[8px] tracking-[0.25em] text-[#7a1f1f] font-semibold">MILK STOUT</span>
+                    </div>
+                  ),
+                },
+                {
+                  name: "Lil-lets SA", sub: "Consumer",
+                  logo: (
+                    <span className="font-display font-extrabold italic text-2xl text-[#E5006D] lowercase tracking-tight">lil-lets</span>
+                  ),
+                },
+                {
+                  name: "DeafTouch", sub: "Community",
+                  logo: (
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-2xl" aria-hidden="true">🤟</span>
+                      <div className="flex flex-col leading-none items-start">
+                        <span className="font-display font-bold text-sm text-foreground">DeafTouch</span>
+                        <span className="text-[7px] tracking-[0.2em] text-muted-foreground font-semibold mt-0.5">COMMUNITY</span>
+                      </div>
+                    </div>
+                  ),
+                },
+                {
+                  name: "Sefako Makgatho University", sub: "University",
+                  logo: (
+                    <div className="flex flex-col items-center leading-tight">
+                      <span className="font-serif font-extrabold text-2xl text-[#003F87] tracking-wider">SMU</span>
+                      <span className="text-[7px] tracking-[0.15em] text-[#003F87] font-semibold text-center">SEFAKO MAKGATHO</span>
+                    </div>
+                  ),
+                },
               ].map((p) => (
                 <li
                   key={p.name}
-                  className="group relative bg-card hover:bg-background transition-colors h-24 flex flex-col items-center justify-center px-3 text-center"
-                  aria-label={p.name}
-                  title={p.name}
+                  tabIndex={0}
+                  aria-label={`${p.name} — ${p.sub}`}
+                  className="group relative bg-card hover:bg-background transition-colors duration-300 min-h-36 flex flex-col items-center justify-center gap-3 px-4 py-6 text-center outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:z-10 focus-visible:rounded-sm"
                 >
-                  <span className="font-display text-base md:text-[15px] font-semibold tracking-tight text-foreground/85 group-hover:text-foreground transition-colors leading-tight">
+                  <div
+                    role="img"
+                    aria-label={`${p.name} logo`}
+                    className="w-full max-w-[160px] aspect-[5/2] flex items-center justify-center overflow-hidden opacity-70 grayscale saturate-50 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:grayscale-0 group-hover:saturate-100 group-focus-within:opacity-100 group-focus-within:grayscale-0 group-focus-within:saturate-100 [&_img]:max-h-full [&_img]:max-w-full [&_img]:object-contain [&_svg]:max-h-full [&_svg]:max-w-full"
+                  >
+                    <span className="sr-only">{p.name}</span>
+                    {p.logo}
+                  </div>
+                  <span className="font-display text-sm md:text-[15px] font-medium tracking-tight text-foreground/90 group-hover:text-foreground transition-colors duration-300 leading-tight">
                     {p.name}
                   </span>
-                  <span className="mt-1 text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
+                  <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
                     {p.sub}
                   </span>
-                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 h-px w-6 bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 h-px w-6 bg-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </li>
               ))}
             </ul>
@@ -549,8 +645,8 @@ function Index() {
           <Reveal>
             <div className="text-xs uppercase tracking-[0.2em] text-accent">Founder</div>
           </Reveal>
-          <div className="mt-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-5 lg:sticky lg:top-28 self-start">
+          <div className="mt-6 grid md:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-start">
+            <div className="md:col-span-5 md:sticky md:top-28 self-start">
               <Reveal>
                 <div className="relative">
                   <div className="absolute -inset-3 rounded-[2rem] bg-accent/40 -z-0" />
@@ -569,7 +665,7 @@ function Index() {
             </div>
 
             <Reveal delay={150}>
-              <div className="lg:col-span-7">
+              <div className="md:col-span-7">
                 <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
                   Built at the intersection of <span className="accent-underline">academia</span>, creative systems, and SASL integration.
                 </h2>
@@ -672,7 +768,8 @@ function Index() {
                 </h2>
                 <p className="mt-6 text-background/70 max-w-md">For organisations ready to move beyond visibility — and into structure.</p>
                 <ul className="mt-8 space-y-3 text-background/80 text-sm">
-                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> hello@handsoncreatives.co.za</li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> <a href="mailto:info@hoc.co.za" className="hover:text-accent transition-colors">info@hoc.co.za</a></li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> <a href="tel:+27784708240" className="hover:text-accent transition-colors">+27 78 470 8240</a></li>
                   <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> Johannesburg, South Africa</li>
                 </ul>
               </div>
@@ -710,7 +807,8 @@ function Index() {
             <div className="md:col-span-4">
               <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Contact</div>
               <ul className="mt-5 space-y-3 text-sm text-background/80">
-                <li><a href="mailto:hello@handsoncreatives.co.za" className="hover:text-accent transition-colors">hello@handsoncreatives.co.za</a></li>
+                <li><a href="mailto:info@hoc.co.za" className="hover:text-accent transition-colors">info@hoc.co.za</a></li>
+                <li><a href="tel:+27784708240" className="hover:text-accent transition-colors">+27 78 470 8240</a></li>
                 <li>Johannesburg, South Africa</li>
               </ul>
               <a href="#contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-5 py-3 text-sm font-medium hover:scale-[1.03] transition-transform">
