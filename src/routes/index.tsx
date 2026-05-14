@@ -11,17 +11,17 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Hands On Creatives — SASL-led strategy consultancy" },
+      { title: "Hands On Creatives — SASL-led · Deaf-focused · Strategy consultancy" },
       {
         name: "description",
         content:
-          "We design systems that integrate South African Sign Language into institutions — at scale. Inclusion that works. Strategy that grows.",
+          "A SASL-led strategy consultancy designing inclusion into the systems that run institutions. Inclusion, engineered.",
       },
-      { property: "og:title", content: "Hands On Creatives — SASL-led strategy consultancy" },
+      { property: "og:title", content: "Hands On Creatives — SASL-led · Deaf-focused · Strategy consultancy" },
       {
         property: "og:description",
         content:
-          "Inclusion that works. Strategy that grows. SASL that transforms. We build inclusion into infrastructure.",
+          "We design systems that integrate South African Sign Language into institutions — at scale. Inclusion that works. Strategy that grows.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -29,9 +29,8 @@ export const Route = createFileRoute("/")({
 });
 
 const partners = [
-  "MTN", "SAMA Awards", "MoonSport", "Castle Milk Stout",
-  "Lil-lets SA", "Darling Films", "Nostalgia Productions",
-  "DeafTouch", "SMU", "University of the Witwatersrand",
+  "MoonSport", "Nostalgia Productions", "MTN", "SAMA Awards", "Darling Films",
+  "Castle Milk Stout", "Lil-lets SA", "DeafTouch", "Sefako Makgatho University",
 ];
 
 const valueCards = [
@@ -149,7 +148,7 @@ function Index() {
             </h1>
             <Reveal delay={580}>
               <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
-                A Deaf-led consultancy designing the systems that integrate South African Sign Language into education, corporate, and public institutions — at scale.
+                We don't run campaigns. We design systems that integrate South African Sign Language into institutions — at scale. Unlock access. Drive innovation. Build what inclusion should look like.
               </p>
             </Reveal>
             <Reveal delay={720}>
@@ -194,22 +193,22 @@ function Index() {
               <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4 text-xs text-muted-foreground">
                 <div>
                   <div className="text-2xl font-semibold text-foreground">15+</div>
-                  <div className="uppercase tracking-widest">years in the field</div>
-                </div>
-                <div className="hidden sm:block h-10 w-px bg-border" />
-                <div>
-                  <div className="text-2xl font-semibold text-foreground">10+</div>
-                  <div className="uppercase tracking-widest">institutions served</div>
+                  <div className="uppercase tracking-widest">years in the Deaf community</div>
                 </div>
                 <div className="hidden sm:block h-10 w-px bg-border" />
                 <div>
                   <div className="text-2xl font-semibold text-foreground">4</div>
-                  <div className="uppercase tracking-widest">core service pillars</div>
+                  <div className="uppercase tracking-widest">continents of collaboration</div>
+                </div>
+                <div className="hidden sm:block h-10 w-px bg-border" />
+                <div>
+                  <div className="text-2xl font-semibold text-foreground">100%</div>
+                  <div className="uppercase tracking-widest">Deaf-led design</div>
                 </div>
                 <div className="hidden sm:block h-10 w-px bg-border" />
                 <div>
                   <div className="text-2xl font-semibold text-foreground">1</div>
-                  <div className="uppercase tracking-widest">AI access platform</div>
+                  <div className="uppercase tracking-widest">system at a time</div>
                 </div>
               </div>
             </div>
@@ -228,13 +227,15 @@ function Index() {
           <Reveal delay={120}>
             <ul className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-px bg-border rounded-2xl overflow-hidden border border-border">
               {[
+                { name: "MoonSport", sub: "Broadcast" },
+                { name: "Nostalgia Productions", sub: "Creative" },
                 { name: "MTN", sub: "Telecoms" },
+                { name: "SAMA Awards", sub: "Music" },
+                { name: "Darling Films", sub: "Media" },
                 { name: "Castle Milk Stout", sub: "FMCG" },
                 { name: "Lil-lets SA", sub: "Consumer" },
-                { name: "Sefako Makgatho", sub: "University" },
                 { name: "DeafTouch", sub: "Community" },
-                { name: "SAMA Awards", sub: "Music" },
-                { name: "MoonSport", sub: "Broadcast" },
+                { name: "Sefako Makgatho", sub: "University" },
               ].map((p) => (
                 <li
                   key={p.name}
@@ -283,7 +284,7 @@ function Index() {
                 "Sit outside core business systems",
                 "Fail to reach Deaf audiences effectively",
                 "Deliver no measurable return on investment",
-                "Mistake awareness for access",
+                "Treat compliance as the ceiling, not the floor",
               ].map((b, i) => (
                 <Reveal key={b} delay={i * 100}>
                   <li className="flex items-start gap-6 py-6">
@@ -308,12 +309,12 @@ function Index() {
               <div>
                 <div className="text-xs uppercase tracking-[0.2em] text-accent">The Solution</div>
                 <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">We redesign how inclusion works.</h2>
-                <p className="mt-6 text-background/70 max-w-lg">Hands On Creatives integrates SASL into the operating layer of your organisation — not as an add-on, as a core function.</p>
+                <p className="mt-6 text-background/70 max-w-lg">Hands On Creatives integrates SASL into communication systems, customer experience, and institutional frameworks. Not as an add-on — as a core function.</p>
                 <ul className="mt-10 space-y-4">
                   {[
-                    "Communication systems",
-                    "Customer experience",
-                    "Institutional frameworks",
+                    "Communication systems: Internal and external channels rebuilt around language equity.",
+                    "Customer experience: Service design that includes Deaf customers as a first-class audience.",
+                    "Institutional frameworks: Policy, training, and operations restructured for adoption at scale.",
                   ].map((x) => (
                     <li key={x} className="group flex items-center gap-4 rounded-xl border border-background/10 px-5 py-4 hover:border-accent hover:bg-background/5 transition-all hover:translate-x-1">
                       <span className="h-2 w-2 rounded-full bg-accent" />
@@ -518,9 +519,9 @@ function Index() {
                 <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">We don't just advise. We build.</h2>
                 <p className="mt-6 text-background/70 max-w-lg text-lg">Hands On Kidz — an AI-powered reading platform engineered for Deaf learners.</p>
                 <ul className="mt-8 space-y-3 text-background/80">
-                  <li>· Word-level synchronisation</li>
-                  <li>· SASL animation (reader + comprehension modes)</li>
-                  <li>· Deaf-first learning experience</li>
+                  <li>· AI Reading Engine (word-level tokenization)</li>
+                  <li>· SASL Animation System (Reader and Comprehension modes)</li>
+                  <li>· Inclusive Interaction Design</li>
                 </ul>
                 <p className="mt-8 text-background/60 italic">This is what inclusion looks like when it's engineered.</p>
               </div>
@@ -694,7 +695,7 @@ function Index() {
                 </div>
               </div>
               <p className="mt-6 text-background/70 max-w-sm leading-relaxed">
-                A SASL-led strategy consultancy building inclusion into institutional infrastructure.
+                A SASL-led strategy consultancy designing inclusion into the systems that run institutions.
               </p>
             </div>
             <div className="md:col-span-3">
