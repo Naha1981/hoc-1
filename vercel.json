@@ -1,13 +1,5 @@
 {
-  "version": 3,
+  "version": 2,
   "buildCommand": "npm run vercel-build",
-  "functions": {
-    ".vercel_build_output/functions/ssr.func/index.mjs": {
-      "runtime": "nodejs"
-    }
-  },
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/.vercel_build_output/functions/ssr.func/index.mjs" }
-  ]
+  "outputDirectory": ".vercel_build_output"
 }
