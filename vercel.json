@@ -1,7 +1,11 @@
 {
   "version": 2,
+  "functions": {
+    "src/routes/**/*.tsx": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/_vercel/functions/ssr.func" }
+    { "src": "/(.*)", "dest": "/src/routes/$1" }
   ]
 }
