@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "src/routes/**/*.tsx": {
-      "runtime": "nodejs18.x"
+      "runtime": "nodejs@18"
     }
   },
   "routes": [
