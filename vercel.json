@@ -1,11 +1,12 @@
 {
-  "version": 2,
+  "version": 3,
   "functions": {
-    "src/routes/**/*.tsx": {
-      "runtime": "nodejs@18"
+    ".vercel_build_output/functions/ssr.func/index.mjs": {
+      "runtime": "nodejs18.x"
     }
   },
   "routes": [
-    { "src": "/(.*)", "dest": "/src/routes/$1" }
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/.vercel_build_output/functions/ssr.func/index.mjs" }
   ]
 }
