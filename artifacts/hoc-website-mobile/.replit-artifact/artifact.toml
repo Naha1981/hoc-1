@@ -1,0 +1,27 @@
+kind = "mobile"
+previewPath = "/mobile/"
+title = "Hands On Creatives Mobile"
+version = "1.0.0"
+id = "artifacts/hoc-website-mobile"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+ensurePreviewReachable = "/status"
+name = "expo"
+paths = [ "/mobile/" ]
+localPort = 18545
+
+[services.development]
+run = "pnpm --filter @workspace/hoc-website-mobile run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/hoc-website-mobile", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/hoc-website-mobile", "run", "serve" ]
+
+[services.env]
+PORT = "18545"
+BASE_PATH = "/mobile/"
