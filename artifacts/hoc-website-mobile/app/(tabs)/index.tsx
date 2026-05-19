@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Pressable,
   Platform,
-  Linking,
 } from "react-native";
 import { router } from "expo-router";
 import * as Haptics from "expo-haptics";
