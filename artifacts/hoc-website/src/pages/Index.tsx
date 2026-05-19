@@ -8,7 +8,7 @@ import teamImg from "@/assets/team-meeting.jpg";
 
 const partners = [
   "MoonSport", "Nostalgia Productions", "MTN", "SAMA Awards", "Darling Films",
-  "Castle Milk Stout", "Lil-lets SA", "DeafTouch", "Sefako Makgatho University",
+  "Castle Milk Stout", "Lil-lets SA", "DeafTouch", "Sefako Makgatho Health Sciences University",
 ];
 
 const valueCards = [
@@ -287,7 +287,7 @@ export function Index() {
                   ),
                 },
                 {
-                  name: "Sefako Makgatho University", sub: "University",
+                  name: "Sefako Makgatho Health Sciences University", sub: "University",
                   logo: (
                     <div className="flex flex-col items-center leading-tight">
                       <span className="font-serif font-extrabold text-2xl text-[#003F87] tracking-wider">SMU</span>
@@ -633,8 +633,8 @@ export function Index() {
               </Reveal>
             </div>
 
-            <Reveal delay={150}>
-              <div className="md:col-span-7">
+            <Reveal delay={150} className="md:col-span-7">
+              <div>
                 <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
                   Built at the intersection of <span className="accent-underline">academia</span>, creative systems, and SASL integration.
                 </h2>
