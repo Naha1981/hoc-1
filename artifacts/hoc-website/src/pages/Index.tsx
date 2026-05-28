@@ -82,52 +82,126 @@ const logoMarqueeItems = [
   { name: "MEDIA: Gopala Davies + Nostalgia", element: mediaGroupElement },
 ];
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/your-form-id";
+
 function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    const form = e.currentTarget;
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "sent") {
+    return (
+      <div className="relative rounded-2xl bg-background text-foreground p-6 md:p-8 ring-1 ring-background/10 shadow-[var(--shadow-lift)] flex flex-col items-center justify-center gap-4 min-h-[320px] text-center">
+        <span className="text-4xl" aria-hidden>✓</span>
+        <p className="font-semibold text-lg">Enquiry received — thank you.</p>
+        <p className="text-sm text-muted-foreground max-w-xs">
+          We'll be in touch within 1–2 business days. In the meantime feel free to email us directly at{" "}
+          <a className="underline" href="mailto:info@hoc.co.za">info@hoc.co.za</a>.
+        </p>
+        <button
+          onClick={() => setStatus("idle")}
+          className="mt-2 text-xs underline text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Submit another enquiry
+        </button>
+      </div>
+    );
+  }
+
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        setStatus("sending");
-        const fd = new FormData(e.currentTarget);
-        const name = String(fd.get("name") || "");
-        const email = String(fd.get("email") || "");
-        const org = String(fd.get("org") || "");
-        const message = String(fd.get("message") || "");
-        const subject = encodeURIComponent(`Strategy enquiry — ${org || name}`);
-        const body = encodeURIComponent(`Name: ${name}\nOrganisation: ${org}\nEmail: ${email}\n\n${message}`);
-        window.location.href = `mailto:info@hoc.co.za?subject=${subject}&body=${body}`;
-        setTimeout(() => setStatus("sent"), 400);
-      }}
+      action={FORMSPREE_ENDPOINT}
+      method="POST"
+      onSubmit={handleSubmit}
       className="relative rounded-2xl bg-background text-foreground p-6 md:p-8 ring-1 ring-background/10 shadow-[var(--shadow-lift)]"
     >
+      <input type="hidden" name="_replyto" value="" />
+
       <div className="grid sm:grid-cols-2 gap-4">
         <label className="block">
           <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Name</span>
-          <input required name="name" type="text" maxLength={100} className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+          <input
+            required
+            name="name"
+            type="text"
+            maxLength={100}
+            placeholder="Your full name"
+            className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+          />
         </label>
         <label className="block">
           <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Organisation</span>
-          <input name="org" type="text" maxLength={120} className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+          <input
+            name="org"
+            type="text"
+            maxLength={120}
+            placeholder="Company or institution"
+            className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+          />
         </label>
       </div>
+
       <label className="block mt-4">
         <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Work email</span>
-        <input required name="email" type="email" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+        <input
+          required
+          name="email"
+          type="email"
+          placeholder="you@organisation.com"
+          className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+        />
       </label>
+
       <label className="block mt-4">
         <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">What you're trying to solve</span>
-        <textarea required name="message" rows={4} maxLength={1500} className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent resize-none" />
-        <span className="mt-1 block text-[10px] text-muted-foreground text-right">Max 1500 characters</span>
+        <textarea
+          required
+          name="message"
+          rows={4}
+          maxLength={1500}
+          placeholder="Describe the challenge or opportunity you'd like us to help with…"
+          className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent resize-none"
+        />
+        <span className="mt-1 block text-[10px] text-muted-foreground text-right">Max 1 500 characters</span>
       </label>
+
+      {status === "error" && (
+        <p className="mt-3 text-sm text-red-600">
+          Something went wrong — please try again or email{" "}
+          <a className="underline" href="mailto:info@hoc.co.za">info@hoc.co.za</a> directly.
+        </p>
+      )}
+
       <button
         type="submit"
         disabled={status === "sending"}
         className="group mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-foreground text-background px-6 py-3.5 text-sm font-semibold tracking-wide hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-60"
       >
-        {status === "sent" ? "Opening your email…" : "Request a Strategy Call"}
-        <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+        {status === "sending" ? "Sending…" : "Request a Strategy Call"}
+        {status !== "sending" && (
+          <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+        )}
       </button>
+
       <p className="mt-3 text-[11px] text-muted-foreground text-center">
         Or email <a className="underline" href="mailto:info@hoc.co.za">info@hoc.co.za</a> directly.
       </p>
