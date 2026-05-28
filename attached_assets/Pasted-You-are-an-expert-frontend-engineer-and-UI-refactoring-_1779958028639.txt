@@ -1,0 +1,93 @@
+You are an expert frontend engineer and UI refactoring specialist. We are modifying an existing codebase pulled from GitHub inside VS Code. You will act as an automated code-editor providing precise, file-by-file modifications to the existing files (primarily `index.html` or your main template files) to implement updates requested by the website owner. 
+
+Maintain the exact high-end minimalist luxury aesthetic, existing layout flow, and Tailwind CSS configuration of the original code, but apply the following structural deletions, content swaps, and global terminology rewrites.
+
+---
+
+### GLOBAL SEARCH & REPLACE EDITS
+1. TERMINOLOGY REWRITE: Search the entire codebase for any occurrences of the phrase "Deaf-led" and replace it completely with "SASL-led" (e.g., change "DEAF-LED DESIGN" to "SASL-LED DESIGN").
+2. SLOGAN REWRITE: Locate the brand identity header/slogan near the logo asset and update it to: "SASL-LED STRATEGY CONSULTING".
+3. BRAND COLOR: Ensure the background wrapper or block container behind the primary brand logo is set to the official brand bold YELLOW.
+
+---
+
+### FILE EDITS BY SECTION:
+
+#### 1. NAVIGATION BAR & HEADER
+- Action: Open the header/navigation block component.
+- Edits:
+  * Update the text links inside the navigation utility grid to match these exact five items: `Home`, `About`, `Services`, `Meet the Team`, and `Contact`.
+  * Locate the primary call-to-action (CTA) button on the far right of the nav bar. Change its text display from "Request Review" to "Get a Quote".
+  * Deletion: Remove the entire secondary row of static client logos that sits immediately below this header area.
+
+#### 2. HERO SECTION
+- Action: Locate the main hero container block.
+- Edits:
+  * Video Embed: Swap or embed the background/inline video asset container with the video component architecture used in `hoc-3`.
+  * Metrics/Stats Grid: Modify the stats row layout. Completely delete the data blocks for "4 continents of collaboration" and "1 system at a time". Keep only these two specific metrics, ensuring they are cleanly aligned and spaced:
+    * "15+ YEARS IN THE DEAF COMMUNITY"
+    * "100% SASL-LED DESIGN"
+
+#### 3. THE OFFER SECTION (DELETIONS & REPOSITIONING)
+- Action: Locate the content area immediately following the Hero section.
+- Deletions: 
+  * Delete the entire text block wrapper that sits just before the old problem section.
+  * Delete the entire section block structurally marked as "THE PROBLEM" (including the "01 Current inclusion models are broken" list through to "04 Treat compliance as the ceiling").
+  * Delete the entire "Executives don't invest in awareness... / Why This Matters" section block completely.
+- Refactor: Rename the title anchor or section label of this newly streamlined region to "THE OFFER".
+
+#### 4. SERVICES / WHAT WE DO SECTION
+- Action: Locate the dark/black background section component containing the corporate boardroom/meeting layout image.
+- Refactor: Rename this section heading from "Capabilities" to "WHAT WE DO" (or "SERVICES"). Remove all existing text blocks inside this dark section container and replace them entirely with a 4-column desktop grid.
+- Interactivity: Configure the Tailwind utility classes for these 4 grid cards so they are interactive/clickable. On hover or click, instead of displaying a text link, dynamically trigger or reveal contextual background images relevant to each block.
+- Exact Text Injection for the 4 Cards:
+  1. "SASL-Inclusive Brand Strategy: We help brands integrate South African Sign Language meaningfully into campaigns, advertising, social media, events, storytelling, customer experience, and brand culture."
+  2. "Accessibility, Inclusivity & Creative Integration: We assess organisational accessibility across customer experience, communication systems, digital platforms, campaigns, events, and institutional culture, while also collaborating on campaigns, productions, performances, live events, media accessibility, and Deaf-centred storytelling to create inclusive, culturally relevant, and impactful experiences."
+  3. "Institutional & Curriculum Development: We provide Deaf education strategy, literacy development, curriculum alignment, academic consultation, teacher development, and educational resource design."
+  4. "SASL Training & Cultural Competency: We offer training for corporate teams, customer-facing staff, hospitality environments, retail spaces, universities, and public institutions."
+- Clean-up Note: Explicitly remove any active or temporary mentions of "AI features" or "AI engines" from this specific section.
+
+#### 5. MEASURABLE RESULTS & CASE STUDIES
+- Action: Locate the section component titled "MEASURABLE RESULTS".
+- Deletions: Delete the split columns displaying the "BEFORE / AFTER" case studies entirely (remove the "From compliance to conversation" card blocks).
+- Workflow Keep: Keep the structural workflow container ("From audit to scale") detailing the steps: 1. Diagnose, 2. Design, 3. Scale. Ensure the link text reads "Discuss your case".
+- Spelling Correction: Locate the text labels/metadata fields within this module and ensure that "Specialisation" is spelled correctly (fix any typos like "speliasation").
+
+#### 6. PRODUCT SHOWCASE (HANDS ON KIDZ)
+- Action: Find the section displaying the image asset of the woman communicating using sign language with a child. 
+- Refactor: Keep the two-column visual split layout perfectly intact (image on one side, text block on the other). Remove the old "Hands On Kidz an AI-powered reading platform..." feature list text entirely, and replace it with this exact text copy block:
+  
+  "Building the future of inclusive learning.
+  Hands On Kidz focuses on accessible educational experiences for children, with a strong emphasis on SASL-led learning and literacy.
+  
+  • Educational accessibility
+  • Literacy development
+  • Inclusive child engagement
+  • Visual communication systems
+  
+  Designed with inclusion at the core."
+
+#### 7. FOUNDER PROFILE
+- Action: Navigate to the component block displaying the bio and portrait image of Mmatiou Moloto.
+- Edits: Update her quote block element text to reflect this exact phrasing: `"Inclusion is not a campaign. It's an operating system - and SASL is its interface." — MMATIOU MOLOTO, FOUNDER`
+
+#### 8. CONTACT FORM & SIDEBAR
+- Action: Locate the "START THE CONVERSATION" form component.
+- Input Constraints: Add standard HTML character length limits or word-count constraints (`maxlength`) to the `<textarea>` input field mapped to "What you're trying to solve" to enforce clean, industry-standard form handling.
+- Location Data Update: In both the contact sidebar block and the global footer file, update the physical address string to read exactly: "Sinosteel Plaza, Johannesburg, South Africa".
+
+#### 9. INFINITE LOGO CAROUSEL FOOTER
+- Action: Locate the brand logo block component. 
+- Refactor: Move this block to the absolute bottom of the page structure (right above or integrated with the footer container, matching the layout style of `hoc-3`). Convert it into a CSS infinite-scrolling marquee slider.
+- Asset Rules: The moving carousel must display ONLY vector brand logos. Remove all plain text fallback names underneath the logos. Ensure the marquee includes clean vector logo blocks for:
+  * MoonSport
+  * MTN
+  * SAMA 29 (Ensure it renders the specific SAMA 29 awards logo variant)
+  * Darling Films
+  * Sefako Makgatho Health Sciences University (SMU)
+  * Castle Milk Stout
+  * Lil-lets SA
+  * Deaf Touch
+  * Gopala Davies and Nostalgia Productions (Explicitly tag and organize this asset under a structural "MEDIA" classification wrapper, not creative).
+
+Please generate the specific, revised code segments or the updated standalone refactored document code executing these exact modifications.

@@ -2,45 +2,131 @@ import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
 import heroImg from "@/assets/hero-signing.jpg";
+import heroPeopleImg from "@/assets/hero-people.jpg";
+import heroHandsImg from "@/assets/hero-hands.jpg";
+import systemDiagramImg from "@/assets/system-diagram.jpg";
 import founderImg from "@/assets/mmatlou.jpg";
 import classroomImg from "@/assets/mmatlou-child.png";
-import teamImg from "@/assets/team-meeting.jpg";
+import teamMeetingImg from "@/assets/team-meeting.jpg";
 
-const partners = [
-  "MoonSport", "Nostalgia Productions", "MTN", "SAMA Awards", "Darling Films",
-  "Castle Milk Stout", "Lil-lets SA", "DeafTouch", "Sefako Makgatho Health Sciences University",
-];
-
-const valueCards = [
+const serviceCards = [
   {
-    k: "01",
-    title: "Market Access",
-    body: "Reach an underserved, high-value audience that competitors structurally cannot.",
+    title: "SASL-Inclusive Brand Strategy",
+    body: "We help brands integrate South African Sign Language meaningfully into campaigns, advertising, social media, events, storytelling, customer experience, and brand culture.",
+    img: heroPeopleImg,
   },
   {
-    k: "02",
-    title: "Innovation",
-    body: "Deaf-led thinking reshapes how products, platforms, and systems are designed.",
+    title: "Accessibility, Inclusivity & Creative Integration",
+    body: "We assess organisational accessibility across customer experience, communication systems, digital platforms, campaigns, events, and institutional culture, while also collaborating on campaigns, productions, performances, live events, media accessibility, and Deaf-centred storytelling to create inclusive, culturally relevant, and impactful experiences.",
+    img: heroHandsImg,
   },
   {
-    k: "03",
-    title: "Growth",
-    body: "Inclusion, when engineered correctly, drives measurable institutional outcomes.",
+    title: "Institutional & Curriculum Development",
+    body: "We provide Deaf education strategy, literacy development, curriculum alignment, academic consultation, teacher development, and educational resource design.",
+    img: systemDiagramImg,
   },
-];
-
-const capabilities = [
-  { title: "Strategic Inclusion Design", body: "Align inclusion with business strategy. Identify system gaps. Define measurable outcomes." },
-  { title: "SASL Integration Systems", body: "Embed SASL across internal systems, customer platforms, and digital environments." },
-  { title: "Institutional Consulting", body: "Restructure inclusion at leadership level — policy, frameworks, long-term adoption." },
-  { title: "Creative System Development", body: "Build the tools that enable inclusion: content systems, interactive platforms, AI-powered access." },
+  {
+    title: "SASL Training & Cultural Competency",
+    body: "We offer training for corporate teams, customer-facing staff, hospitality environments, retail spaces, universities, and public institutions.",
+    img: teamMeetingImg,
+  },
 ];
 
 const steps = [
   { n: "01", t: "Diagnose", d: "We audit current systems and identify where inclusion fails." },
   { n: "02", t: "Design", d: "We architect how SASL integrates into your organisation." },
-  { n: "03", t: "Integrate", d: "We implement across platforms, teams, and workflows." },
-  { n: "04", t: "Scale", d: "We optimise, measure, and expand impact." },
+  { n: "03", t: "Scale", d: "We optimise, measure, and expand impact." },
+];
+
+const logoMarqueeItems = [
+  {
+    name: "MoonSport",
+    element: (
+      <div className="flex items-center gap-1.5">
+        <svg viewBox="0 0 24 24" className="h-6 w-6 text-[#F5C518]" fill="currentColor" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <span className="font-display font-bold text-sm text-[#0a2540]">MoonSport</span>
+      </div>
+    ),
+  },
+  {
+    name: "MTN",
+    element: (
+      <span className="inline-flex items-center justify-center h-10 w-14 rounded-md bg-[#FFCC00] text-black font-black text-lg tracking-tight shadow-sm">MTN</span>
+    ),
+  },
+  {
+    name: "SAMA 29",
+    element: (
+      <div className="flex flex-col items-center leading-none">
+        <span className="font-serif font-bold text-2xl text-[#B8893A] tracking-wide">SAMA</span>
+        <span className="text-[9px] tracking-[0.35em] text-[#B8893A] font-black mt-0.5">29</span>
+      </div>
+    ),
+  },
+  {
+    name: "Darling Films",
+    element: (
+      <div className="flex flex-col items-center leading-none">
+        <span className="font-serif font-bold text-xl text-[#D32F2F] tracking-wide">Darling</span>
+        <span className="text-[8px] tracking-[0.25em] text-[#D32F2F] font-semibold mt-0.5">FILMS</span>
+      </div>
+    ),
+  },
+  {
+    name: "SMU",
+    element: (
+      <div className="flex flex-col items-center leading-tight">
+        <span className="font-serif font-extrabold text-2xl text-[#003F87] tracking-wider">SMU</span>
+        <span className="text-[7px] tracking-[0.12em] text-[#003F87] font-semibold text-center">SEFAKO MAKGATHO</span>
+      </div>
+    ),
+  },
+  {
+    name: "Castle Milk Stout",
+    element: (
+      <div className="flex flex-col items-center leading-none">
+        <svg viewBox="0 0 32 20" className="h-4 w-8 text-[#7a1f1f]" fill="currentColor" aria-hidden="true">
+          <path d="M2 18h28v2H2zM4 8h2V4h3v4h3V4h3v4h3V4h3v4h3V4h3v4h2v8H4z"/>
+        </svg>
+        <span className="font-serif font-bold text-[11px] tracking-wide text-[#1a1a1a] mt-0.5">CASTLE</span>
+        <span className="text-[7px] tracking-[0.2em] text-[#7a1f1f] font-semibold">MILK STOUT</span>
+      </div>
+    ),
+  },
+  {
+    name: "Lil-lets SA",
+    element: (
+      <span className="font-display font-extrabold italic text-2xl text-[#E5006D] lowercase tracking-tight">lil-lets</span>
+    ),
+  },
+  {
+    name: "Deaf Touch",
+    element: (
+      <div className="flex items-center gap-1.5">
+        <span className="text-2xl" aria-hidden="true">🤟</span>
+        <span className="font-display font-bold text-sm text-foreground">DeafTouch</span>
+      </div>
+    ),
+  },
+  {
+    name: "MEDIA: Gopala Davies + Nostalgia",
+    isMediaGroup: true,
+    element: (
+      <div className="flex items-center gap-4 border border-border/50 rounded-lg px-3 py-1.5 relative">
+        <span className="absolute -top-2 left-2 text-[8px] uppercase tracking-[0.2em] text-muted-foreground bg-background px-1">MEDIA</span>
+        <div className="flex flex-col items-center leading-none">
+          <span className="font-sans font-bold text-sm text-foreground tracking-tight">Gopala Davies</span>
+        </div>
+        <span className="text-border">·</span>
+        <div className="flex flex-col items-center leading-none">
+          <span className="font-serif font-bold text-sm text-[#8B5A3C] tracking-wide">Nostalgia</span>
+          <span className="text-[7px] tracking-[0.18em] text-[#8B5A3C] font-semibold">PRODUCTIONS</span>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 function ContactForm() {
@@ -65,11 +151,11 @@ function ContactForm() {
       <div className="grid sm:grid-cols-2 gap-4">
         <label className="block">
           <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Name</span>
-          <input required name="name" type="text" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+          <input required name="name" type="text" maxLength={100} className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
         </label>
         <label className="block">
           <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Organisation</span>
-          <input name="org" type="text" className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+          <input name="org" type="text" maxLength={120} className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
         </label>
       </div>
       <label className="block mt-4">
@@ -78,7 +164,8 @@ function ContactForm() {
       </label>
       <label className="block mt-4">
         <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">What you're trying to solve</span>
-        <textarea required name="message" rows={4} className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+        <textarea required name="message" rows={4} maxLength={1500} className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent resize-none" />
+        <span className="mt-1 block text-[10px] text-muted-foreground text-right">Max 1500 characters</span>
       </label>
       <button
         type="submit"
@@ -154,7 +241,6 @@ export function Index() {
                   width={1568}
                   height={624}
                   loading="eager"
-                  fetchPriority="high"
                   decoding="async"
                 />
                 <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-foreground/55 via-foreground/15 to-transparent md:from-foreground/40 md:via-foreground/8 lg:from-foreground/30 lg:via-foreground/5" />
@@ -172,25 +258,16 @@ export function Index() {
                 </div>
               </div>
 
+              {/* Stats — keep only 15+ years and 100% SASL-led */}
               <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4 text-xs text-muted-foreground">
                 <div>
                   <div className="text-2xl font-semibold text-foreground">15+</div>
-                  <div className="uppercase tracking-widest">years in the Deaf community</div>
-                </div>
-                <div className="hidden sm:block h-10 w-px bg-border" />
-                <div>
-                  <div className="text-2xl font-semibold text-foreground">4</div>
-                  <div className="uppercase tracking-widest">continents of collaboration</div>
+                  <div className="uppercase tracking-widest">YEARS IN THE DEAF COMMUNITY</div>
                 </div>
                 <div className="hidden sm:block h-10 w-px bg-border" />
                 <div>
                   <div className="text-2xl font-semibold text-foreground">100%</div>
-                  <div className="uppercase tracking-widest">Deaf-led design</div>
-                </div>
-                <div className="hidden sm:block h-10 w-px bg-border" />
-                <div>
-                  <div className="text-2xl font-semibold text-foreground">1</div>
-                  <div className="uppercase tracking-widest">system at a time</div>
+                  <div className="uppercase tracking-widest">SASL-LED DESIGN</div>
                 </div>
               </div>
             </div>
@@ -198,183 +275,13 @@ export function Index() {
         </div>
       </section>
 
-      {/* TRUST STRIP */}
-      <section aria-label="Selected partners and clients" className="border-y border-border bg-background">
-        <div className="container-x py-10">
-          <Reveal>
-            <div className="text-center md:text-left text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-              Trusted across corporate, academia, broadcast & the Deaf community
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <ul className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-px bg-border rounded-2xl overflow-hidden border border-border">
-              {[
-                {
-                  name: "MoonSport", sub: "Broadcast",
-                  logo: (
-                    <div className="flex items-center gap-1.5">
-                      <svg viewBox="0 0 24 24" className="h-6 w-6 text-[#F5C518]" fill="currentColor" aria-hidden="true">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                      </svg>
-                      <div className="flex flex-col leading-none items-start">
-                        <span className="font-display font-bold text-sm text-[#0a2540]">MoonSport</span>
-                        <span className="text-[7px] tracking-[0.2em] text-muted-foreground font-semibold mt-0.5">BROADCAST</span>
-                      </div>
-                    </div>
-                  ),
-                },
-                {
-                  name: "Nostalgia Productions", sub: "Creative",
-                  logo: (
-                    <div className="flex flex-col items-center leading-none">
-                      <span className="font-serif font-bold text-lg text-[#8B5A3C] tracking-wide">Nostalgia</span>
-                      <span className="text-[8px] tracking-[0.2em] text-[#8B5A3C] font-semibold mt-0.5">PRODUCTIONS</span>
-                    </div>
-                  ),
-                },
-                {
-                  name: "MTN", sub: "Telecoms",
-                  logo: (
-                    <span className="inline-flex items-center justify-center h-10 w-14 rounded-md bg-[#FFCC00] text-black font-black text-lg tracking-tight shadow-sm">MTN</span>
-                  ),
-                },
-                {
-                  name: "SAMA Awards", sub: "Music",
-                  logo: (
-                    <div className="flex flex-col items-center leading-none">
-                      <span className="font-serif font-bold text-2xl text-[#B8893A] tracking-wide">SAMA</span>
-                      <span className="text-[8px] tracking-[0.3em] text-[#B8893A] font-semibold mt-0.5">AWARDS</span>
-                    </div>
-                  ),
-                },
-                {
-                  name: "Darling Films", sub: "Media",
-                  logo: (
-                    <div className="flex flex-col items-center leading-none">
-                      <span className="font-serif font-bold text-xl text-[#D32F2F] tracking-wide">Darling</span>
-                      <span className="text-[8px] tracking-[0.25em] text-[#D32F2F] font-semibold mt-0.5">FILMS</span>
-                    </div>
-                  ),
-                },
-                {
-                  name: "Castle Milk Stout", sub: "FMCG",
-                  logo: (
-                    <div className="flex flex-col items-center leading-none">
-                      <svg viewBox="0 0 32 20" className="h-4 w-8 text-[#7a1f1f]" fill="currentColor" aria-hidden="true">
-                        <path d="M2 18h28v2H2zM4 8h2V4h3v4h3V4h3v4h3V4h3v4h3V4h3v4h2v8H4z"/>
-                      </svg>
-                      <span className="font-serif font-bold text-[13px] tracking-wide text-[#1a1a1a] mt-0.5">CASTLE</span>
-                      <span className="text-[8px] tracking-[0.25em] text-[#7a1f1f] font-semibold">MILK STOUT</span>
-                    </div>
-                  ),
-                },
-                {
-                  name: "Lil-lets SA", sub: "Consumer",
-                  logo: (
-                    <span className="font-display font-extrabold italic text-2xl text-[#E5006D] lowercase tracking-tight">lil-lets</span>
-                  ),
-                },
-                {
-                  name: "DeafTouch", sub: "Community",
-                  logo: (
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-2xl" aria-hidden="true">🤟</span>
-                      <div className="flex flex-col leading-none items-start">
-                        <span className="font-display font-bold text-sm text-foreground">DeafTouch</span>
-                        <span className="text-[7px] tracking-[0.2em] text-muted-foreground font-semibold mt-0.5">COMMUNITY</span>
-                      </div>
-                    </div>
-                  ),
-                },
-                {
-                  name: "Sefako Makgatho Health Sciences University", sub: "University",
-                  logo: (
-                    <div className="flex flex-col items-center leading-tight">
-                      <span className="font-serif font-extrabold text-2xl text-[#003F87] tracking-wider">SMU</span>
-                      <span className="text-[7px] tracking-[0.15em] text-[#003F87] font-semibold text-center">SEFAKO MAKGATHO</span>
-                    </div>
-                  ),
-                },
-              ].map((p) => (
-                <li
-                  key={p.name}
-                  tabIndex={0}
-                  aria-label={`${p.name} — ${p.sub}`}
-                  className="group relative bg-card hover:bg-background transition-colors duration-300 min-h-36 flex flex-col items-center justify-center gap-3 px-4 py-6 text-center outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:z-10 focus-visible:rounded-sm"
-                >
-                  <div
-                    role="img"
-                    aria-label={`${p.name} logo`}
-                    className="w-full max-w-[160px] aspect-[5/2] flex items-center justify-center overflow-hidden opacity-70 grayscale saturate-50 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:grayscale-0 group-hover:saturate-100 group-focus-within:opacity-100 group-focus-within:grayscale-0 group-focus-within:saturate-100 [&_img]:max-h-full [&_img]:max-w-full [&_img]:object-contain [&_svg]:max-h-full [&_svg]:max-w-full"
-                  >
-                    <span className="sr-only">{p.name}</span>
-                    {p.logo}
-                  </div>
-                  <span className="font-display text-sm md:text-[15px] font-medium tracking-tight text-foreground/90 group-hover:text-foreground transition-colors duration-300 leading-tight">
-                    {p.name}
-                  </span>
-                  <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
-                    {p.sub}
-                  </span>
-                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 h-px w-6 bg-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* POSITIONING STRIP */}
-      <section className="border-y border-border bg-surface">
-        <div className="container-x py-20">
-          <Reveal>
-            <p className="font-display text-2xl md:text-4xl leading-snug max-w-4xl tracking-tight">
-              Most organisations approach inclusion as <span className="text-muted-foreground">visibility</span>. That's why it <span className="accent-underline font-semibold">fails</span>. Inclusion is not messaging. It's <span className="text-accent font-semibold">infrastructure</span>.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* PROBLEM */}
-      <section className="container-x py-28">
-        <div className="grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-5">
-            <Reveal>
-              <div className="text-xs uppercase tracking-[0.2em] text-accent">The Problem</div>
-              <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">Current inclusion models are broken.</h2>
-              <p className="mt-6 text-muted-foreground max-w-md">Compliance without impact. Visibility without access. Effort without return.</p>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-7">
-            <ul className="divide-y divide-border border-y border-border">
-              {[
-                "Sit outside core business systems",
-                "Fail to reach Deaf audiences effectively",
-                "Deliver no measurable return on investment",
-                "Treat compliance as the ceiling, not the floor",
-              ].map((b, i) => (
-                <Reveal key={b} delay={i * 100}>
-                  <li className="flex items-start gap-6 py-6">
-                    <span className="text-sm tabular-nums text-muted-foreground pt-1 w-10">0{i + 1}</span>
-                    <span className="text-xl md:text-2xl font-medium tracking-tight">{b}</span>
-                  </li>
-                </Reveal>
-              ))}
-            </ul>
-            <Reveal>
-              <p className="mt-8 text-lg text-muted-foreground">The result? <span className="text-foreground font-medium">Missed markets. Limited innovation. Compliance without impact.</span></p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* SOLUTION */}
+      {/* THE OFFER */}
       <section className="bg-foreground text-background">
         <div className="container-x py-28">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal>
               <div>
-                <div className="text-xs uppercase tracking-[0.2em] text-accent">The Solution</div>
+                <div className="text-xs uppercase tracking-[0.2em] text-accent">The Offer</div>
                 <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">We redesign how inclusion works.</h2>
                 <p className="mt-6 text-background/70 max-w-lg">Hands On Creatives integrates SASL into communication systems, customer experience, and institutional frameworks. Not as an add-on — as a core function.</p>
                 <ul className="mt-10 space-y-4">
@@ -384,7 +291,7 @@ export function Index() {
                     "Institutional frameworks: Policy, training, and operations restructured for adoption at scale.",
                   ].map((x) => (
                     <li key={x} className="group flex items-center gap-4 rounded-xl border border-background/10 px-5 py-4 hover:border-accent hover:bg-background/5 transition-all hover:translate-x-1">
-                      <span className="h-2 w-2 rounded-full bg-accent" />
+                      <span className="h-2 w-2 rounded-full bg-accent flex-shrink-0" />
                       <span className="text-lg">{x}</span>
                       <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-background/60">→</span>
                     </li>
@@ -394,7 +301,7 @@ export function Index() {
             </Reveal>
             <Reveal delay={200}>
               <div className="relative aspect-square rounded-[2rem] overflow-hidden ring-1 ring-background/15 bg-background">
-                <img src={teamImg} alt="Team collaboration with SASL integration" className="h-full w-full object-cover" loading="lazy" width={1600} height={1200} />
+                <img src={teamMeetingImg} alt="Team collaboration with SASL integration" className="h-full w-full object-cover" loading="lazy" width={1600} height={1200} />
                 <div className="absolute top-5 left-5 rounded-full bg-background text-foreground px-3 py-1 text-xs uppercase tracking-widest">System view</div>
               </div>
             </Reveal>
@@ -402,53 +309,37 @@ export function Index() {
         </div>
       </section>
 
-      {/* VALUE */}
-      <section className="container-x py-28">
-        <div className="max-w-2xl">
-          <Reveal>
-            <div className="text-xs uppercase tracking-[0.2em] text-accent">Why this matters</div>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">Executives don't invest in awareness. They invest in advantage.</h2>
-          </Reveal>
-        </div>
-        <div className="mt-14 grid md:grid-cols-3 gap-6">
-          {valueCards.map((c, i) => (
-            <Reveal key={c.k} delay={i * 120}>
-              <article className="group relative h-full rounded-2xl border border-border bg-card p-8 transition-all hover:-translate-y-2 hover:shadow-[var(--shadow-elegant)] hover:border-accent/40">
-                <div className="text-xs tabular-nums text-muted-foreground">{c.k}</div>
-                <h3 className="mt-3 text-2xl font-semibold tracking-tight">{c.title}</h3>
-                <p className="mt-4 text-muted-foreground">{c.body}</p>
-                <div className="mt-10 inline-flex items-center gap-2 text-sm text-foreground/70 group-hover:text-accent transition-colors">
-                  Outcome → measured
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* CAPABILITIES */}
+      {/* WHAT WE DO */}
       <section id="capabilities" className="scroll-mt-24 bg-surface border-y border-border">
         <div className="container-x py-28">
           <div className="flex items-end justify-between flex-wrap gap-6">
             <Reveal>
               <div>
-                <div className="text-xs uppercase tracking-[0.2em] text-accent">Capabilities</div>
-                <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight">What we do.</h2>
+                <div className="text-xs uppercase tracking-[0.2em] text-accent">What We Do</div>
+                <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight">Services.</h2>
               </div>
             </Reveal>
             <Reveal>
               <p className="max-w-sm text-muted-foreground">Everything we build is designed for scale, embedded in operations, and measured against outcomes.</p>
             </Reveal>
           </div>
-          <div className="mt-14 grid md:grid-cols-2 gap-6">
-            {capabilities.map((c, i) => (
+          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {serviceCards.map((c, i) => (
               <Reveal key={c.title} delay={i * 100}>
-                <div className="group rounded-2xl border border-border bg-card p-8 hover:border-foreground transition-all hover:shadow-[var(--shadow-card)]">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-2xl font-semibold tracking-tight">{c.title}</h3>
-                    <span className="h-9 w-9 rounded-full bg-foreground text-background grid place-items-center text-sm transition-transform group-hover:rotate-45">↗</span>
+                <div className="group relative rounded-2xl border border-border bg-card overflow-hidden cursor-pointer hover:border-foreground transition-all hover:shadow-[var(--shadow-elegant)] min-h-[300px] flex flex-col">
+                  {/* Hover background image */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <img src={c.img} alt="" className="h-full w-full object-cover" aria-hidden="true" />
+                    <div className="absolute inset-0 bg-foreground/80" />
                   </div>
-                  <p className="mt-4 text-muted-foreground max-w-md">{c.body}</p>
+                  {/* Card content */}
+                  <div className="relative p-7 flex flex-col flex-1">
+                    <div className="flex items-start justify-between gap-3 mb-4">
+                      <h3 className="text-lg font-semibold tracking-tight leading-snug group-hover:text-background transition-colors">{c.title}</h3>
+                      <span className="h-8 w-8 rounded-full bg-foreground text-background grid place-items-center text-sm transition-all flex-shrink-0 group-hover:bg-accent group-hover:text-foreground group-hover:rotate-45">↗</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground group-hover:text-background/80 transition-colors leading-relaxed flex-1">{c.body}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -456,7 +347,7 @@ export function Index() {
         </div>
       </section>
 
-      {/* RESULTS & CASE STUDIES */}
+      {/* MEASURABLE RESULTS */}
       <section id="results" className="scroll-mt-24 relative bg-background border-b border-border">
         <div className="container-x py-28">
           <div className="flex items-end justify-between flex-wrap gap-6">
@@ -485,63 +376,6 @@ export function Index() {
             ))}
           </div>
 
-          <div className="mt-16 grid lg:grid-cols-3 gap-6">
-            {[
-              {
-                tag: "Corporate · Brand",
-                client: "MTN, Castle Milk Stout, Lil-lets SA",
-                title: "From compliance to conversation.",
-                before: "Brand campaigns reached Deaf audiences passively, if at all.",
-                after: "SASL integrated into campaign architecture — live brand engagement with Deaf consumers.",
-                metric: "+3.7M",
-                metricLabel: "audience newly reachable",
-              },
-              {
-                tag: "Academia · Health Sciences",
-                client: "Sefako Makgatho Health Sciences University",
-                title: "SASL embedded into curriculum.",
-                before: "Accessibility treated as a student-services line item.",
-                after: "Strategic partnership integrating SASL across teaching, clinical communication, and policy.",
-                metric: "1 of 1",
-                metricLabel: "Deaf-centred HSU partnership in SA",
-              },
-              {
-                tag: "National Stage · Sport & Music",
-                client: "MoonSport · Springbok Anthems · SAMA Awards",
-                title: "SASL on the country's biggest stages.",
-                before: "Sign language treated as a corner-of-screen overlay.",
-                after: "Performance-grade SASL integration into national broadcasts and live productions.",
-                metric: "Prime-time",
-                metricLabel: "SASL visibility, national reach",
-              },
-            ].map((c, i) => (
-              <Reveal key={c.title} delay={i * 120}>
-                <article className="group h-full rounded-2xl border border-border bg-card p-8 hover:-translate-y-2 hover:shadow-[var(--shadow-elegant)] hover:border-accent/40 transition-all flex flex-col">
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-accent">{c.tag}</div>
-                  <div className="mt-2 text-xs text-muted-foreground">{c.client}</div>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-tight leading-tight">{c.title}</h3>
-                  <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
-                    <div className="rounded-xl border border-border p-4">
-                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Before</div>
-                      <p className="mt-2 text-foreground/80">{c.before}</p>
-                    </div>
-                    <div className="rounded-xl border border-accent/40 bg-accent/10 p-4">
-                      <div className="text-[10px] uppercase tracking-widest text-accent">After</div>
-                      <p className="mt-2 text-foreground">{c.after}</p>
-                    </div>
-                  </div>
-                  <div className="mt-auto pt-8 flex items-end justify-between">
-                    <div>
-                      <div className="font-display text-3xl font-semibold tracking-tight">{c.metric}</div>
-                      <div className="text-[11px] uppercase tracking-widest text-muted-foreground">{c.metricLabel}</div>
-                    </div>
-                    <span className="h-9 w-9 rounded-full bg-foreground text-background grid place-items-center text-sm transition-transform group-hover:rotate-45">↗</span>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-
           <Reveal>
             <div className="mt-12 flex justify-center">
               <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background px-7 py-4 text-sm font-semibold tracking-wide hover:scale-[1.03] hover:shadow-[var(--shadow-lift)] active:scale-[0.98] transition-all">
@@ -553,7 +387,7 @@ export function Index() {
         </div>
       </section>
 
-      {/* APPROACH / PROCESS */}
+      {/* FROM AUDIT TO SCALE */}
       <section id="approach" className="scroll-mt-24 container-x py-28">
         <Reveal>
           <div className="max-w-2xl">
@@ -561,7 +395,7 @@ export function Index() {
             <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight">From audit to scale.</h2>
           </div>
         </Reveal>
-        <div className="mt-14 grid md:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+        <div className="mt-14 grid md:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
           {steps.map((s, i) => (
             <Reveal key={s.n} delay={i * 120}>
               <div className="bg-background p-8 h-full">
@@ -574,21 +408,24 @@ export function Index() {
         </div>
       </section>
 
-      {/* PRODUCT */}
+      {/* HANDS ON KIDZ */}
       <section id="product" className="scroll-mt-24 bg-foreground text-background">
         <div className="container-x py-28">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal>
               <div>
                 <div className="text-xs uppercase tracking-[0.2em] text-accent">Product</div>
-                <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">We don't just advise. We build.</h2>
-                <p className="mt-6 text-background/70 max-w-lg text-lg">Hands On Kidz — an AI-powered reading platform engineered for Deaf learners.</p>
+                <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">Building the future of inclusive learning.</h2>
+                <p className="mt-6 text-background/70 max-w-lg text-lg">
+                  Hands On Kidz focuses on accessible educational experiences for children, with a strong emphasis on SASL-led learning and literacy.
+                </p>
                 <ul className="mt-8 space-y-3 text-background/80">
-                  <li>· AI Reading Engine (word-level tokenization)</li>
-                  <li>· SASL Animation System (Reader and Comprehension modes)</li>
-                  <li>· Inclusive Interaction Design</li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />Educational accessibility</li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />Literacy development</li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />Inclusive child engagement</li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />Visual communication systems</li>
                 </ul>
-                <p className="mt-8 text-background/60 italic">This is what inclusion looks like when it's engineered.</p>
+                <p className="mt-8 text-background/60 italic">Designed with inclusion at the core.</p>
               </div>
             </Reveal>
             <Reveal delay={200}>
@@ -596,10 +433,6 @@ export function Index() {
                 <img src={classroomImg} alt="SASL learning in action" className="h-full w-full object-cover" loading="lazy" width={1200} height={900} />
                 <div className="absolute top-5 left-5 right-5 flex items-center justify-between">
                   <div className="rounded-full bg-background text-foreground px-3 py-1 text-xs uppercase tracking-widest">Hands On Kidz</div>
-                  <div className="rounded-full bg-background/90 backdrop-blur p-1 flex text-xs">
-                    <span className="px-3 py-1 rounded-full bg-foreground text-background">Reader</span>
-                    <span className="px-3 py-1 text-foreground">SASL</span>
-                  </div>
                 </div>
               </div>
             </Reveal>
@@ -615,7 +448,7 @@ export function Index() {
             <div className="text-xs uppercase tracking-[0.2em] text-accent">Founder</div>
           </Reveal>
           <div className="mt-6 grid md:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-start">
-            <div className="md:col-span-5 md:sticky md:top-28 self-start">
+            <div id="team" className="md:col-span-5 md:sticky md:top-28 self-start">
               <Reveal>
                 <div className="relative">
                   <div className="absolute -inset-3 rounded-[2rem] bg-accent/40 -z-0" />
@@ -645,7 +478,7 @@ export function Index() {
                 <dl className="mt-10 grid sm:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden border border-border max-w-2xl">
                   {[
                     { k: "Role", v: "Founder, Strategist, Creative Consultant" },
-                    { k: "Specialism", v: "SASL integration & Deaf-led system design" },
+                    { k: "Specialisation", v: "SASL integration & SASL-led system design" },
                     { k: "Experience", v: "15+ years inside the Deaf community" },
                     { k: "Sector reach", v: "Corporate · Academia · Broadcast · Public" },
                   ].map((s) => (
@@ -686,9 +519,9 @@ export function Index() {
 
                 <blockquote className="mt-8 rounded-2xl border-l-4 border-accent bg-card p-6 max-w-2xl">
                   <p className="font-display text-xl tracking-tight leading-snug">
-                    "Inclusion is not a campaign. It's an operating system — and SASL is its interface."
+                    "Inclusion is not a campaign. It's an operating system - and SASL is its interface."
                   </p>
-                  <footer className="mt-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">Mmatlou Moloto · Founder</footer>
+                  <footer className="mt-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">MMATIOU MOLOTO, FOUNDER</footer>
                 </blockquote>
 
                 <div className="mt-8">
@@ -699,22 +532,6 @@ export function Index() {
                 </div>
               </div>
             </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* TRUST */}
-      <section className="border-y border-border bg-background overflow-hidden">
-        <div className="container-x py-12">
-          <Reveal>
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Working across institutions, education, and innovation ecosystems.</div>
-          </Reveal>
-        </div>
-        <div className="relative">
-          <div className="flex gap-16 marquee whitespace-nowrap py-6 text-2xl md:text-3xl font-display tracking-tight text-foreground/40">
-            {[...partners, ...partners].map((p, i) => (
-              <span key={i} className="hover:text-foreground transition-colors">{p} <span className="mx-6 text-accent">·</span></span>
-            ))}
           </div>
         </div>
       </section>
@@ -735,7 +552,7 @@ export function Index() {
                 <ul className="mt-8 space-y-3 text-background/80 text-sm">
                   <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> <a href="mailto:info@hoc.co.za" className="hover:text-accent transition-colors">info@hoc.co.za</a></li>
                   <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> <a href="tel:+27784708240" className="hover:text-accent transition-colors">+27 78 470 8240</a></li>
-                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> Johannesburg, South Africa</li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> Sinosteel Plaza, Johannesburg, South Africa</li>
                 </ul>
               </div>
               <ContactForm />
@@ -744,16 +561,43 @@ export function Index() {
         </Reveal>
       </section>
 
+      {/* PARTNER LOGO CAROUSEL — bottom of page */}
+      <section aria-label="Our partners and clients" className="border-t border-border bg-background overflow-hidden">
+        <div className="container-x pt-10 pb-4">
+          <Reveal>
+            <div className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+              Trusted across corporate, academia, broadcast &amp; the Deaf community
+            </div>
+          </Reveal>
+        </div>
+        <div className="relative py-8">
+          {/* Left / right fade masks */}
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+          <div className="flex gap-14 marquee whitespace-nowrap items-center">
+            {[...logoMarqueeItems, ...logoMarqueeItems].map((item, i) => (
+              <div
+                key={i}
+                aria-label={item.name}
+                className="inline-flex items-center justify-center opacity-60 hover:opacity-100 grayscale hover:grayscale-0 saturate-50 hover:saturate-100 transition-all duration-300 flex-shrink-0"
+              >
+                {item.element}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="bg-foreground text-background">
         <div className="container-x py-16">
           <div className="grid md:grid-cols-12 gap-10">
             <div className="md:col-span-5">
               <div className="flex items-center gap-3">
-                <span className="h-10 w-10 rounded-full bg-accent grid place-items-center text-foreground font-bold">H</span>
+                <span className="h-10 w-10 rounded-full bg-[#FFD600] grid place-items-center text-foreground font-bold">H</span>
                 <div>
                   <div className="text-base font-semibold">Hands On Creatives</div>
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-background/60">SASL-led · Deaf-focused</div>
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-background/60">SASL-LED STRATEGY CONSULTING</div>
                 </div>
               </div>
               <p className="mt-6 text-background/70 max-w-sm leading-relaxed">
@@ -763,7 +607,7 @@ export function Index() {
             <div className="md:col-span-3">
               <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Explore</div>
               <ul className="mt-5 space-y-3 text-sm text-background/80">
-                <li><a href="#capabilities" className="hover:text-accent transition-colors">Capabilities</a></li>
+                <li><a href="#capabilities" className="hover:text-accent transition-colors">What We Do</a></li>
                 <li><a href="#product" className="hover:text-accent transition-colors">Product</a></li>
                 <li><a href="#approach" className="hover:text-accent transition-colors">Approach</a></li>
                 <li><a href="#founder" className="hover:text-accent transition-colors">Founder</a></li>
@@ -774,7 +618,7 @@ export function Index() {
               <ul className="mt-5 space-y-3 text-sm text-background/80">
                 <li><a href="mailto:info@hoc.co.za" className="hover:text-accent transition-colors">info@hoc.co.za</a></li>
                 <li><a href="tel:+27784708240" className="hover:text-accent transition-colors">+27 78 470 8240</a></li>
-                <li>Johannesburg, South Africa</li>
+                <li>Sinosteel Plaza, Johannesburg, South Africa</li>
               </ul>
               <a href="#contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-5 py-3 text-sm font-medium hover:scale-[1.03] transition-transform">
                 Start the Conversation →

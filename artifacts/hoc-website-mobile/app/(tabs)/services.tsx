@@ -15,26 +15,25 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 const steps = [
   { n: "01", t: "Diagnose", d: "Audit current systems. Identify where inclusion fails." },
   { n: "02", t: "Design", d: "Architect how SASL integrates into your organisation." },
-  { n: "03", t: "Integrate", d: "Implement across platforms, teams, and workflows." },
-  { n: "04", t: "Scale", d: "Optimise, measure, and expand impact." },
+  { n: "03", t: "Scale", d: "Optimise, measure, and expand impact." },
 ];
 
 const services = [
   {
-    title: "Strategic Inclusion Design",
-    body: "Align inclusion with business strategy. Identify system gaps. Define measurable outcomes. We work at the intersection of policy, commercial strategy, and language access.",
+    title: "SASL-Inclusive Brand Strategy",
+    body: "We help brands integrate South African Sign Language meaningfully into campaigns, advertising, social media, events, storytelling, customer experience, and brand culture.",
   },
   {
-    title: "SASL Integration Systems",
-    body: "Embed SASL across internal systems, customer platforms, and digital environments. Not as a subtitle — as a primary interface.",
+    title: "Accessibility, Inclusivity & Creative Integration",
+    body: "We assess organisational accessibility across customer experience, communication systems, digital platforms, campaigns, events, and institutional culture.",
   },
   {
-    title: "Institutional Consulting",
-    body: "Restructure inclusion at leadership level — policy, frameworks, long-term adoption. We work with executives to embed Deaf-centred thinking into governance.",
+    title: "Institutional & Curriculum Development",
+    body: "We provide Deaf education strategy, literacy development, curriculum alignment, academic consultation, teacher development, and educational resource design.",
   },
   {
-    title: "Creative System Development",
-    body: "Build the tools that enable inclusion: content systems, interactive platforms, AI-powered access. From strategy to delivery.",
+    title: "SASL Training & Cultural Competency",
+    body: "We offer training for corporate teams, customer-facing staff, hospitality environments, retail spaces, universities, and public institutions.",
   },
 ];
 
@@ -100,7 +99,7 @@ export default function ServicesScreen() {
         style={({ pressed }) => [s.ctaBtn, { backgroundColor: colors.primary }, pressed && s.ctaBtnPressed]}
         onPress={handleCTA}
       >
-        <Text style={[s.ctaText, { color: colors.primaryForeground }]}>Start the conversation</Text>
+        <Text style={[s.ctaText, { color: colors.primaryForeground }]}>Get a Quote</Text>
         <Text style={[s.ctaArrow, { color: colors.primaryForeground }]}>→</Text>
       </Pressable>
     </ScrollView>

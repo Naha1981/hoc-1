@@ -67,10 +67,10 @@ export default function RequestScreen() {
       keyboardShouldPersistTaps="handled"
       bottomOffset={20}
     >
-      <Text style={s.sectionLabel}>REQUEST REVIEW</Text>
-      <Text style={s.heading}>This is not a contact form.</Text>
+      <Text style={s.sectionLabel}>GET A QUOTE</Text>
+      <Text style={s.heading}>Start the conversation.</Text>
       <Text style={s.subText}>
-        We work with organisations ready to integrate inclusion into their systems — not those exploring ideas. Ask yourself: are you ready to restructure how your institution approaches inclusion?
+        For organisations ready to integrate inclusion into their systems. We only take on work where we can deliver measurable, structural change.
       </Text>
 
       {/* Expectations */}

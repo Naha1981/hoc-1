@@ -14,31 +14,19 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const stats = [
   { value: "15+", label: "Years in the\nDeaf community" },
-  { value: "4", label: "Continents of\ncollaboration" },
-  { value: "100%", label: "Deaf-led\ndesign" },
+  { value: "100%", label: "SASL-led\ndesign" },
 ];
 
-const valueCards = [
-  {
-    k: "01",
-    title: "Market Access",
-    body: "Reach an underserved, high-value audience that competitors structurally cannot.",
-  },
-  {
-    k: "02",
-    title: "Innovation",
-    body: "Deaf-led thinking reshapes how products, platforms, and systems are designed.",
-  },
-  {
-    k: "03",
-    title: "Growth",
-    body: "Inclusion, when engineered correctly, drives measurable institutional outcomes.",
-  },
+const offerItems = [
+  "Communication systems: Internal and external channels rebuilt around language equity.",
+  "Customer experience: Service design that includes Deaf customers as a first-class audience.",
+  "Institutional frameworks: Policy, training, and operations restructured for adoption at scale.",
 ];
 
 const partners = [
-  "MoonSport", "MTN", "SAMA Awards", "Darling Films",
+  "MoonSport", "MTN", "SAMA 29", "Darling Films",
   "Castle Milk Stout", "Lil-lets SA", "DeafTouch", "Sefako Makgatho Univ.",
+  "Gopala Davies", "Nostalgia Productions",
 ];
 
 export default function HomeScreen() {
@@ -99,50 +87,46 @@ export default function HomeScreen() {
         ))}
       </View>
 
-      {/* Positioning quote */}
-      <View style={[s.quoteBlock, { backgroundColor: colors.surface }]}>
-        <Text style={s.quoteText}>
-          Most organisations approach inclusion as <Text style={s.quoteMuted}>visibility</Text>. That's why it <Text style={s.quoteBold}>fails</Text>. Inclusion is not messaging. It's <Text style={s.quoteAccentText}>infrastructure</Text>.
-        </Text>
+      {/* The Offer */}
+      <View style={[s.offerBlock, { backgroundColor: colors.foreground }]}>
+        <Text style={s.offerLabel}>THE OFFER</Text>
+        <Text style={s.offerHeading}>We redesign how inclusion works.</Text>
+        {offerItems.map((item, i) => (
+          <View key={i} style={s.offerItem}>
+            <View style={s.offerDot} />
+            <Text style={s.offerText}>{item}</Text>
+          </View>
+        ))}
       </View>
-
-      {/* Value cards */}
-      <Text style={s.sectionLabel}>WHY THIS MATTERS</Text>
-      <Text style={s.sectionHeading}>Executives invest in advantage, not awareness.</Text>
-      {valueCards.map((c) => (
-        <View key={c.k} style={[s.valueCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
-          <Text style={s.valueNum}>{c.k}</Text>
-          <Text style={s.valueTitle}>{c.title}</Text>
-          <Text style={s.valueBody}>{c.body}</Text>
-        </View>
-      ))}
 
       {/* Partners */}
       <Text style={s.sectionLabel}>TRUSTED BY</Text>
       <View style={s.partnersGrid}>
         {partners.map((p) => (
           <View key={p} style={[s.partnerPill, { backgroundColor: colors.card, borderColor: colors.border }]}>
-            <Text style={s.partnerName}>{p}</Text>
+            <Text style={[s.partnerName, { color: colors.foreground }]}>{p}</Text>
           </View>
         ))}
       </View>
 
-      {/* Problem */}
-      <View style={[s.problemBlock, { backgroundColor: colors.foreground }]}>
-        <Text style={s.problemLabel}>THE PROBLEM</Text>
-        <Text style={s.problemHeading}>Current inclusion models are broken.</Text>
-        {[
-          "Sit outside core business systems",
-          "Fail to reach Deaf audiences",
-          "Deliver no measurable ROI",
-          "Treat compliance as the ceiling",
-        ].map((b, i) => (
-          <View key={i} style={s.problemItem}>
-            <Text style={s.problemNum}>0{i + 1}</Text>
-            <Text style={s.problemText}>{b}</Text>
-          </View>
-        ))}
+      {/* Founder quote */}
+      <View style={[s.quoteBlock, { borderLeftColor: colors.accent, backgroundColor: colors.surface }]}>
+        <Text style={[s.quoteText, { color: colors.foreground }]}>
+          "Inclusion is not a campaign. It's an operating system — and SASL is its interface."
+        </Text>
+        <Text style={[s.quoteAuthor, { color: colors.mutedForeground }]}>
+          MMATLOU MOLOTO · FOUNDER
+        </Text>
       </View>
+
+      {/* Secondary CTA */}
+      <Pressable
+        style={({ pressed }) => [s.secondaryCta, { borderColor: colors.border }, pressed && s.ctaBtnPressed]}
+        onPress={() => router.push("/(tabs)/services")}
+      >
+        <Text style={[s.secondaryCtaText, { color: colors.foreground }]}>View all services</Text>
+        <Text style={[s.ctaArrow, { color: colors.foreground }]}>→</Text>
+      </Pressable>
     </ScrollView>
   );
 }
@@ -252,25 +236,49 @@ function makeStyles(colors: ReturnType<typeof import("@/hooks/useColors").useCol
       textTransform: "uppercase",
     },
 
-    quoteBlock: {
-      borderRadius: colors.radius,
-      padding: 20,
+    offerBlock: {
+      borderRadius: colors.radius * 1.5,
+      padding: 24,
       marginBottom: 32,
     },
-    quoteText: {
-      fontSize: 18,
-      fontFamily: "Inter_400Regular",
-      color: colors.foreground,
-      lineHeight: 26,
-    },
-    quoteMuted: { color: colors.mutedForeground },
-    quoteBold: {
-      fontFamily: "Inter_700Bold",
-      textDecorationLine: "underline",
-    },
-    quoteAccentText: {
-      fontFamily: "Inter_700Bold",
+    offerLabel: {
+      fontSize: 9,
+      fontFamily: "Inter_600SemiBold",
       color: colors.accent,
+      letterSpacing: 2.5,
+      marginBottom: 10,
+      textTransform: "uppercase",
+    },
+    offerHeading: {
+      fontSize: 22,
+      fontFamily: "Inter_700Bold",
+      color: "#FFFFFF",
+      lineHeight: 28,
+      letterSpacing: -0.4,
+      marginBottom: 20,
+    },
+    offerItem: {
+      flexDirection: "row",
+      gap: 12,
+      paddingVertical: 12,
+      borderTopWidth: 1,
+      borderTopColor: "rgba(255,255,255,0.12)",
+      alignItems: "flex-start",
+    },
+    offerDot: {
+      width: 6,
+      height: 6,
+      borderRadius: 3,
+      backgroundColor: colors.accent,
+      marginTop: 7,
+      flexShrink: 0,
+    },
+    offerText: {
+      fontSize: 14,
+      fontFamily: "Inter_400Regular",
+      color: "rgba(255,255,255,0.80)",
+      lineHeight: 20,
+      flex: 1,
     },
 
     sectionLabel: {
@@ -278,41 +286,8 @@ function makeStyles(colors: ReturnType<typeof import("@/hooks/useColors").useCol
       fontFamily: "Inter_600SemiBold",
       color: colors.accent,
       letterSpacing: 2,
-      marginBottom: 8,
-      textTransform: "uppercase",
-    },
-    sectionHeading: {
-      fontSize: 22,
-      fontFamily: "Inter_700Bold",
-      color: colors.foreground,
-      lineHeight: 28,
-      letterSpacing: -0.4,
-      marginBottom: 20,
-    },
-
-    valueCard: {
-      borderRadius: colors.radius,
-      borderWidth: 1,
-      padding: 20,
       marginBottom: 12,
-    },
-    valueNum: {
-      fontSize: 11,
-      fontFamily: "Inter_400Regular",
-      color: colors.mutedForeground,
-      marginBottom: 8,
-    },
-    valueTitle: {
-      fontSize: 18,
-      fontFamily: "Inter_600SemiBold",
-      color: colors.foreground,
-      marginBottom: 6,
-    },
-    valueBody: {
-      fontSize: 14,
-      fontFamily: "Inter_400Regular",
-      color: colors.mutedForeground,
-      lineHeight: 20,
+      textTransform: "uppercase",
     },
 
     partnersGrid: {
@@ -330,49 +305,44 @@ function makeStyles(colors: ReturnType<typeof import("@/hooks/useColors").useCol
     partnerName: {
       fontSize: 12,
       fontFamily: "Inter_500Medium",
-      color: colors.foreground,
     },
 
-    problemBlock: {
-      borderRadius: colors.radius * 1.5,
-      padding: 24,
-      marginBottom: 12,
+    quoteBlock: {
+      borderLeftWidth: 4,
+      borderRadius: 4,
+      paddingLeft: 16,
+      paddingRight: 16,
+      paddingVertical: 16,
+      marginBottom: 24,
     },
-    problemLabel: {
-      fontSize: 10,
+    quoteText: {
+      fontSize: 17,
+      fontFamily: "Inter_500Medium",
+      lineHeight: 24,
+      fontStyle: "italic",
+      marginBottom: 8,
+    },
+    quoteAuthor: {
+      fontSize: 9,
       fontFamily: "Inter_600SemiBold",
-      color: colors.accent,
       letterSpacing: 2,
-      marginBottom: 12,
       textTransform: "uppercase",
     },
-    problemHeading: {
-      fontSize: 22,
-      fontFamily: "Inter_700Bold",
-      color: "#FFFFFF",
-      lineHeight: 28,
-      letterSpacing: -0.4,
-      marginBottom: 20,
-    },
-    problemItem: {
+
+    secondaryCta: {
       flexDirection: "row",
-      gap: 16,
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 8,
+      borderWidth: 1,
+      borderRadius: 100,
       paddingVertical: 14,
-      borderTopWidth: 1,
-      borderTopColor: "rgba(255,255,255,0.12)",
+      paddingHorizontal: 28,
     },
-    problemNum: {
-      fontSize: 12,
-      fontFamily: "Inter_400Regular",
-      color: "rgba(255,255,255,0.4)",
-      width: 24,
-      marginTop: 2,
-    },
-    problemText: {
-      fontSize: 16,
+    secondaryCtaText: {
+      fontSize: 14,
       fontFamily: "Inter_500Medium",
-      color: "#FFFFFF",
-      flex: 1,
+      letterSpacing: 0.2,
     },
   });
 }

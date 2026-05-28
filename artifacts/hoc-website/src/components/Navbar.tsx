@@ -11,8 +11,11 @@ export function Navbar() {
   }, []);
 
   const links = [
+    { href: "/", label: "Home" },
+    { href: "#founder", label: "About" },
     { href: "/services", label: "Services" },
-    { href: "/case-study", label: "Case Study" },
+    { href: "#team", label: "Meet the Team" },
+    { href: "#contact", label: "Contact" },
   ];
 
   return (
@@ -28,18 +31,18 @@ export function Navbar() {
           }`}
         >
           <a href="/" className="flex items-center gap-3 group">
-            <span className="relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-foreground ring-2 ring-foreground/10">
-              <img src={logo} alt="Hands On Creatives" className="h-11 w-11 rounded-full object-cover mix-blend-screen invert" />
+            <span className="relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-[#FFD600] ring-2 ring-[#FFD600]/40">
+              <img src={logo} alt="Hands On Creatives" className="h-11 w-11 rounded-full object-cover mix-blend-multiply" />
             </span>
             <span className="hidden sm:flex flex-col leading-tight">
               <span className="text-sm font-semibold tracking-tight">Hands On Creatives</span>
-              <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">SASL-led · Deaf-focused</span>
+              <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">SASL-LED STRATEGY CONSULTING</span>
             </span>
           </a>
 
-          <ul className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+          <ul className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
             {links.map((l) => (
-              <li key={l.href}>
+              <li key={l.label}>
                 <a href={l.href} className="hover:text-foreground transition-colors">
                   {l.label}
                 </a>
@@ -48,11 +51,11 @@ export function Navbar() {
           </ul>
 
           <a
-            href="/request"
+            href="#contact"
             className="group relative inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-sm font-semibold tracking-wide overflow-hidden hover:scale-[1.03] hover:shadow-[var(--shadow-lift)] active:scale-[0.97] transition-all"
           >
             <span className="absolute inset-0 shine opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="relative">Request Review</span>
+            <span className="relative">Get a Quote</span>
             <span aria-hidden className="relative transition-transform group-hover:translate-x-0.5">→</span>
           </a>
         </nav>

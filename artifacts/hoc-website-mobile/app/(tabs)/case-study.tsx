@@ -14,7 +14,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const meta = [
   { k: "Category", v: "EdTech · Deaf Education" },
-  { k: "Platform", v: "AI-powered reading app" },
+  { k: "Platform", v: "Accessible reading platform" },
   { k: "Audience", v: "Deaf learners, primary school" },
   { k: "Status", v: "In development" },
 ];
@@ -22,18 +22,18 @@ const meta = [
 const features = [
   {
     n: "01",
-    title: "AI Reading Engine",
-    body: "Word-level tokenization maps text to SASL in real time. Every word is a gateway to its signed equivalent.",
+    title: "Educational Accessibility",
+    body: "Every interface decision was made with SASL-first principles. Visual language replaces audio cues. Interaction patterns are built around how Deaf children actually learn.",
   },
   {
     n: "02",
-    title: "SASL Animation System",
-    body: "Two modes — Reader (passive comprehension) and Comprehension (active engagement) — allow learners to move through text with SASL support at every step.",
+    title: "Literacy Development",
+    body: "SASL Animation System offers Reader (passive comprehension) and Comprehension (active engagement) modes — allowing learners to move through text with SASL support at every step.",
   },
   {
     n: "03",
-    title: "Inclusive Interaction Design",
-    body: "Every interface decision was made with Deaf-first UX principles. Visual language replaces audio cues. Interaction patterns are built around how Deaf children actually learn.",
+    title: "Inclusive Child Engagement",
+    body: "Designed with inclusion at the core. Every feature exists to engage Deaf children on their terms, using visual communication systems as the primary cognitive bridge.",
   },
 ];
 
@@ -59,15 +59,15 @@ export default function CaseStudyScreen() {
       ]}
       showsVerticalScrollIndicator={false}
     >
-      <Text style={s.sectionLabel}>CASE STUDY</Text>
+      <Text style={s.sectionLabel}>PRODUCT</Text>
       <Text style={s.heading}>Hands On Kidz</Text>
-      <Text style={s.subHeading}>Building a Deaf-first learning system at scale.</Text>
+      <Text style={s.subHeading}>Building the future of inclusive learning.</Text>
 
       {/* Hero accent block */}
       <View style={[s.heroBlock, { backgroundColor: colors.foreground }]}>
         <Text style={s.heroBlockLabel}>HANDS ON KIDZ</Text>
         <Text style={s.heroBlockTitle}>Reader · SASL</Text>
-        <Text style={s.heroBlockSub}>AI-powered Deaf education platform</Text>
+        <Text style={s.heroBlockSub}>Accessible education for Deaf learners</Text>
       </View>
 
       {/* Meta info */}
@@ -83,13 +83,13 @@ export default function CaseStudyScreen() {
         ))}
       </View>
 
-      {/* Challenge */}
-      <Text style={s.sectionLabel}>THE CHALLENGE</Text>
+      {/* Overview */}
+      <Text style={s.sectionLabel}>OVERVIEW</Text>
       <Text style={[s.challengeHeading, { color: colors.foreground }]}>
-        Deaf children deserve reading tools built for them — not adapted from hearing models.
+        Deaf children deserve learning tools built for them — not adapted from hearing models.
       </Text>
       <Text style={[s.challengeBody, { color: colors.mutedForeground }]}>
-        Existing reading platforms are built around phonics — a system grounded in spoken language. For Deaf learners, this is structurally exclusionary. Hands On Kidz was built to rethink literacy from first principles, using SASL as the primary cognitive bridge.
+        Hands On Kidz focuses on accessible educational experiences for children, with a strong emphasis on SASL-led learning and literacy. Existing tools are built around phonics — a system grounded in spoken language. For Deaf learners, this is structurally exclusionary. Hands On Kidz was built to rethink literacy from first principles, using SASL as the primary cognitive bridge.
       </Text>
 
       {/* Features */}
@@ -112,7 +112,7 @@ export default function CaseStudyScreen() {
       {/* Quote */}
       <View style={[s.quoteBlock, { borderLeftColor: colors.accent, backgroundColor: colors.surface }]}>
         <Text style={[s.quoteText, { color: colors.foreground }]}>
-          "This is what inclusion looks like when it's engineered — not bolted on."
+          "Inclusion is not a campaign. It's an operating system — and SASL is its interface."
         </Text>
         <Text style={[s.quoteAuthor, { color: colors.mutedForeground }]}>
           MMATLOU MOLOTO · FOUNDER

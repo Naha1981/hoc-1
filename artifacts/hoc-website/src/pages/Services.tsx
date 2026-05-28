@@ -14,8 +14,7 @@ export function Services() {
           {[
             { n: "01", t: "Diagnose", d: "Audit systems. Identify where inclusion fails." },
             { n: "02", t: "Design", d: "Architect how SASL integrates into your organisation." },
-            { n: "03", t: "Integrate", d: "Implement across platforms, teams, and workflows." },
-            { n: "04", t: "Scale", d: "Optimise, measure, and expand impact." },
+            { n: "03", t: "Scale", d: "Optimise, measure, and expand impact." },
           ].map((s, i) => (
             <Reveal key={s.n} delay={i * 120}>
               <div className="bg-background p-10 h-full">
@@ -29,10 +28,10 @@ export function Services() {
 
         <div className="mt-20 grid md:grid-cols-2 gap-6">
           {[
-            { title: "Strategic Inclusion Design", body: "Align inclusion with business strategy. Identify system gaps. Define measurable outcomes. We work at the intersection of policy, commercial strategy, and language access to build frameworks that hold." },
-            { title: "SASL Integration Systems", body: "Embed SASL across internal systems, customer platforms, and digital environments. Not as a subtitle — as a primary interface. We engineer the infrastructure that makes language equity operational." },
-            { title: "Institutional Consulting", body: "Restructure inclusion at leadership level — policy, frameworks, long-term adoption. We work with executives and boards to embed Deaf-centred thinking into governance and operational design." },
-            { title: "Creative System Development", body: "Build the tools that enable inclusion: content systems, interactive platforms, AI-powered access. We move from strategy into delivery — designing and building the systems organisations need." },
+            { title: "SASL-Inclusive Brand Strategy", body: "We help brands integrate South African Sign Language meaningfully into campaigns, advertising, social media, events, storytelling, customer experience, and brand culture." },
+            { title: "Accessibility, Inclusivity & Creative Integration", body: "We assess organisational accessibility across customer experience, communication systems, digital platforms, campaigns, events, and institutional culture, while also collaborating on inclusive, culturally relevant, and impactful experiences." },
+            { title: "Institutional & Curriculum Development", body: "We provide Deaf education strategy, literacy development, curriculum alignment, academic consultation, teacher development, and educational resource design." },
+            { title: "SASL Training & Cultural Competency", body: "We offer training for corporate teams, customer-facing staff, hospitality environments, retail spaces, universities, and public institutions." },
           ].map((c, i) => (
             <Reveal key={c.title} delay={i * 100}>
               <div className="group rounded-2xl border border-border bg-card p-8 hover:border-foreground transition-all hover:shadow-[var(--shadow-card)]">
