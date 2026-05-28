@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 58" role="img" aria-label="Castle Milk Stout">
+  <rect x="33" y="4" width="7" height="9" fill="#7a1f1f"/>
+  <rect x="44" y="4" width="7" height="9" fill="#7a1f1f"/>
+  <rect x="55" y="4" width="7" height="9" fill="#7a1f1f"/>
+  <rect x="31" y="13" width="42" height="20" fill="#7a1f1f"/>
+  <path d="M47 33 L47 25 Q52 19.5 57 25 L57 33 Z" fill="white"/>
+  <rect x="49" y="27" width="6" height="6" rx="0" fill="#7a1f1f"/>
+  <text x="52" y="48" text-anchor="middle" font-family="'Times New Roman',Georgia,serif" font-size="11" font-weight="700" fill="#1a1a1a" letter-spacing="2">CASTLE</text>
+  <text x="52" y="57" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="400" fill="#7a1f1f" letter-spacing="1.5">MILK STOUT</text>
+</svg>

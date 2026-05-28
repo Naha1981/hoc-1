@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 40" role="img" aria-label="DeafTouch">
+  <g fill="#1a1a1a">
+    <rect x="7" y="7" width="3.5" height="13" rx="1.75"/>
+    <rect x="12.5" y="4" width="3.5" height="16" rx="1.75"/>
+    <rect x="18" y="6" width="3.5" height="14" rx="1.75"/>
+    <rect x="23.5" y="9" width="3.5" height="11" rx="1.75"/>
+    <path d="M5 22 Q4 20 5.5 19.5 L26 19 Q28 19 28 21 L28 28 Q28 33 23 33 L12 33 Q7 33 6 29 Z"/>
+    <path d="M3 20 Q1 18 3 16.5 L5.5 19 Q4 20 5 22 Z"/>
+  </g>
+  <text x="36" y="26" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="-0.2">DeafTouch</text>
+</svg>

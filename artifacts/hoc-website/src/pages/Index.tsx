@@ -8,6 +8,16 @@ import systemDiagramImg from "@/assets/system-diagram.jpg";
 import founderImg from "@/assets/mmatlou.jpg";
 import classroomImg from "@/assets/mmatlou-child.png";
 import teamMeetingImg from "@/assets/team-meeting.jpg";
+import logoMtn from "@/assets/logos/mtn.svg";
+import logoMoonsport from "@/assets/logos/moonsport.svg";
+import logoSama29 from "@/assets/logos/sama-29.svg";
+import logoDarlingFilms from "@/assets/logos/darling-films.svg";
+import logoSmu from "@/assets/logos/smu.svg";
+import logoCastleMilkStout from "@/assets/logos/castle-milk-stout.svg";
+import logoLilLets from "@/assets/logos/lil-lets.svg";
+import logoDeafTouch from "@/assets/logos/deaftouch.svg";
+import logoGopalaDavies from "@/assets/logos/gopala-davies.svg";
+import logoNostalgiaProductions from "@/assets/logos/nostalgia-productions.svg";
 
 const serviceCards = [
   {
@@ -38,95 +48,38 @@ const steps = [
   { n: "03", t: "Scale", d: "We optimise, measure, and expand impact." },
 ];
 
+const logoItems: { name: string; src: string; height?: string }[] = [
+  { name: "MoonSport",         src: logoMoonsport,         height: "h-7"  },
+  { name: "MTN",               src: logoMtn,               height: "h-9"  },
+  { name: "SAMA 29",           src: logoSama29,            height: "h-12" },
+  { name: "Darling Films",     src: logoDarlingFilms,      height: "h-11" },
+  { name: "SMU",               src: logoSmu,               height: "h-11" },
+  { name: "Castle Milk Stout", src: logoCastleMilkStout,   height: "h-14" },
+  { name: "Lil-lets SA",       src: logoLilLets,           height: "h-9"  },
+  { name: "DeafTouch",         src: logoDeafTouch,         height: "h-10" },
+];
+
+const mediaGroupElement = (
+  <div className="flex items-center gap-4 border border-border/50 rounded-lg px-3 py-2 relative">
+    <span className="absolute -top-2.5 left-2 text-[8px] uppercase tracking-[0.22em] text-muted-foreground bg-background px-1">MEDIA</span>
+    <img src={logoGopalaDavies}       alt="Gopala Davies"        className="h-7 w-auto" />
+    <span className="text-border/60 text-lg select-none">·</span>
+    <img src={logoNostalgiaProductions} alt="Nostalgia Productions" className="h-11 w-auto" />
+  </div>
+);
+
 const logoMarqueeItems = [
-  {
-    name: "MoonSport",
+  ...logoItems.map((item) => ({
+    name: item.name,
     element: (
-      <div className="flex items-center gap-1.5">
-        <svg viewBox="0 0 24 24" className="h-6 w-6 text-[#F5C518]" fill="currentColor" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <span className="font-display font-bold text-sm text-[#0a2540]">MoonSport</span>
-      </div>
+      <img
+        src={item.src}
+        alt={item.name}
+        className={`${item.height ?? "h-9"} w-auto object-contain`}
+      />
     ),
-  },
-  {
-    name: "MTN",
-    element: (
-      <span className="inline-flex items-center justify-center h-10 w-14 rounded-md bg-[#FFCC00] text-black font-black text-lg tracking-tight shadow-sm">MTN</span>
-    ),
-  },
-  {
-    name: "SAMA 29",
-    element: (
-      <div className="flex flex-col items-center leading-none">
-        <span className="font-serif font-bold text-2xl text-[#B8893A] tracking-wide">SAMA</span>
-        <span className="text-[9px] tracking-[0.35em] text-[#B8893A] font-black mt-0.5">29</span>
-      </div>
-    ),
-  },
-  {
-    name: "Darling Films",
-    element: (
-      <div className="flex flex-col items-center leading-none">
-        <span className="font-serif font-bold text-xl text-[#D32F2F] tracking-wide">Darling</span>
-        <span className="text-[8px] tracking-[0.25em] text-[#D32F2F] font-semibold mt-0.5">FILMS</span>
-      </div>
-    ),
-  },
-  {
-    name: "SMU",
-    element: (
-      <div className="flex flex-col items-center leading-tight">
-        <span className="font-serif font-extrabold text-2xl text-[#003F87] tracking-wider">SMU</span>
-        <span className="text-[7px] tracking-[0.12em] text-[#003F87] font-semibold text-center">SEFAKO MAKGATHO</span>
-      </div>
-    ),
-  },
-  {
-    name: "Castle Milk Stout",
-    element: (
-      <div className="flex flex-col items-center leading-none">
-        <svg viewBox="0 0 32 20" className="h-4 w-8 text-[#7a1f1f]" fill="currentColor" aria-hidden="true">
-          <path d="M2 18h28v2H2zM4 8h2V4h3v4h3V4h3v4h3V4h3v4h3V4h3v4h2v8H4z"/>
-        </svg>
-        <span className="font-serif font-bold text-[11px] tracking-wide text-[#1a1a1a] mt-0.5">CASTLE</span>
-        <span className="text-[7px] tracking-[0.2em] text-[#7a1f1f] font-semibold">MILK STOUT</span>
-      </div>
-    ),
-  },
-  {
-    name: "Lil-lets SA",
-    element: (
-      <span className="font-display font-extrabold italic text-2xl text-[#E5006D] lowercase tracking-tight">lil-lets</span>
-    ),
-  },
-  {
-    name: "Deaf Touch",
-    element: (
-      <div className="flex items-center gap-1.5">
-        <span className="text-2xl" aria-hidden="true">🤟</span>
-        <span className="font-display font-bold text-sm text-foreground">DeafTouch</span>
-      </div>
-    ),
-  },
-  {
-    name: "MEDIA: Gopala Davies + Nostalgia",
-    isMediaGroup: true,
-    element: (
-      <div className="flex items-center gap-4 border border-border/50 rounded-lg px-3 py-1.5 relative">
-        <span className="absolute -top-2 left-2 text-[8px] uppercase tracking-[0.2em] text-muted-foreground bg-background px-1">MEDIA</span>
-        <div className="flex flex-col items-center leading-none">
-          <span className="font-sans font-bold text-sm text-foreground tracking-tight">Gopala Davies</span>
-        </div>
-        <span className="text-border">·</span>
-        <div className="flex flex-col items-center leading-none">
-          <span className="font-serif font-bold text-sm text-[#8B5A3C] tracking-wide">Nostalgia</span>
-          <span className="text-[7px] tracking-[0.18em] text-[#8B5A3C] font-semibold">PRODUCTIONS</span>
-        </div>
-      </div>
-    ),
-  },
+  })),
+  { name: "MEDIA: Gopala Davies + Nostalgia", element: mediaGroupElement },
 ];
 
 function ContactForm() {
