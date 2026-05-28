@@ -1,7 +1,0 @@
-{
-  "framework": null,
-  "buildCommand": "pnpm --filter @workspace/hoc-website run build",
-  "outputDirectory": "artifacts/hoc-website/dist",
-  "installCommand": "pnpm install",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-}

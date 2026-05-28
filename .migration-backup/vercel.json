@@ -1,10 +1,7 @@
 {
-  "version": 2,
-  "buildCommand": "npm run vercel-build",
-  "outputDirectory": ".vercel_build_output",
-  "functions": {
-    ".vercel_build_output/functions/ssr.func/index.mjs": {
-      "runtime": "nodejs"
-    }
-  }
+  "framework": null,
+  "buildCommand": "pnpm --filter @workspace/hoc-website run build",
+  "outputDirectory": "artifacts/hoc-website/dist",
+  "installCommand": "pnpm install",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
