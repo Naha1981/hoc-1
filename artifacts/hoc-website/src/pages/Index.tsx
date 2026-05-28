@@ -441,7 +441,7 @@ export function Index() {
       </section>
 
       {/* FOUNDER */}
-      <section id="founder" className="scroll-mt-24 relative overflow-hidden bg-surface border-y border-border">
+      <section id="about" className="scroll-mt-24 relative overflow-hidden bg-surface border-y border-border">
         <div className="absolute -top-40 -right-32 h-[500px] w-[500px] rounded-full bg-accent/30 blur-3xl pointer-events-none" />
         <div className="container-x py-28 relative">
           <Reveal>
@@ -610,7 +610,7 @@ export function Index() {
                 <li><a href="#capabilities" className="hover:text-accent transition-colors">What We Do</a></li>
                 <li><a href="#product" className="hover:text-accent transition-colors">Product</a></li>
                 <li><a href="#approach" className="hover:text-accent transition-colors">Approach</a></li>
-                <li><a href="#founder" className="hover:text-accent transition-colors">Founder</a></li>
+                <li><a href="#about" className="hover:text-accent transition-colors">Founder</a></li>
               </ul>
             </div>
             <div className="md:col-span-4">

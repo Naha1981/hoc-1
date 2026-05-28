@@ -3,9 +3,9 @@ import logo from "@/assets/hoc-logo.jpg";
 
 const links = [
   { href: "/", label: "Home", anchor: false },
-  { href: "/#founder", label: "About", anchor: true },
+  { href: "/#about", label: "About", anchor: true },
   { href: "/services", label: "Services", anchor: false },
-  { href: "/#team", label: "Meet the Team", anchor: true },
+  { href: "/#about", label: "Meet the Team", anchor: true },
   { href: "/#contact", label: "Contact", anchor: true },
 ];
 
