@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
+import { BackToTop } from "@/components/BackToTop";
 import heroImg from "@/assets/hero-signing.jpg";
 import heroPeopleImg from "@/assets/hero-people.jpg";
 import heroHandsImg from "@/assets/hero-hands.jpg";
@@ -658,6 +659,8 @@ export function Index() {
           </div>
         </div>
       </footer>
+
+      <BackToTop />
     </div>
   );
 }
