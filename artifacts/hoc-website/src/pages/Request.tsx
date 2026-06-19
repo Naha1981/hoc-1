@@ -51,7 +51,7 @@ export function Request() {
                 const challenge = String(fd.get("challenge") || "");
                 const subject = encodeURIComponent(`Review Request — ${org || name}`);
                 const body = encodeURIComponent(`Name: ${name}\nRole: ${role}\nOrganisation: ${org}\nEmail: ${email}\n\nChallenge:\n${challenge}`);
-                window.location.href = `mailto:info@hoc.co.za?subject=${subject}&body=${body}`;
+                window.location.href = `mailto:admin@handsoncreatives.co.za?subject=${subject}&body=${body}`;
                 setTimeout(() => setStatus("sent"), 400);
               }}
               className="mt-10 space-y-6"
@@ -89,7 +89,7 @@ export function Request() {
                 <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
               <p className="text-[11px] text-muted-foreground text-center">
-                Or email <a className="underline" href="mailto:info@hoc.co.za">info@hoc.co.za</a> directly.
+                Or email <a className="underline" href="mailto:admin@handsoncreatives.co.za">admin@handsoncreatives.co.za</a> directly.
               </p>
             </form>
           </Reveal>

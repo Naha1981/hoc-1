@@ -117,7 +117,7 @@ function ContactForm() {
         <p className="font-semibold text-lg">Enquiry received — thank you.</p>
         <p className="text-sm text-muted-foreground max-w-xs">
           We'll be in touch within 1–2 business days. In the meantime feel free to email us directly at{" "}
-          <a className="underline" href="mailto:info@hoc.co.za">info@hoc.co.za</a>.
+          <a className="underline" href="mailto:admin@handsoncreatives.co.za">admin@handsoncreatives.co.za</a>.
         </p>
         <button
           onClick={() => setStatus("idle")}
@@ -189,7 +189,7 @@ function ContactForm() {
       {status === "error" && (
         <p className="mt-3 text-sm text-red-600">
           Something went wrong — please try again or email{" "}
-          <a className="underline" href="mailto:info@hoc.co.za">info@hoc.co.za</a> directly.
+          <a className="underline" href="mailto:admin@handsoncreatives.co.za">admin@handsoncreatives.co.za</a> directly.
         </p>
       )}
 
@@ -205,7 +205,7 @@ function ContactForm() {
       </button>
 
       <p className="mt-3 text-[11px] text-muted-foreground text-center">
-        Or email <a className="underline" href="mailto:info@hoc.co.za">info@hoc.co.za</a> directly.
+        Or email <a className="underline" href="mailto:admin@handsoncreatives.co.za">admin@handsoncreatives.co.za</a> directly.
       </p>
     </form>
   );
@@ -579,7 +579,7 @@ export function Index() {
                 </h2>
                 <p className="mt-6 text-background/70 max-w-md">For organisations ready to move beyond visibility — and into structure.</p>
                 <ul className="mt-8 space-y-3 text-background/80 text-sm">
-                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> <a href="mailto:info@hoc.co.za" className="hover:text-accent transition-colors">info@hoc.co.za</a></li>
+                  <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> <a href="mailto:admin@handsoncreatives.co.za" className="hover:text-accent transition-colors">admin@handsoncreatives.co.za</a></li>
                   <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> <a href="tel:+27784708240" className="hover:text-accent transition-colors">+27 78 470 8240</a></li>
                   <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent" /> Sinosteel Plaza, Johannesburg, South Africa</li>
                 </ul>
@@ -645,7 +645,7 @@ export function Index() {
             <div className="md:col-span-4">
               <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Contact</div>
               <ul className="mt-5 space-y-3 text-sm text-background/80">
-                <li><a href="mailto:info@hoc.co.za" className="hover:text-accent transition-colors">info@hoc.co.za</a></li>
+                <li><a href="mailto:admin@handsoncreatives.co.za" className="hover:text-accent transition-colors">admin@handsoncreatives.co.za</a></li>
                 <li><a href="tel:+27784708240" className="hover:text-accent transition-colors">+27 78 470 8240</a></li>
                 <li>Sinosteel Plaza, Johannesburg, South Africa</li>
               </ul>
