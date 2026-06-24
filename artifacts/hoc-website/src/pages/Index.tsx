@@ -381,13 +381,15 @@ export function Index() {
         </Reveal>
         <div className="mt-14 grid md:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
           {steps.map((s, i) => (
-            <Reveal key={s.n} delay={i * 120}>
-              <div className="bg-background p-8 h-full">
-                <div className="text-5xl font-display font-semibold text-accent/30 tabular-nums">{s.n}</div>
-                <div className="mt-6 text-xl font-semibold">{s.t}</div>
-                <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-              </div>
-            </Reveal>
+            <div key={s.n} className="bg-background p-8">
+              <Reveal delay={i * 120}>
+                <div>
+                  <div className="text-5xl font-display font-semibold text-accent/30 tabular-nums">{s.n}</div>
+                  <div className="mt-6 text-xl font-semibold">{s.t}</div>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+                </div>
+              </Reveal>
+            </div>
           ))}
         </div>
       </section>
@@ -425,8 +427,10 @@ export function Index() {
       </section>
 
       {/* FOUNDER */}
-      <section id="about" className="scroll-mt-24 relative overflow-hidden bg-surface border-y border-border">
-        <div className="absolute -top-40 -right-32 h-[500px] w-[500px] rounded-full bg-accent/30 blur-3xl pointer-events-none" />
+      <section id="about" className="scroll-mt-24 relative bg-surface border-y border-border">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+          <div className="absolute -top-40 -right-32 h-[500px] w-[500px] rounded-full bg-accent/30 blur-3xl" />
+        </div>
         <div className="container-x py-28 relative">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.2em] text-accent">Founder</div>
