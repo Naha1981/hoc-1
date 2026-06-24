@@ -1,0 +1,119 @@
+Please update the hero section of the homepage to replace the broken video element with a static portrait image as requested by the client.
+
+
+Follow these layout and implementation instructions carefully:
+
+
+1. Locate the hero component/section at the top of the main landing page.
+
+2. In the desktop layout grid/flex container, identify the right-hand column where the video element was previously targeted.
+
+3. Replace the video/rotating media component completely with an <img> tag.
+
+4. Use the image asset featuring the two women communicating in South African Sign Language (the asset corresponding to 'WhatsApp Image 2026-06-22 at 15.41.10.jpeg'). Ensure it is correctly paths to your images/public directory.
+
+5. Apply CSS styling to ensure the image displays in a clean portrait aspect ratio (e.g., aspect-ratio: 3/4 or a fixed height with object-fit: cover) so it pairs cleanly alongside the left-hand text block ("Inclusion that works...").
+
+6. Ensure the image is fully responsive, scaling down elegantly or stacking below the heading on mobile viewports.
+
+7. Maintain the existing dark-green gradient background and navigation overlay settings exactly as they are. Please completely remove the "MEASURABLE RESULTS" section from the homepage.
+
+
+Follow these specific instructions to clean up the code:
+
+
+1. Locate the component or HTML section block with the subtitle text "MEASURABLE RESULTS" and the main heading "Outcomes, not optics."
+
+2. Delete the entire section container, including:
+
+   - The section headers and paragraph description ("Selected work across corporate...").
+
+   - The grid or flex layout containing the data metric cards (+3.7M, 100%, 4x, etc.).
+
+   - The "Discuss your case" call-to-action button anchored at the bottom of this metrics block.
+
+3. Ensure that the "Services" section now flows cleanly and directly into the "From audit to scale" section right below it.
+
+4. Verify that no broken tags, orphaned CSS grid styles, or empty margin/padding spacing are left behind in the layout container file. Please fix a typographical error in the founder's block at the bottom of the homepage.
+
+
+Follow these instructions to update the text:
+
+
+1. Locate the "FOUNDER" section near the bottom of the page.
+
+2. Find the testimonial block that contains the quote: "Inclusion is not a campaign. It's an operating system – and SASL is its interface."
+
+3. In the attribution line directly below this quote (pointed out in 'WhatsApp Image 2026-06-22 at 15.45.11.jpeg'), change the incorrect spelling:
+
+   - FROM: "MMATIOU MOLOTO"
+
+   - TO: "MMATLOU MOLOTO"
+
+4. Ensure the name text matches the correct uppercase styling ("MMATLOU MOLOTO, FOUNDER") and preserves the existing layout, margins, and font weights. Please modify the "From audit to scale" process section to remove the empty 4th column placeholder slot as shown in "Screenshot 2026-06-24 at 11-55-48 Hands On Creatives SASL-Led Strategy Consulting.png".
+
+
+Follow these specific layout instructions:
+
+
+1. Locate the container element for the multi-step process section titled "From audit to scale".
+
+2. Ensure there are exactly three structural grid/flex item divs inside this row: 
+
+   - 01 Diagnose
+
+   - 02 Design
+
+   - 03 Scale
+
+3. Delete any empty wrapper `<div>`, layout slot placeholder, or legacy column block that is rendering on the right side of the third column.
+
+4. Update the CSS container styles (Tailwind or raw CSS) to adjust from a 4-column grid setup to a clean 3-column setup:
+
+   - Change `grid-cols-4` to `grid-cols-3` (or adjust `flex-basis`/percentages) so that columns 01, 02, and 03 stretch symmetrically to take up the full horizontal width of the section container.
+
+5. Double-check that the right-most border radii and borders align properly on the final 3rd column card element. Please update the introductory text block within the "Services" section on the homepage as shown in "WhatsApp Image 2026-06-22 at 15.51.18.jpeg".
+
+
+Follow these specific instructions to update the copy:
+
+
+1. Locate the "Services" section layout block.
+
+2. Find the paragraph element positioned to the upper right of the main "Services." heading.
+
+3. Replace the text completely:
+
+   - FROM: "Everything we build is designed for scale, embedded in operations, and measured against outcomes."
+
+   - TO: "We develop practical accessibility solutions that are scalable, integrated into everyday operations, and evaluated through measurable outcomes that improve inclusion and engagement"
+
+4. Ensure the new text inherits the existing typography styling, color profile, line height, and alignment constraints.Please update the primary header navigation menu and footer navigation links across the website to change the labels and reorder the sequence as shown in "WhatsApp Image 2026-06-22 at 15.55.18.jpeg".
+
+
+Follow these implementation instructions:
+
+
+1. Locate the navigation data array or component layout handling both the desktop/mobile header navbar and the footer links structure.
+
+2. Rename the following navigation links:
+
+   - Change "About" to "About Founder"
+
+   - Change "Services" to "What We Do"
+
+   - Change "Contact" to "Contact Us"
+
+3. Reorder the sequence of the menu links to strictly match this layout order:
+
+   1. Home
+
+   2. What We Do
+
+   3. About Founder
+
+   4. Meet the Team
+
+   5. Contact Us
+
+4. Ensure that the updated naming convention and order map perfectly to their existing respective page anchors/routing sections without breaking link functionalities.

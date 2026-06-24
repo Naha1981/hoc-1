@@ -3,10 +3,10 @@ import logo from "@/assets/hoc-logo.jpg";
 
 const links = [
   { href: "/", label: "Home", anchor: false },
-  { href: "/#about", label: "About", anchor: true },
-  { href: "/services", label: "Services", anchor: false },
+  { href: "/services", label: "What We Do", anchor: false },
+  { href: "/#about", label: "About Founder", anchor: true },
   { href: "/#about", label: "Meet the Team", anchor: true },
-  { href: "/#contact", label: "Contact", anchor: true },
+  { href: "/#contact", label: "Contact Us", anchor: true },
 ];
 
 function smoothScrollTo(hash: string) {

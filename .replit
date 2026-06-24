@@ -33,7 +33,7 @@ args = "PORT=22020 BASE_PATH=/ pnpm --filter @workspace/hoc-website run dev"
 waitForPort = 22020
 
 [agent]
-stack = "PNPM_WORKSPACE"
+stack = "BEST_EFFORT_FALLBACK"
 expertMode = true
 
 [postMerge]
