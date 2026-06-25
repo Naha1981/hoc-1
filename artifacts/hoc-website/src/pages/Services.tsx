@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
 import heroPeopleImg from "@/assets/hero-people.jpg";
@@ -29,6 +30,8 @@ const serviceCards = [
 ];
 
 export function Services() {
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
@@ -57,23 +60,60 @@ export function Services() {
         </div>
 
         <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {serviceCards.map((c, i) => (
-            <Reveal key={c.title} delay={i * 100}>
-              <div className="group relative rounded-2xl border border-border bg-card overflow-hidden cursor-pointer hover:border-foreground transition-all hover:shadow-[var(--shadow-elegant)] min-h-[300px] flex flex-col">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <img src={c.img} alt="" className="h-full w-full object-cover" aria-hidden="true" />
-                  <div className="absolute inset-0 bg-foreground/80" />
-                </div>
-                <div className="relative p-7 flex flex-col flex-1">
-                  <div className="flex items-start justify-between gap-3 mb-4">
-                    <h3 className="text-lg font-semibold tracking-tight leading-snug group-hover:text-background transition-colors">{c.title}</h3>
-                    <span className="h-8 w-8 rounded-full bg-foreground text-background grid place-items-center text-sm transition-all flex-shrink-0 group-hover:bg-accent group-hover:text-foreground group-hover:rotate-45">↗</span>
+          {serviceCards.map((c, i) => {
+            const active = activeCard === i;
+            return (
+              <Reveal key={c.title} delay={i * 100}>
+                <div
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setActiveCard(active ? null : i)}
+                  onKeyDown={(e) => e.key === "Enter" && setActiveCard(active ? null : i)}
+                  className={`group relative rounded-2xl border overflow-hidden cursor-pointer transition-all min-h-[300px] flex flex-col select-none
+                    ${active
+                      ? "border-foreground shadow-[var(--shadow-elegant)] bg-foreground"
+                      : "border-border bg-card hover:border-foreground hover:shadow-[var(--shadow-elegant)]"
+                    }`}
+                >
+                  {/* Background image overlay — visible on hover OR when active */}
+                  <div
+                    className={`absolute inset-0 pointer-events-none transition-opacity duration-500
+                      ${active ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                  >
+                    <img src={c.img} alt="" className="h-full w-full object-cover" aria-hidden="true" />
+                    <div className="absolute inset-0 bg-foreground/80" />
                   </div>
-                  <p className="text-sm text-muted-foreground group-hover:text-background/80 transition-colors leading-relaxed flex-1">{c.body}</p>
+
+                  {/* Card content */}
+                  <div className="relative p-7 flex flex-col flex-1">
+                    <div className="flex items-start justify-between gap-3 mb-4">
+                      <h3
+                        className={`text-lg font-semibold tracking-tight leading-snug transition-colors
+                          ${active ? "text-background" : "group-hover:text-background"}`}
+                      >
+                        {c.title}
+                      </h3>
+                      <span
+                        className={`h-8 w-8 rounded-full grid place-items-center text-sm transition-all flex-shrink-0
+                          ${active
+                            ? "bg-accent text-foreground rotate-45"
+                            : "bg-foreground text-background group-hover:bg-accent group-hover:text-foreground group-hover:rotate-45"
+                          }`}
+                      >
+                        ↗
+                      </span>
+                    </div>
+                    <p
+                      className={`text-sm leading-relaxed flex-1 transition-colors
+                        ${active ? "text-background/80" : "text-muted-foreground group-hover:text-background/80"}`}
+                    >
+                      {c.body}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
 
         <Reveal>
