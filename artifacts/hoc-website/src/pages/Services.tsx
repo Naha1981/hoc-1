@@ -10,19 +10,21 @@ export function Services() {
           <div className="text-xs uppercase tracking-[0.2em] text-accent">Services</div>
           <h1 className="mt-3 font-display text-4xl md:text-6xl font-semibold tracking-tight leading-tight">We build inclusion into systems. Not around them.</h1>
         </Reveal>
-        <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+        <div className="mt-20 grid md:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
           {[
             { n: "01", t: "Diagnose", d: "Audit systems. Identify where inclusion fails." },
             { n: "02", t: "Design", d: "Architect how SASL integrates into your organisation." },
             { n: "03", t: "Scale", d: "Optimise, measure, and expand impact." },
           ].map((s, i) => (
-            <Reveal key={s.n} delay={i * 120}>
-              <div className="bg-background p-10 h-full">
-                <div className="text-5xl font-display font-semibold text-accent/30 tabular-nums">{s.n}</div>
-                <div className="mt-6 text-2xl font-semibold tracking-tight">{s.t}</div>
-                <p className="mt-3 text-muted-foreground">{s.d}</p>
-              </div>
-            </Reveal>
+            <div key={s.n} className="bg-background p-10">
+              <Reveal delay={i * 120}>
+                <div>
+                  <div className="text-5xl font-display font-semibold text-accent/30 tabular-nums">{s.n}</div>
+                  <div className="mt-6 text-2xl font-semibold tracking-tight">{s.t}</div>
+                  <p className="mt-3 text-muted-foreground">{s.d}</p>
+                </div>
+              </Reveal>
+            </div>
           ))}
         </div>
 
