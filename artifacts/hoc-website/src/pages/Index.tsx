@@ -10,13 +10,13 @@ import founderImg from "@/assets/mmatlou.jpg";
 import classroomImg from "@/assets/mmatlou-child.png";
 import teamMeetingImg from "@/assets/team-meeting.jpg";
 import logoMtn from "@/assets/logos/mtn.svg";
-import logoMoonsport from "@/assets/logos/moonsport.svg";
+import logoSupaStrikas from "@/assets/logos/supa-strikas.jpg";
 import logoSama29 from "@/assets/logos/sama-29.svg";
-import logoDarlingFilms from "@/assets/logos/darling-films.svg";
-import logoSmu from "@/assets/logos/smu.svg";
+import logoDarlingTv from "@/assets/logos/darling-tv.jpg";
+import logoSefakoMakgatho from "@/assets/logos/sefako-makgatho.jpg";
 import logoCastleMilkStout from "@/assets/logos/castle-milk-stout.svg";
 import logoLilLets from "@/assets/logos/lil-lets.svg";
-import logoDeafTouch from "@/assets/logos/deaftouch.svg";
+import logoDeafTouch from "@/assets/logos/deaf-touch.jpg";
 import logoGopalaDavies from "@/assets/logos/gopala-davies.svg";
 import logoNostalgiaProductions from "@/assets/logos/nostalgia-productions.svg";
 
@@ -50,14 +50,14 @@ const steps = [
 ];
 
 const logoItems: { name: string; src: string; height?: string }[] = [
-  { name: "MoonSport",         src: logoMoonsport,         height: "h-7"  },
-  { name: "MTN",               src: logoMtn,               height: "h-9"  },
-  { name: "SAMA 29",           src: logoSama29,            height: "h-12" },
-  { name: "Darling Films",     src: logoDarlingFilms,      height: "h-11" },
-  { name: "SMU",               src: logoSmu,               height: "h-11" },
-  { name: "Castle Milk Stout", src: logoCastleMilkStout,   height: "h-14" },
-  { name: "Lil-lets SA",       src: logoLilLets,           height: "h-9"  },
-  { name: "DeafTouch",         src: logoDeafTouch,         height: "h-10" },
+  { name: "Supa Strikas",              src: logoSupaStrikas,      height: "h-9"  },
+  { name: "MTN",                       src: logoMtn,              height: "h-9"  },
+  { name: "SAMA 29",                   src: logoSama29,           height: "h-12" },
+  { name: "Darling TV",                src: logoDarlingTv,        height: "h-10" },
+  { name: "Sefako Makgatho University",src: logoSefakoMakgatho,   height: "h-12" },
+  { name: "Castle Milk Stout",         src: logoCastleMilkStout,  height: "h-14" },
+  { name: "Lil-lets SA",               src: logoLilLets,          height: "h-9"  },
+  { name: "Deaf Touch",                src: logoDeafTouch,        height: "h-11" },
 ];
 
 const mediaGroupElement = (
