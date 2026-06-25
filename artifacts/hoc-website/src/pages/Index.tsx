@@ -349,23 +349,21 @@ export function Index() {
           </div>
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {serviceCards.map((c, i) => (
-              <Reveal key={c.title} delay={i * 100}>
-                <div className="group relative rounded-2xl border border-border bg-card overflow-hidden cursor-pointer hover:border-foreground transition-all hover:shadow-[var(--shadow-elegant)] min-h-[300px] flex flex-col">
-                  {/* Hover background image */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <img src={c.img} alt="" className="h-full w-full object-cover" aria-hidden="true" />
-                    <div className="absolute inset-0 bg-foreground/80" />
-                  </div>
-                  {/* Card content */}
-                  <div className="relative p-7 flex flex-col flex-1">
-                    <div className="flex items-start justify-between gap-3 mb-4">
-                      <h3 className="text-lg font-semibold tracking-tight leading-snug group-hover:text-background transition-colors">{c.title}</h3>
-                      <span className="h-8 w-8 rounded-full bg-foreground text-background grid place-items-center text-sm transition-all flex-shrink-0 group-hover:bg-accent group-hover:text-foreground group-hover:rotate-45">↗</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground group-hover:text-background/80 transition-colors leading-relaxed flex-1">{c.body}</p>
-                  </div>
+              <div key={c.title} className="group relative rounded-2xl border border-border bg-card overflow-hidden cursor-pointer hover:border-foreground transition-all hover:shadow-[var(--shadow-elegant)] min-h-[300px] flex flex-col">
+                {/* Hover background image */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <img src={c.img} alt="" className="h-full w-full object-cover" aria-hidden="true" />
+                  <div className="absolute inset-0 bg-foreground/80" />
                 </div>
-              </Reveal>
+                {/* Card content */}
+                <Reveal delay={i * 100} className="relative p-7 flex flex-col flex-1">
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <h3 className="text-lg font-semibold tracking-tight leading-snug group-hover:text-background transition-colors">{c.title}</h3>
+                    <span className="h-8 w-8 rounded-full bg-foreground text-background grid place-items-center text-sm transition-all flex-shrink-0 group-hover:bg-accent group-hover:text-foreground group-hover:rotate-45">↗</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground group-hover:text-background/80 transition-colors leading-relaxed flex-1">{c.body}</p>
+                </Reveal>
+              </div>
             ))}
           </div>
         </div>
