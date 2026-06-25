@@ -276,11 +276,11 @@ export function Index() {
             <Reveal delay={400}>
               <div className="relative">
                 <div className="absolute -inset-3 rounded-[2.5rem] bg-accent/20 -z-0 blur-sm" />
-                <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)] aspect-[3/4]">
+                <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-border shadow-[var(--shadow-lift)]">
                   <img
                     src="/hero-image-final.jpg"
                     alt="Two women communicating in South African Sign Language"
-                    className="block w-full h-full object-cover object-center"
+                    className="block w-full object-contain"
                     loading="eager"
                     decoding="async"
                   />
